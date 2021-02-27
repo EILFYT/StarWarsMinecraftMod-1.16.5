@@ -1,7 +1,6 @@
 package com.eilfyt.starwarsinminecraft;
 
 import com.eilfyt.starwarsinminecraft.commands.FlyHax;
-import com.eilfyt.starwarsinminecraft.commands.Heal;
 import com.eilfyt.starwarsinminecraft.commands.ModCommands;
 import com.eilfyt.starwarsinminecraft.dimensions.MustafarChunkGenerator;
 import com.eilfyt.starwarsinminecraft.entities.PorgEntity;
@@ -125,4 +124,4 @@ public class  StarWarsInMinecraft
 
     }
 
-} 
+}
