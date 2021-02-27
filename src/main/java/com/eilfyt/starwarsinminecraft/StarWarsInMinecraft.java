@@ -24,7 +24,7 @@ import net.minecraftforge.fml.event.lifecycle.FMLClientSetupEvent;
 import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
 import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;;
+import org.apache.logging.log4j.Logger;
 
 @Mod("starwars")
 public class  StarWarsInMinecraft
@@ -119,9 +119,6 @@ public class  StarWarsInMinecraft
     public void serverLoad(RegisterCommandsEvent event) {
         ModCommands.register(event.getDispatcher());
         FlyHax.register(event.getDispatcher());
-        Heal.register(event.getDispatcher());
-
-
     }
 
 }
