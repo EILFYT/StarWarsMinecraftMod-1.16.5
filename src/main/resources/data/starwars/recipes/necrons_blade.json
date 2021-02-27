@@ -1,0 +1,24 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern":
+  [
+    "o",
+    "o",
+    "x"
+  ],
+  "key":
+  {
+    "o":
+    {
+      "item": "starwars:wither_catalyst"
+    },
+    "x":
+    {
+      "item": "starwars:necrons_handle"
+    }
+  },
+  "result":
+  {
+    "item": "starwars:necrons_blade"
+  }
+}

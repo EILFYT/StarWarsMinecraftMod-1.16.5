@@ -1,0 +1,25 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern":
+  [
+    "xxx",
+    "xox",
+    "xxx"
+  ],
+  "key":
+  {
+    "o":
+    {
+      "item": "minecraft:lime_dye"
+    },
+    "x":
+    {
+      "item": "minecraft:bone_meal"
+    }
+  },
+  "result":
+  {
+    "item": "starwars:green_powder",
+    "count": 8
+  }
+}

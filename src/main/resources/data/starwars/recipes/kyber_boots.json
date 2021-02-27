@@ -1,0 +1,20 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern":
+  [
+    "x x",
+    "x x"
+  ],
+  "key":
+  {
+    "x":
+    {
+      "item": "starwars:kyber_crystal"
+    }
+  },
+  "result":
+  {
+    "item": "starwars:kyber_boots",
+    "count": 1
+  }
+}

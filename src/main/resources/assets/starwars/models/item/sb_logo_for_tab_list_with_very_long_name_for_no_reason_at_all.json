@@ -1,0 +1,6 @@
+{
+  "parent": "item/generated",
+  "textures" : {
+    "layer0": "starwars:items/sb_logo_for_tab_list_with_very_long_name_for_no_reason_at_all"
+  }
+}

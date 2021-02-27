@@ -1,0 +1,25 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern":
+  [
+    "xx",
+    "e ",
+    "e "
+  ],
+  "key":
+  {
+    "x":
+    {
+      "item": "starwars:dragon_soul"
+    },
+    "e":
+    {
+      "item": "minecraft:stick"
+    }
+  },
+  "result":
+  {
+    "item": "starwars:dragon_soul_hoe",
+    "count": 1
+  }
+}

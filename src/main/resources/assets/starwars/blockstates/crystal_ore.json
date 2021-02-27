@@ -1,0 +1,5 @@
+{
+  "variants": {
+    "": { "model": "starwars:block/crystal_ore" }
+  }
+}

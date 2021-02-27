@@ -1,0 +1,33 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern":
+  [
+    "ioi",
+    "ouo",
+    "xox"
+  ],
+  "key":
+  {
+    "u":
+    {
+      "item": "starwars:battery"
+    },
+    "i":
+    {
+      "item": "starwars:crystal"
+    },
+    "o":
+    {
+      "item": "minecraft:diamond"
+    },
+    "x":
+    {
+      "item": "starwars:nether_crystal"
+    }
+  },
+  "result":
+  {
+    "item": "starwars:kyber_crystal",
+    "count": 2
+  }
+}

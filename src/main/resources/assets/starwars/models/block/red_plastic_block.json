@@ -1,0 +1,50 @@
+{
+  "credit": "Made with Blockbench",
+  "textures": {
+    "0": "starwars:blocks/red_plastic_block",
+    "particle": "starwars:blocks/red_plastic_block"
+  },
+  "elements": [
+    {
+      "from": [0, 0, 0],
+      "to": [16, 16, 16],
+      "faces": {
+        "north": {"uv": [0, 0, 4, 4], "texture": "#0"},
+        "east": {"uv": [0, 4, 4, 8], "texture": "#0"},
+        "south": {"uv": [4, 4, 8, 8], "texture": "#0"},
+        "west": {"uv": [4, 0, 8, 4], "texture": "#0"},
+        "up": {"uv": [4, 12, 0, 8], "texture": "#0"},
+        "down": {"uv": [8, 8, 4, 12], "texture": "#0"}
+      }
+    }
+  ],
+  "display": {
+    "thirdperson_righthand": {
+      "translation": [0, 0, -0.75],
+      "scale": [0.42, 0.4, 0.4]
+    },
+    "thirdperson_lefthand": {
+      "translation": [0, 0, -0.75],
+      "scale": [0.38, 0.39, 0.35]
+    },
+    "firstperson_righthand": {
+      "scale": [0.52, 0.49, 0.48]
+    },
+    "firstperson_lefthand": {
+      "scale": [0.48, 0.46, 0.51]
+    },
+    "ground": {
+      "scale": [0.48, 0.43, 0.47]
+    },
+    "gui": {
+      "rotation": [16, 23, 0],
+      "scale": [0.69, 0.68, 0.68]
+    },
+    "head": {
+      "scale": [4, 4, 4]
+    },
+    "fixed": {
+      "scale": [0.63, 0.65, 0.64]
+    }
+  }
+}

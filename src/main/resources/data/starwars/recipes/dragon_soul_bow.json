@@ -1,0 +1,25 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern":
+  [
+    " ox",
+    "o x",
+    " ox"
+  ],
+  "key":
+  {
+    "o":
+    {
+      "item": "starwars:dragon_soul"
+    },
+    "x":
+    {
+      "item": "minecraft:string"
+    }
+  },
+  "result":
+  {
+    "item": "starwars:dragon_soul_bow",
+    "count": 1
+  }
+}

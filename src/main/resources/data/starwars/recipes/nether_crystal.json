@@ -1,0 +1,9 @@
+{
+  "type": "minecraft:smelting",
+  "ingredient": {
+    "item": "starwars:nether_crystal_ore"
+  },
+  "result": "starwars:nether_crystal",
+  "experience": 10.0,
+  "cookingtime": 80
+}

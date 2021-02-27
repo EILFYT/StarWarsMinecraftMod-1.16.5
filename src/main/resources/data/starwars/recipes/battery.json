@@ -1,0 +1,29 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern":
+  [
+    " u ",
+    "xix",
+    "xxx"
+  ],
+  "key":
+  {
+    "u":
+    {
+      "item": "minecraft:redstone_torch"
+    },
+    "i":
+    {
+      "item": "minecraft:redstone_block"
+    },
+    "x":
+    {
+      "item": "minecraft:iron_ingot"
+    }
+  },
+  "result":
+  {
+    "item": "starwars:battery",
+    "count": 2
+  }
+}

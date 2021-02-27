@@ -1,0 +1,8 @@
+{
+  "parent": "minecraft:block/cube_bottom_top",
+  "textures": {
+    "top": "starwars:blocks/tnt_top",
+    "bottom": "starwars:blocks/tnt_bottom",
+    "side": "starwars:blocks/nuke_side"
+  }
+}

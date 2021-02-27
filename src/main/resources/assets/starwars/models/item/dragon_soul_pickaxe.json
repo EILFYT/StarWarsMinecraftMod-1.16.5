@@ -1,0 +1,6 @@
+{
+  "parent": "item/handheld",
+  "textures": {
+    "layer0": "starwars:items/dragon_soul_pickaxe"
+  }
+}

@@ -1,0 +1,29 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern":
+  [
+    "ixi",
+    " o ",
+    " o "
+  ],
+  "key":
+  {
+    "i":
+    {
+      "item": "minecraft:diamond"
+    },
+    "o":
+    {
+      "item": "minecraft:stick"
+    },
+    "x":
+    {
+      "item": "starwars:kyber_crystal"
+    }
+  },
+  "result":
+  {
+    "item": "starwars:kyber_pickaxe",
+    "count": 1
+  }
+}

@@ -1,0 +1,5 @@
+{
+  "variants": {
+    "": { "model": "starwars:block/shrek_block" }
+  }
+}

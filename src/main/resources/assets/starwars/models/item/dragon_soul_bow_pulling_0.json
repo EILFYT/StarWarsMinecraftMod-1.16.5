@@ -1,0 +1,6 @@
+{
+  "parent": "starwars:item/dragon_soul_bow",
+  "textures": {
+    "layer0": "starwars:items/dragon_soul_bow_pulling_0"
+  }
+}

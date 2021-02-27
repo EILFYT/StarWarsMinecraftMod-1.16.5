@@ -1,0 +1,33 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern":
+  [
+    "xux",
+    "xix",
+    "xox"
+  ],
+  "key":
+  {
+    "i":
+    {
+      "item": "starwars:kyber_crystal"
+    },
+    "u":
+    {
+      "item": "minecraft:redstone"
+    },
+    "o":
+    {
+      "item": "minecraft:iron_ingot"
+    },
+    "x":
+    {
+      "item": "minecraft:polished_blackstone"
+    }
+  },
+  "result":
+  {
+    "item": "starwars:saber_handle",
+    "count": 1
+  }
+}

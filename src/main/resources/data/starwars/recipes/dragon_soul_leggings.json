@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern":
+  [
+    "xxx",
+    "x x",
+    "x x"
+  ],
+  "key":
+  {
+    "x":
+    {
+      "item": "starwars:dragon_soul"
+    }
+  },
+  "result":
+  {
+    "item": "starwars:dragon_soul_leggings",
+    "count": 1
+  }
+}

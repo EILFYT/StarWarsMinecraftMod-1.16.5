@@ -1,0 +1,8 @@
+{
+  "variants": {
+    "facing=south": { "model": "starwars:block/vertical_kyber_slab" },
+    "facing=north": { "model": "starwars:block/vertical_kyber_slab", "y":  180},
+    "facing=east": { "model": "starwars:block/vertical_kyber_slab", "y":  270},
+    "facing=west": { "model": "starwars:block/vertical_kyber_slab", "y":  90}
+  }
+}

@@ -1,0 +1,24 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern":
+  [
+    "xxx",
+    "xix",
+    "xxx"
+  ],
+  "key":
+  {
+    "i":
+    {
+      "item": "starwars:necrons_blade"
+    },
+    "x":
+    {
+      "item": "starwars:diamante_handle"
+    }
+  },
+  "result":
+  {
+    "item": "starwars:valkyrie"
+  }
+}

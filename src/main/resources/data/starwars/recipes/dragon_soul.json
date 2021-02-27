@@ -1,0 +1,9 @@
+{
+  "type": "minecraft:smelting",
+  "ingredient": {
+    "item": "starwars:dragon_soul_fragment"
+  },
+  "result": "starwars:dragon_soul",
+  "experience": 5.0,
+  "cookingtime": 60
+}

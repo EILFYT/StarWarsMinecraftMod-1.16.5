@@ -1,0 +1,25 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern":
+  [
+    "xxx",
+    "xox",
+    "xxx"
+  ],
+  "key":
+  {
+    "x":
+    {
+      "item": "starwars:kyber_block"
+    },
+    "o":
+    {
+      "item": "minecraft:apple"
+    }
+  },
+  "result":
+  {
+    "item": "starwars:enchanted_kyber_apple",
+    "count": 64
+  }
+}

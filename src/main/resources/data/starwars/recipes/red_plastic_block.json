@@ -1,0 +1,25 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern":
+  [
+    " oo",
+    " xx",
+    " xx"
+  ],
+  "key":
+  {
+    "o":
+    {
+      "item": "minecraft:red_dye"
+    },
+    "x":
+    {
+      "item": "starwars:kyber_crystal"
+    }
+  },
+  "result":
+  {
+    "item": "starwars:red_plastic_block",
+    "count": 64
+  }
+}
