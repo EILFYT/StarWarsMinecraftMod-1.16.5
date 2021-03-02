@@ -6,7 +6,11 @@ import com.eilfyt.starwarsinminecraft.blocks.*;
 import com.eilfyt.starwarsinminecraft.init.ModEntityTypes;
 import com.eilfyt.starwarsinminecraft.items.*;
 import com.eilfyt.starwarsinminecraft.tools.ModItemTier;
+import net.minecraft.block.AbstractBlock;
 import net.minecraft.block.Block;
+import net.minecraft.block.NetherPortalBlock;
+import net.minecraft.block.SoundType;
+import net.minecraft.block.material.Material;
 import net.minecraft.inventory.EquipmentSlotType;
 import net.minecraft.item.*;
 import net.minecraft.util.registry.Registry;
@@ -38,7 +42,7 @@ public class RegistryHandler {
     public static final RegistryObject<IceCream> KYBER_APPLE = ITEMS.register("kyber_apple", IceCream::new);
     public static final RegistryObject<EnchantedKyberApple> ENCHANTED_KYBER_APPLE = ITEMS.register("enchanted_kyber_apple", EnchantedKyberApple::new);
     public static final RegistryObject<ModSpawnEggItem> PORG_SPAWN_EGG = ITEMS.register("porg_spawn_egg",
-            () -> new ModSpawnEggItem(ModEntityTypes.PORG, 0xFF861B, 0xF5D6BA, new Item.Properties().group(StarWarsInMinecraft.TAB) ));
+            () -> new ModSpawnEggItem(ModEntityTypes.PORG, 0xFF861B, 0xF5D6BA, new Item.Properties().group(StarWarsInMinecraft.TAB)));
     public static final RegistryObject<BowItem> DRAGON_SOUL_BOW = ITEMS.register("dragon_soul_bow", DragonBow::new);
     public static final RegistryObject<Item> FUNNEL = ITEMS.register("funnel", ItemBase::new);
     public static final RegistryObject<SugarFunnel> SUGAR_FUNNEL = ITEMS.register("sugar_funnel", SugarFunnel::new);
@@ -62,6 +66,7 @@ public class RegistryHandler {
     public static final RegistryObject<Block> VERTICAL_KYBER_SLAB_BLOCK = BLOCKS.register("vertical_kyber_slab", VerticalKyberSlabBlock::new);
     public static final RegistryObject<Block> NETHER_CRYSTAL_ORE_BLOCK = BLOCKS.register("nether_crystal_ore", NetherCrystalOreBlock::new);
     public static final RegistryObject<Block> RIP_PC = BLOCKS.register("pc_killer", RipPc::new);
+    public static final RegistryObject<Block> MUSTAFAR_PORTAL = BLOCKS.register("mustafar_portal", MustafarPortalBlock::new);
     //block items
     public static final RegistryObject<Item> KYBER_BLOCK_ITEM = ITEMS.register("kyber_block", () -> new BlockItemBase(KYBER_BLOCK.get()));
     public static final RegistryObject<Item> DRAGON_SOUL_FRAGMENT_ITEM = ITEMS.register("dragon_soul_fragment", () -> new BlockItemBase(DRAGON_SOUL_FRAGMENT.get()));

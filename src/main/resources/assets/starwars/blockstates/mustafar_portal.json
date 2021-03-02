@@ -1,0 +1,10 @@
+{
+  "variants": {
+    "axis=x": {
+      "model": "starwars:block/mustafar_portal_ns"
+    },
+    "axis=z": {
+      "model": "starwars:block/mustafar_portal_ew"
+    }
+  }
+}

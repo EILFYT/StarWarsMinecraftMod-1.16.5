@@ -1,6 +1,7 @@
 package com.eilfyt.starwarsinminecraft.items;
 
 import com.eilfyt.starwarsinminecraft.StarWarsInMinecraft;
+import net.minecraft.item.BowItem;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemGroup;
 

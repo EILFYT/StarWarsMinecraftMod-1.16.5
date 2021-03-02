@@ -2,10 +2,7 @@ package com.eilfyt.starwarsinminecraft.entities;
 
 import com.eilfyt.starwarsinminecraft.init.ModEntityTypes;
 import net.minecraft.block.BlockState;
-import net.minecraft.entity.AgeableEntity;
-import net.minecraft.entity.EntityType;
-import net.minecraft.entity.LivingEntity;
-import net.minecraft.entity.MobEntity;
+import net.minecraft.entity.*;
 import net.minecraft.entity.ai.attributes.AttributeModifierMap;
 import net.minecraft.entity.ai.attributes.Attributes;
 import net.minecraft.entity.ai.goal.*;
@@ -75,6 +72,11 @@ public class PorgEntity extends TameableEntity {
     @Override
     protected void playStepSound(BlockPos pos, BlockState blockIn) {
         this.playSound(SoundEvents.ENTITY_POLAR_BEAR_STEP, 0.5f, 1.0f);
+    }
+
+    @Override
+    protected boolean canBeRidden(Entity entityIn) {
+        return true;
     }
 
     @Nullable

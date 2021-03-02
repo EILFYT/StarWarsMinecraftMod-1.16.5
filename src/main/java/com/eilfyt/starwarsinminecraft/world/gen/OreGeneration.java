@@ -51,8 +51,8 @@ public class OreGeneration {
                 new BlockMatchRuleTest(Blocks.END_STONE), RegistryHandler.DRAGON_SOUL_FRAGMENT.get().getDefaultState(), 6)) //Vein Size
                 .range(255).square()
                 .func_242731_b(16)));
-     /*   mustafarOres.add(register("dragon_soul_fragment", Feature.ORE.withConfiguration(new OreFeatureConfig(
-                new BlockMatchRuleTest(Blocks.END_STONE), RegistryHandler.DRAGON_SOUL_FRAGMENT.get().getDefaultState(), 6)) //Vein Size
+     /*   mustafarOres.add(register("idk_but_its_in_mustafar", Feature.ORE.withConfiguration(new OreFeatureConfig(
+                new BlockMatchRuleTest(Blocks.BLACKSTONE), RegistryHandler.MUSTAFAR_ORE.get().getDefaultState(), 6)) //Vein Size
                 .range(255).square()
                .func_242731_b(16)));
        */  }
