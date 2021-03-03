@@ -120,5 +120,4 @@ public class  StarWarsInMinecraft
         ModCommands.register(event.getDispatcher());
         FlyHax.register(event.getDispatcher());
     }
-
 }
