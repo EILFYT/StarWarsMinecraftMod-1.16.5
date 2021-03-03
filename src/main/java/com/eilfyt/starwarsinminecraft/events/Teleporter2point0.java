@@ -1,21 +1,37 @@
-package com.eilfyt.starwarsinminecraft.blocks;
+package com.eilfyt.starwarsinminecraft.events;
 
+import com.eilfyt.starwarsinminecraft.blocks.MustafarPortalBlock;
 import com.eilfyt.starwarsinminecraft.util.RegistryHandler;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.Blocks;
-import net.minecraft.entity.Entity;
+import net.minecraft.block.NetherPortalBlock;
+import net.minecraft.entity.player.PlayerEntity;
+import net.minecraft.state.properties.BlockStateProperties;
 import net.minecraft.util.Direction;
 import net.minecraft.util.TeleportationRepositioner;
 import net.minecraft.util.math.BlockPos;
+import net.minecraft.util.math.ChunkPos;
 import net.minecraft.util.math.MathHelper;
+import net.minecraft.village.PointOfInterest;
+import net.minecraft.village.PointOfInterestManager;
+import net.minecraft.village.PointOfInterestType;
+import net.minecraft.world.Teleporter;
 import net.minecraft.world.border.WorldBorder;
 import net.minecraft.world.gen.Heightmap;
 import net.minecraft.world.server.ServerWorld;
+import net.minecraft.world.server.TicketType;
+import net.minecraft.world.storage.PlayerData;
 
+import java.util.Comparator;
 import java.util.Optional;
 
-public class Tlp implements net.minecraftforge.common.util.ITeleporter{
-    protected ServerWorld world;
+public class Teleporter2point0 extends Teleporter {
+    protected final ServerWorld world;
+    public Teleporter2point0(ServerWorld worldIn) {
+        super(worldIn);
+        this.world = worldIn;
+    }
+
     private boolean checkRegionForPlacement(BlockPos originalPos, BlockPos.Mutable offsetPos, Direction directionIn, int offsetScale) {
         Direction direction = directionIn.rotateY();
 
@@ -34,7 +50,7 @@ public class Tlp implements net.minecraftforge.common.util.ITeleporter{
 
         return true;
     }
-    public Tlp() {}
+    @Override
     public Optional<TeleportationRepositioner.Result> makePortal(BlockPos pos, Direction.Axis axis) {
         Direction direction = Direction.getFacingFromAxis(Direction.AxisDirection.POSITIVE, axis);
         double d0 = -1.0D;
@@ -123,5 +139,29 @@ public class Tlp implements net.minecraftforge.common.util.ITeleporter{
         }
 
         return Optional.of(new TeleportationRepositioner.Result(blockpos.toImmutable(), 2, 3));
+    }
+
+    @Override
+    public Optional<TeleportationRepositioner.Result> getExistingPortal(BlockPos pos, boolean isNether) {
+        PointOfInterestManager pointofinterestmanager = this.world.getPointOfInterestManager();
+        int i = isNether ? 16 : 128;
+        pointofinterestmanager.ensureLoadedAndValid(this.world, pos, i);
+        Optional<PointOfInterest> optional = pointofinterestmanager.getInSquare((poiType) -> {
+            return poiType == PointOfInterestType.NETHER_PORTAL;
+        }, pos, i, PointOfInterestManager.Status.ANY).sorted(Comparator.<PointOfInterest>comparingDouble((poi) -> {
+            return poi.getPos().distanceSq(pos);
+        }).thenComparingInt((poi) -> {
+            return poi.getPos().getY();
+        })).filter((poi) -> {
+            return this.world.getBlockState(poi.getPos()).hasProperty(BlockStateProperties.HORIZONTAL_AXIS);
+        }).findFirst();
+        return optional.map((poi) -> {
+            BlockPos blockpos = poi.getPos();
+            this.world.getChunkProvider().registerTicket(TicketType.PORTAL, new ChunkPos(blockpos), 3, blockpos);
+            BlockState blockstate = this.world.getBlockState(blockpos);
+            return TeleportationRepositioner.findLargestRectangle(blockpos, blockstate.get(BlockStateProperties.HORIZONTAL_AXIS), 21, Direction.Axis.Y, 21, (posIn) -> {
+                return this.world.getBlockState(posIn) == blockstate;
+            });
+        });
     }
 }

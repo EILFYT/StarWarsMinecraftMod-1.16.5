@@ -1,8 +1,10 @@
 package com.eilfyt.starwarsinminecraft.blocks;
 
 import com.eilfyt.starwarsinminecraft.dimensions.ModDimensions;
+import com.eilfyt.starwarsinminecraft.events.INotForgeBlock;
 import com.eilfyt.starwarsinminecraft.util.RegistryHandler;
 import net.minecraft.block.*;
+import net.minecraft.client.Minecraft;
 import net.minecraft.entity.EntitySize;
 import net.minecraft.state.properties.BlockStateProperties;
 import net.minecraft.tags.BlockTags;
@@ -11,12 +13,14 @@ import net.minecraft.util.TeleportationRepositioner;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.MathHelper;
 import net.minecraft.util.math.vector.Vector3d;
+import net.minecraft.world.IBlockReader;
 import net.minecraft.world.IWorld;
 import net.minecraft.world.World;
 import net.minecraft.world.border.WorldBorder;
 import net.minecraft.world.gen.Heightmap;
 import net.minecraft.world.server.ServerWorld;
 import net.minecraftforge.common.MinecraftForge;
+import net.minecraftforge.common.extensions.IForgeBlockState;
 import net.minecraftforge.event.world.BlockEvent;
 import net.minecraftforge.eventbus.api.Cancelable;
 import org.apache.logging.log4j.core.jmx.Server;
@@ -27,11 +31,12 @@ import java.util.function.Predicate;
 
 public class MustafarPortalSize {
 
-    private static final AbstractBlock.IPositionPredicate POSITION_PREDICATE = (state, blockReader, pos) -> {
-            return state.isPortalFrame(blockReader, pos);
-        };
+    private static final AbstractBlock.IPositionPredicate POSITION_PREDICATE = (iNot, blockReader, pos) -> {
+        return iNot.isPortalFrame(blockReader, pos);
+    };
     private final IWorld world;
     private static ServerWorld worlde;
+    private static INotForgeBlock iNot;
 
     private final Direction.Axis axis;
         private final Direction rightDir;
@@ -45,6 +50,7 @@ public class MustafarPortalSize {
         this.world = world;
         this.axis = axis;
         this.rightDir = rightDir;
+
     }
     protected MustafarPortalInfo func_241829_a(ServerWorld p_241829_1_) {
         MustafarPortalInfo portalinfo = func_241829_a(p_241829_1_);
@@ -55,6 +61,7 @@ public class MustafarPortalSize {
             return portalinfo;
         }
     }
+
 
 
     public static Optional<MustafarPortalSize> func_242964_a(IWorld world, BlockPos pos, Direction.Axis axis) {
@@ -242,7 +249,7 @@ public class MustafarPortalSize {
             return new Vector3d(d2, d4, d3);
         }
 
-        public static PortalInfo func_242963_a(ServerWorld world, TeleportationRepositioner.Result result, Direction.Axis axis, Vector3d offsetVector, EntitySize size, Vector3d motion, float rotationYaw, float rotationPitch) {
+        public static MustafarPortalInfo func_242963_a(ServerWorld world, TeleportationRepositioner.Result result, Direction.Axis axis, Vector3d offsetVector, EntitySize size, Vector3d motion, float rotationYaw, float rotationPitch) {
             BlockPos blockpos = result.startPos;
             BlockState blockstate = world.getBlockState(blockpos);
             Direction.Axis direction$axis = blockstate.get(BlockStateProperties.HORIZONTAL_AXIS);
@@ -255,7 +262,7 @@ public class MustafarPortalSize {
             double d4 = 0.5D + offsetVector.getZ();
             boolean flag = direction$axis == Direction.Axis.X;
             Vector3d vector3d1 = new Vector3d((double)blockpos.getX() + (flag ? d2 : d4), (double)blockpos.getY() + d3, (double)blockpos.getZ() + (flag ? d4 : d2));
-            return new PortalInfo(vector3d1, vector3d, rotationYaw + (float)i, rotationPitch);
+            return new MustafarPortalInfo(vector3d1, vector3d, rotationYaw + (float)i, rotationPitch);
         }
     }
 

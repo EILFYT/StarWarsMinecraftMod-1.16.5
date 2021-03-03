@@ -6,14 +6,12 @@ import com.eilfyt.starwarsinminecraft.blocks.*;
 import com.eilfyt.starwarsinminecraft.init.ModEntityTypes;
 import com.eilfyt.starwarsinminecraft.items.*;
 import com.eilfyt.starwarsinminecraft.tools.ModItemTier;
-import net.minecraft.block.AbstractBlock;
-import net.minecraft.block.Block;
-import net.minecraft.block.NetherPortalBlock;
-import net.minecraft.block.SoundType;
+import net.minecraft.block.*;
 import net.minecraft.block.material.Material;
 import net.minecraft.inventory.EquipmentSlotType;
 import net.minecraft.item.*;
 import net.minecraft.util.registry.Registry;
+import net.minecraft.village.PointOfInterestType;
 import net.minecraftforge.fml.RegistryObject;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
 import net.minecraftforge.registries.DeferredRegister;
@@ -53,6 +51,7 @@ public class RegistryHandler {
     public static final RegistryObject<Item> LASRS_EYE = ITEMS.register("lasrs_eye", SbItemBase::new);
     public static final RegistryObject<Item> DIAMANTES_HANDLE = ITEMS.register("diamante_handle", SbItemBase::new);
     public static final RegistryObject<Item> HACKER_PHONE = ITEMS.register("hacker_phone", HackerPhone::new);
+//idek anymore man
 
 
     //blocks go here
