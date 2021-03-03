@@ -1,6 +1,7 @@
 package com.eilfyt.starwarsinminecraft.events;
 
 import com.eilfyt.starwarsinminecraft.blocks.MustafarPortalBlock;
+import com.eilfyt.starwarsinminecraft.init.POIInit;
 import com.eilfyt.starwarsinminecraft.util.RegistryHandler;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.Blocks;
@@ -141,13 +142,12 @@ public class Teleporter2point0 extends Teleporter {
         return Optional.of(new TeleportationRepositioner.Result(blockpos.toImmutable(), 2, 3));
     }
 
-    @Override
-    public Optional<TeleportationRepositioner.Result> getExistingPortal(BlockPos pos, boolean isNether) {
+    public Optional<TeleportationRepositioner.Result> gitExistingPortal(BlockPos pos, boolean isMustafar) {
         PointOfInterestManager pointofinterestmanager = this.world.getPointOfInterestManager();
-        int i = isNether ? 16 : 128;
+        int i = isMustafar ? 16 : 128;
         pointofinterestmanager.ensureLoadedAndValid(this.world, pos, i);
         Optional<PointOfInterest> optional = pointofinterestmanager.getInSquare((poiType) -> {
-            return poiType == PointOfInterestType.NETHER_PORTAL;
+            return poiType == POIInit.MUSTAFAR_PORTAL;
         }, pos, i, PointOfInterestManager.Status.ANY).sorted(Comparator.<PointOfInterest>comparingDouble((poi) -> {
             return poi.getPos().distanceSq(pos);
         }).thenComparingInt((poi) -> {

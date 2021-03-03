@@ -77,6 +77,7 @@ public class RegistryHandler {
     public static final RegistryObject<Item> NETHER_CRYSTAL_ORE_BLOCK_ITEM = ITEMS.register("nether_crystal_ore",() -> new BlockItemBase(NETHER_CRYSTAL_ORE_BLOCK.get()));
     public static final RegistryObject<Item> VERTICAL_KYBER_SLAB_BLOCK_ITEM = ITEMS.register("vertical_kyber_slab",() -> new BlockItemBase(VERTICAL_KYBER_SLAB_BLOCK.get()));
     public static final RegistryObject<Item> RIP_PC_ITEM = ITEMS.register("pc_killer", () -> new BlockItemBase(RIP_PC.get()));
+    public static final RegistryObject<Item> MUSTAFAR_PORTAL_ITEM = ITEMS.register("mustafar_portal", () -> new NoTabBlockItemBase(MUSTAFAR_PORTAL.get()));
 
 
 
