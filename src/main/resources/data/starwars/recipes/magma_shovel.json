@@ -1,0 +1,25 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern":
+  [
+    "x",
+    "e",
+    "e"
+  ],
+  "key":
+  {
+    "x":
+    {
+      "item": "starwars:magma"
+    },
+    "e":
+    {
+      "item": "minecraft:stick"
+    }
+  },
+  "result":
+  {
+    "item": "starwars:magma_shovel",
+    "count": 1
+  }
+}

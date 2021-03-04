@@ -6,6 +6,7 @@ import com.eilfyt.starwarsinminecraft.blocks.*;
 import com.eilfyt.starwarsinminecraft.init.ModEntityTypes;
 import com.eilfyt.starwarsinminecraft.items.*;
 import com.eilfyt.starwarsinminecraft.tools.ModItemTier;
+import com.sun.org.apache.xml.internal.utils.res.StringArrayWrapper;
 import net.minecraft.block.*;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.material.MaterialColor;
@@ -83,8 +84,6 @@ public class RegistryHandler {
     public static final RegistryObject<Item> VERTICAL_KYBER_SLAB_BLOCK_ITEM = ITEMS.register("vertical_kyber_slab",() -> new BlockItemBase(VERTICAL_KYBER_SLAB_BLOCK.get()));
     public static final RegistryObject<Item> RIP_PC_ITEM = ITEMS.register("pc_killer", () -> new BlockItemBase(RIP_PC.get()));
     public static final RegistryObject<Item> MAGMA_ORE_ITEM = ITEMS.register("magma_ore",() -> new BlockItemBase(MAGMA_ORE.get()));
-    public static final RegistryObject<Item> BLACKSTONEE_ITEM = ITEMS.register("blackstone_two",() -> new BlockItemBase(BLACKSTONEE.get()));
-
 
     //tools go here
     public static final RegistryObject<SwordItem> KYBERCRYSTAL_SWORD = ITEMS.register("blue_lightsaber", () ->
@@ -136,6 +135,26 @@ public class RegistryHandler {
     public static final RegistryObject<HoeItem> DRAGON_SOUL_HOE = ITEMS.register("dragon_soul_hoe", () ->
             new HoeItem(ModItemTier.DRAGON_SOUL, 5, -2.0f, new Item.Properties().group(StarWarsInMinecraft.TAB))
     );
+
+    public static final RegistryObject<SwordItem> MAGMA_SWORD = ITEMS.register("magma_sword", () ->
+            new SwordItem(ModItemTier.MAGMA, 15, 1000f, new Item.Properties().group(StarWarsInMinecraft.TAB)
+            ));
+
+    public static final RegistryObject<PickaxeItem> MAGMA_PICKAXE = ITEMS.register("magma_pickaxe", () ->
+            new PickaxeItem(ModItemTier.MAGMA, 5, -2f, new Item.Properties().group(StarWarsInMinecraft.TAB)
+            ));
+
+    public static final RegistryObject<AxeItem> MAGMA_AXE = ITEMS.register("magma_axe", () ->
+            new AxeItem(ModItemTier.MAGMA, 17, -2.4f, new Item.Properties().group(StarWarsInMinecraft.TAB)
+            ));
+    public static final RegistryObject<ShovelItem> MAGMA_SHOVEL = ITEMS.register("magma_shovel", () ->
+            new ShovelItem(ModItemTier.MAGMA, 4, -2f, new Item.Properties().group(StarWarsInMinecraft.TAB)
+            ));
+
+    public static final RegistryObject<HoeItem> MAGMA_HOE = ITEMS.register("magma_hoe", () ->
+            new HoeItem(ModItemTier.MAGMA, 3, -2f, new Item.Properties().group(StarWarsInMinecraft.TAB)
+            ));
+
     public static final RegistryObject<SwordItem> NECRONS_BLADE_UNREFINED = ITEMS.register("necrons_blade", () ->
             new SwordItem(ModItemTier.NECRON_BLADE, 38, 1000.0f, new Item.Properties().group(StarWarsInMinecraft.SB_TAB))
     );
