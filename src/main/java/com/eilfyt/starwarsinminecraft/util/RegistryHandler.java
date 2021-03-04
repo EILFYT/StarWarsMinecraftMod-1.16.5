@@ -189,17 +189,17 @@ public class RegistryHandler {
     public static final RegistryObject<ArmorItem> DRAGON_SOUL_BOOTS = ITEMS.register("dragon_soul_boots", () ->
             new ArmorItem(ModArmorMaterial.DRAGON_SOUL, EquipmentSlotType.FEET, new Item.Properties().group(StarWarsInMinecraft.TAB)));
 
-    public static final RegistryObject<ArmorItem> MAGMA_HELMET = ITEMS.register("magma_helmet", () ->
-            new ArmorItem(ModArmorMaterial.MAGMA, EquipmentSlotType.HEAD, new Item.Properties().group(StarWarsInMinecraft.TAB)));
+    public static final RegistryObject<MagmaArmor> MAGMA_HELMET = ITEMS.register("magma_helmet", () ->
+            new MagmaArmor(ModArmorMaterial.MAGMA, EquipmentSlotType.HEAD, new Item.Properties().group(StarWarsInMinecraft.TAB)));
 
-    public static final RegistryObject<ArmorItem> MAGMA_CHESTPLATE = ITEMS.register("magma_chestplate", () ->
-            new ArmorItem(ModArmorMaterial.MAGMA, EquipmentSlotType.CHEST, new Item.Properties().group(StarWarsInMinecraft.TAB)));
+    public static final RegistryObject<MagmaArmor> MAGMA_CHESTPLATE = ITEMS.register("magma_chestplate", () ->
+            new MagmaArmor(ModArmorMaterial.MAGMA, EquipmentSlotType.CHEST, new Item.Properties().group(StarWarsInMinecraft.TAB)));
 
-    public static final RegistryObject<ArmorItem> MAGMA_LEGGINGS = ITEMS.register("magma_leggings", () ->
-            new ArmorItem(ModArmorMaterial.MAGMA, EquipmentSlotType.LEGS, new Item.Properties().group(StarWarsInMinecraft.TAB)));
+    public static final RegistryObject<MagmaArmor> MAGMA_LEGGINGS = ITEMS.register("magma_leggings", () ->
+            new MagmaArmor(ModArmorMaterial.MAGMA, EquipmentSlotType.LEGS, new Item.Properties().group(StarWarsInMinecraft.TAB)));
 
-    public static final RegistryObject<ArmorItem> MAGMA_BOOTS = ITEMS.register("magma_boots", () ->
-            new ArmorItem(ModArmorMaterial.MAGMA, EquipmentSlotType.FEET, new Item.Properties().group(StarWarsInMinecraft.TAB)));
+    public static final RegistryObject<MagmaArmor> MAGMA_BOOTS = ITEMS.register("magma_boots", () ->
+            new MagmaArmor(ModArmorMaterial.MAGMA, EquipmentSlotType.FEET, new Item.Properties().group(StarWarsInMinecraft.TAB)));
 
     private static Block register(String key, Block blockIn) {
         return Registry.register(Registry.BLOCK, key, blockIn);
