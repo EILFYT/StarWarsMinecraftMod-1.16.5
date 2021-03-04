@@ -7,20 +7,25 @@ import com.mojang.brigadier.CommandDispatcher;
 import com.mojang.brigadier.builder.ArgumentBuilder;
 import com.mojang.brigadier.context.CommandContext;
 import com.mojang.brigadier.exceptions.CommandSyntaxException;
+import net.minecraft.client.Minecraft;
 import net.minecraft.command.CommandSource;
 import net.minecraft.command.Commands;
 import net.minecraft.entity.player.ServerPlayerEntity;
+import net.minecraft.potion.EffectInstance;
+import net.minecraft.potion.Effects;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 import net.minecraft.world.server.ServerWorld;
 
 public class CommandTpDim implements Command<CommandSource> {
-
+    public static EffectInstance EFFECT_INSTANCE = new EffectInstance(Effects.SLOW_FALLING, 200, 0);
+    public static EffectInstance NOT_THE_EFFECT_INSTANCE = new EffectInstance(Effects.SLOW_FALLING, 600, 0);
     private static final CommandTpDim CMD = new CommandTpDim();
 
     public static ArgumentBuilder<CommandSource, ?> register(CommandDispatcher<CommandSource> dispatcher) {
-        return Commands.literal("dim")
+        return Commands.literal("mustafar")
                 .requires(cs -> cs.hasPermissionLevel(1))
+                
                 .executes(CMD);
     }
 
@@ -32,9 +37,11 @@ public class CommandTpDim implements Command<CommandSource> {
         if (player.getEntityWorld().getDimensionKey().equals(ModDimensions.MUSTAFAR)) {
             ServerWorld world = player.getServer().getWorld(World.OVERWORLD);
             TeleportationTools.teleport(player, world, new BlockPos(x, 200, z));
+           player.addPotionEffect(NOT_THE_EFFECT_INSTANCE);
         } else {
             ServerWorld world = player.getServer().getWorld(ModDimensions.MUSTAFAR);
-            TeleportationTools.teleport(player, world, new BlockPos(x, 200, z));
+            TeleportationTools.teleport(player, world, new BlockPos(x, 80, z));
+            player.addPotionEffect(EFFECT_INSTANCE);
         }
         return 0;
     }

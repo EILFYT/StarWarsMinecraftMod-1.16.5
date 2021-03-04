@@ -72,5 +72,12 @@
   "item.starwars.hacker_phone": "Hacker's Phone",
   "item.starwars.lasrs_eye": "Lasr's Eye",
   "item.starwars.diamante_handle": "Diamante's Handle",
-  "item.starwars.valkyrie": " §6Valkyrie"
+  "item.starwars.valkyrie": " §6Valkyrie",
+  "item.starwars.magma": "Magma",
+  "block.starwars.magma_ore": "Magma Ore",
+  "block.starwars.blackstone_two": "Blackstone Two",
+  "item.starwars.magma_boots": "Magma Boots",
+  "item.starwars.magma_chestplate": "Magma Chestplate",
+  "item.starwars.magma_leggings": "Magma Leggings",
+  "item.starwars.magma_helmet": "Magma Helmet"
 }

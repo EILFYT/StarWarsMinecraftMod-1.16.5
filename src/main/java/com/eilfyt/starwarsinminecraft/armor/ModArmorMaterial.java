@@ -19,7 +19,9 @@ public enum ModArmorMaterial implements IArmorMaterial {
     KYBERCRYSTAL(StarWarsInMinecraft.MOD_ID + ":kybercrystal", 100, new int[] { 5, 7, 8, 4 }, 120,
             SoundEvents.ITEM_ARMOR_EQUIP_TURTLE, 2.0f, () -> {return Ingredient.fromItems(RegistryHandler.KYBERCRYSTAL.get());}, 5),
     DRAGON_SOUL(StarWarsInMinecraft.MOD_ID + ":dragon_soul", 150, new int[] {6, 9, 11, 5 }, 100,
-            SoundEvents.ITEM_ARMOR_EQUIP_ELYTRA, 3.0f, () -> {return Ingredient.fromItems(RegistryHandler.DRAGONSOUL.get());}, 7);
+            SoundEvents.ITEM_ARMOR_EQUIP_ELYTRA, 3.0f, () -> {return Ingredient.fromItems(RegistryHandler.DRAGONSOUL.get());}, 7),
+    MAGMA(StarWarsInMinecraft.MOD_ID + ":magma", 80, new int[] {5, 7, 7, 4}, 30,
+            SoundEvents.ITEM_ARMOR_EQUIP_DIAMOND, 3.0f, () -> {return Ingredient.fromItems(RegistryHandler.MAGMA.get());}, 5);
 
 
 

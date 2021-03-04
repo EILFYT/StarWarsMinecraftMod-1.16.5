@@ -6,7 +6,6 @@ import com.eilfyt.starwarsinminecraft.dimensions.MustafarChunkGenerator;
 import com.eilfyt.starwarsinminecraft.entities.PorgEntity;
 import com.eilfyt.starwarsinminecraft.init.EffectRegister;
 import com.eilfyt.starwarsinminecraft.init.ModEntityTypes;
-import com.eilfyt.starwarsinminecraft.init.POIInit;
 import com.eilfyt.starwarsinminecraft.util.RegistryHandler;
 import com.eilfyt.starwarsinminecraft.world.gen.OreGeneration;
 import net.minecraft.entity.ai.attributes.GlobalEntityTypeAttributes;
@@ -43,7 +42,6 @@ public class  StarWarsInMinecraft
 
         EffectRegister.EFFECTS.register(modEventBus);
         EffectRegister.POTIONS.register(modEventBus);
-        POIInit.POINT.register(modEventBus);
 
         RegistryHandler.init();
 

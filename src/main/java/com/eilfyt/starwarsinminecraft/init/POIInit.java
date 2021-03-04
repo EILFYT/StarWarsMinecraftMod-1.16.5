@@ -1,13 +1,15 @@
-package com.eilfyt.starwarsinminecraft.init;
+/**package com.eilfyt.starwarsinminecraft.init;
 
 import com.eilfyt.starwarsinminecraft.StarWarsInMinecraft;
 import com.eilfyt.starwarsinminecraft.util.RegistryHandler;
 import com.google.common.collect.ImmutableSet;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
+import net.minecraft.block.Blocks;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.registry.Registry;
 import net.minecraft.village.PointOfInterestType;
+import net.minecraftforge.fml.RegistryObject;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
 import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
@@ -62,3 +64,4 @@ public class POIInit extends net.minecraftforge.registries.ForgeRegistryEntry<Po
     }
 }
 
+**/

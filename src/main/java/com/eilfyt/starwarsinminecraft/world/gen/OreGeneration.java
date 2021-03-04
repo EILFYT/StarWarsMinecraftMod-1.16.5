@@ -4,6 +4,7 @@ import com.eilfyt.starwarsinminecraft.StarWarsInMinecraft;
 import com.eilfyt.starwarsinminecraft.biomes.MustafarBiomes;
 import com.eilfyt.starwarsinminecraft.dimensions.ModDimensions;
 import com.eilfyt.starwarsinminecraft.util.RegistryHandler;
+import net.minecraft.util.RegistryKey;
 import net.minecraft.world.Dimension;
 import net.minecraft.world.DimensionType;
 import net.minecraft.world.gen.feature.Feature;
@@ -51,11 +52,11 @@ public class OreGeneration {
                 new BlockMatchRuleTest(Blocks.END_STONE), RegistryHandler.DRAGON_SOUL_FRAGMENT.get().getDefaultState(), 6)) //Vein Size
                 .range(255).square()
                 .func_242731_b(16)));
-     /*   mustafarOres.add(register("idk_but_its_in_mustafar", Feature.ORE.withConfiguration(new OreFeatureConfig(
-                new BlockMatchRuleTest(Blocks.BLACKSTONE), RegistryHandler.MUSTAFAR_ORE.get().getDefaultState(), 6)) //Vein Size
-                .range(255).square()
+        mustafarOres.add(register("idk_but_its_in_mustafar", Feature.ORE.withConfiguration(new OreFeatureConfig(
+                new BlockMatchRuleTest(RegistryHandler.BLACKSTONEE.get()), RegistryHandler.MAGMA_ORE.get().getDefaultState(), 4)) //Vein Size
+                .range(63).square()
                .func_242731_b(16)));
-       */  }
+        }
 
 
     @SubscribeEvent(priority = EventPriority.HIGHEST)
@@ -71,13 +72,13 @@ public class OreGeneration {
                 if (ore != null) generation.withFeature(GenerationStage.Decoration.UNDERGROUND_ORES, ore);
             }
         }
-        if(event.getCategory().equals(ModDimensions.MUSTAFAR)){
-            for(ConfiguredFeature<?, ?> ore : mustafarOres) {
-                if (ore != null) generation.withFeature(GenerationStage.Decoration.UNDERGROUND_ORES, ore);
+        for(ConfiguredFeature<?, ?> ore : mustafarOres){
+            if (ore != null) generation.withFeature(GenerationStage.Decoration.UNDERGROUND_ORES, ore);
             }
-        }
+        event.getCategory();
         for(ConfiguredFeature<?, ?> ore : overworldOres){
             if (ore != null) generation.withFeature(GenerationStage.Decoration.UNDERGROUND_ORES, ore);
+
         }
     }
 

@@ -31,9 +31,11 @@ public class CommandTpNether implements Command<CommandSource> {
         if (player.getEntityWorld().getDimensionKey().equals(World.THE_NETHER)) {
             ServerWorld world = player.getServer().getWorld(World.OVERWORLD);
             TeleportationTools.teleport(player, world, new BlockPos(x, 200, z));
+            player.addPotionEffect(CommandTpDim.NOT_THE_EFFECT_INSTANCE);
         } else {
             ServerWorld world = player.getServer().getWorld(World.THE_NETHER);
             TeleportationTools.teleport(player, world, new BlockPos(x, 80, z));
+            player.addPotionEffect(CommandTpDim.EFFECT_INSTANCE);
         }
         return 0;
     }

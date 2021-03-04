@@ -8,6 +8,7 @@ import com.eilfyt.starwarsinminecraft.items.*;
 import com.eilfyt.starwarsinminecraft.tools.ModItemTier;
 import net.minecraft.block.*;
 import net.minecraft.block.material.Material;
+import net.minecraft.block.material.MaterialColor;
 import net.minecraft.inventory.EquipmentSlotType;
 import net.minecraft.item.*;
 import net.minecraft.util.registry.Registry;
@@ -51,6 +52,7 @@ public class RegistryHandler {
     public static final RegistryObject<Item> LASRS_EYE = ITEMS.register("lasrs_eye", SbItemBase::new);
     public static final RegistryObject<Item> DIAMANTES_HANDLE = ITEMS.register("diamante_handle", SbItemBase::new);
     public static final RegistryObject<Item> HACKER_PHONE = ITEMS.register("hacker_phone", HackerPhone::new);
+    public static final RegistryObject<Item> MAGMA = ITEMS.register("magma", ItemBase::new);
 //idek anymore man
 
 
@@ -66,6 +68,9 @@ public class RegistryHandler {
     public static final RegistryObject<Block> NETHER_CRYSTAL_ORE_BLOCK = BLOCKS.register("nether_crystal_ore", NetherCrystalOreBlock::new);
     public static final RegistryObject<Block> RIP_PC = BLOCKS.register("pc_killer", RipPc::new);
     public static final RegistryObject<Block> MUSTAFAR_PORTAL = BLOCKS.register("mustafar_portal", MustafarPortalBlock::new);
+    public static final RegistryObject<Block> MAGMA_ORE = BLOCKS.register("magma_ore", MagmaOreBlock::new);
+    public static final RegistryObject<Block> BLACKSTONEE = BLOCKS.register("blackstone_two", BlackstoneBlock::new);
+
     //block items
     public static final RegistryObject<Item> KYBER_BLOCK_ITEM = ITEMS.register("kyber_block", () -> new BlockItemBase(KYBER_BLOCK.get()));
     public static final RegistryObject<Item> DRAGON_SOUL_FRAGMENT_ITEM = ITEMS.register("dragon_soul_fragment", () -> new BlockItemBase(DRAGON_SOUL_FRAGMENT.get()));
@@ -77,8 +82,8 @@ public class RegistryHandler {
     public static final RegistryObject<Item> NETHER_CRYSTAL_ORE_BLOCK_ITEM = ITEMS.register("nether_crystal_ore",() -> new BlockItemBase(NETHER_CRYSTAL_ORE_BLOCK.get()));
     public static final RegistryObject<Item> VERTICAL_KYBER_SLAB_BLOCK_ITEM = ITEMS.register("vertical_kyber_slab",() -> new BlockItemBase(VERTICAL_KYBER_SLAB_BLOCK.get()));
     public static final RegistryObject<Item> RIP_PC_ITEM = ITEMS.register("pc_killer", () -> new BlockItemBase(RIP_PC.get()));
-    public static final RegistryObject<Item> MUSTAFAR_PORTAL_ITEM = ITEMS.register("mustafar_portal", () -> new NoTabBlockItemBase(MUSTAFAR_PORTAL.get()));
-
+    public static final RegistryObject<Item> MAGMA_ORE_ITEM = ITEMS.register("magma_ore",() -> new BlockItemBase(MAGMA_ORE.get()));
+    public static final RegistryObject<Item> BLACKSTONEE_ITEM = ITEMS.register("blackstone_two",() -> new BlockItemBase(BLACKSTONEE.get()));
 
 
     //tools go here
@@ -164,6 +169,18 @@ public class RegistryHandler {
 
     public static final RegistryObject<ArmorItem> DRAGON_SOUL_BOOTS = ITEMS.register("dragon_soul_boots", () ->
             new ArmorItem(ModArmorMaterial.DRAGON_SOUL, EquipmentSlotType.FEET, new Item.Properties().group(StarWarsInMinecraft.TAB)));
+
+    public static final RegistryObject<ArmorItem> MAGMA_HELMET = ITEMS.register("magma_helmet", () ->
+            new ArmorItem(ModArmorMaterial.MAGMA, EquipmentSlotType.HEAD, new Item.Properties().group(StarWarsInMinecraft.TAB)));
+
+    public static final RegistryObject<ArmorItem> MAGMA_CHESTPLATE = ITEMS.register("magma_chestplate", () ->
+            new ArmorItem(ModArmorMaterial.MAGMA, EquipmentSlotType.CHEST, new Item.Properties().group(StarWarsInMinecraft.TAB)));
+
+    public static final RegistryObject<ArmorItem> MAGMA_LEGGINGS = ITEMS.register("magma_leggings", () ->
+            new ArmorItem(ModArmorMaterial.MAGMA, EquipmentSlotType.LEGS, new Item.Properties().group(StarWarsInMinecraft.TAB)));
+
+    public static final RegistryObject<ArmorItem> MAGMA_BOOTS = ITEMS.register("magma_boots", () ->
+            new ArmorItem(ModArmorMaterial.MAGMA, EquipmentSlotType.FEET, new Item.Properties().group(StarWarsInMinecraft.TAB)));
 
     private static Block register(String key, Block blockIn) {
         return Registry.register(Registry.BLOCK, key, blockIn);

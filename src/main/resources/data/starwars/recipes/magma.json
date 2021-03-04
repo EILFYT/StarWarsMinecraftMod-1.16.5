@@ -1,0 +1,9 @@
+{
+  "type": "minecraft:smelting",
+  "ingredient": {
+    "item": "starwars:magma_ore"
+  },
+  "result": "starwars:magma",
+  "experience": 10.0,
+  "cookingtime": 80
+}
