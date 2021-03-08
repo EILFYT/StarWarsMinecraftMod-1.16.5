@@ -79,5 +79,10 @@
   "item.starwars.magma_boots": "Magma Boots",
   "item.starwars.magma_chestplate": "Magma Chestplate",
   "item.starwars.magma_leggings": "Magma Leggings",
-  "item.starwars.magma_helmet": "Magma Helmet"
+  "item.starwars.magma_helmet": "Magma Helmet",
+  "item.starwars.magma_sword": "Magma Sword",
+  "item.starwars.magma_pickaxe": "Magma Pickaxe",
+  "item.starwars.magma_axe": "Magma Axe",
+  "item.starwars.magma_shovel": "Magma Shovel",
+  "item.starwars.magma_hoe": "Magma Hoe"
 }
