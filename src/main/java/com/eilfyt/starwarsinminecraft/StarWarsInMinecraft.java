@@ -6,6 +6,7 @@ import com.eilfyt.starwarsinminecraft.dimensions.MustafarChunkGenerator;
 import com.eilfyt.starwarsinminecraft.entities.PorgEntity;
 import com.eilfyt.starwarsinminecraft.init.EffectRegister;
 import com.eilfyt.starwarsinminecraft.init.ModEntityTypes;
+import com.eilfyt.starwarsinminecraft.lists.SoundsList;
 import com.eilfyt.starwarsinminecraft.util.RegistryHandler;
 import com.eilfyt.starwarsinminecraft.world.gen.OreGeneration;
 import net.minecraft.entity.ai.attributes.GlobalEntityTypeAttributes;
@@ -42,7 +43,7 @@ public class  StarWarsInMinecraft
 
         EffectRegister.EFFECTS.register(modEventBus);
         EffectRegister.POTIONS.register(modEventBus);
-
+        SoundsList.SOUNDS.register(modEventBus);
         RegistryHandler.init();
 
         MinecraftForge.EVENT_BUS.register(this);
@@ -115,6 +116,7 @@ public class  StarWarsInMinecraft
                       MustafarChunkGenerator.CODEC);
           });
     }
+
 
     @SubscribeEvent
     public void serverLoad(RegisterCommandsEvent event) {

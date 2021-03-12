@@ -11,4 +11,6 @@ public class ModDimensions {
 
     public static final RegistryKey<DimensionType> MUSTAFAR_TYPE = RegistryKey.getOrCreateKey(Registry.DIMENSION_TYPE_KEY, new ResourceLocation(StarWarsInMinecraft.MOD_ID, "mustafar"));
     public static final RegistryKey<World> MUSTAFAR = RegistryKey.getOrCreateKey(Registry.WORLD_KEY, new ResourceLocation(StarWarsInMinecraft.MOD_ID, "mustafar"));
+    public static final RegistryKey<DimensionType> HOTH_TYPE = RegistryKey.getOrCreateKey(Registry.DIMENSION_TYPE_KEY, new ResourceLocation(StarWarsInMinecraft.MOD_ID, "hoth"));
+    public static final RegistryKey<World> HOTH = RegistryKey.getOrCreateKey(Registry.WORLD_KEY, new ResourceLocation(StarWarsInMinecraft.MOD_ID, "hoth"));
 }

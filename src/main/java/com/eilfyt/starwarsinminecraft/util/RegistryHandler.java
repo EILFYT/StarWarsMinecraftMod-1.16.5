@@ -50,6 +50,7 @@ public class RegistryHandler {
     public static final RegistryObject<Item> DIAMANTES_HANDLE = ITEMS.register("diamante_handle", SbItemBase::new);
     public static final RegistryObject<Item> HACKER_PHONE = ITEMS.register("hacker_phone", HackerPhone::new);
     public static final RegistryObject<Item> MAGMA = ITEMS.register("magma", ItemBase::new);
+    public static final RegistryObject<Item> ROD_OF_DISCORD = ITEMS.register("rod_of_discord", RodOfDiscord::new);
 //idek anymore man
 
 
@@ -196,7 +197,6 @@ public class RegistryHandler {
 
     public static final RegistryObject<MagmaArmor> MAGMA_BOOTS = ITEMS.register("magma_boots", () ->
             new MagmaArmor(ModArmorMaterial.MAGMA, EquipmentSlotType.FEET, new Item.Properties().group(StarWarsInMinecraft.TAB)));
-
     private static Block register(String key, Block blockIn) {
         return Registry.register(Registry.BLOCK, key, blockIn);
     }

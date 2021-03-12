@@ -1,0 +1,11 @@
+{
+  "rod_of_discord": {
+    "category": "item",
+    "sounds": [
+      {
+          "name": "starwars:item/rod",
+        "stream": true
+      }
+    ]
+  }
+}
