@@ -1,9 +1,9 @@
 {
-  "rod_of_discord": {
+  "item.rod_of_discord": {
     "category": "item",
     "sounds": [
       {
-          "name": "starwars:item/rod",
+          "name": "starwars:item/rod_of_discord",
         "stream": true
       }
     ]

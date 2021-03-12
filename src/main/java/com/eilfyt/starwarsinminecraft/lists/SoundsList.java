@@ -13,6 +13,6 @@ import javax.swing.*;
 public class SoundsList {
     public static final DeferredRegister<SoundEvent> SOUNDS = DeferredRegister.create(ForgeRegistries.SOUND_EVENTS,
             StarWarsInMinecraft.MOD_ID);
-    public static final RegistryObject<SoundEvent> ROD_TP = SOUNDS.register("rod_of_discord", () ->
-            new SoundEvent(new ResourceLocation(StarWarsInMinecraft.MOD_ID, "rod_of_discord")));
+    public static final RegistryObject<SoundEvent> ROD_TP = SOUNDS.register("item.rod_of_discord", () ->
+            new SoundEvent(new ResourceLocation(StarWarsInMinecraft.MOD_ID, "item.rod_of_discord")));
 }
