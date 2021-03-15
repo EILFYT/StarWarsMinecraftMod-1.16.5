@@ -1,7 +1,8 @@
 package com.eilfyt.starwarsinminecraft.items;
 
 import com.eilfyt.starwarsinminecraft.StarWarsInMinecraft;
-import com.eilfyt.starwarsinminecraft.lists.SoundsList;
+import com.eilfyt.starwarsinminecraft.lists.ParticleList;
+import com.eilfyt.starwarsinminecraft.lists.SoundList;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
@@ -23,10 +24,14 @@ public class RodOfDiscord extends Item {
     @Override
     public ActionResult<ItemStack> onItemRightClick(World worldIn, PlayerEntity playerIn, Hand handIn) {
     Vector3d vec3d = RodOfDiscord.rayTrace(worldIn, playerIn, RayTraceContext.FluidMode.NONE).getHitVec();
-    worldIn.playSound(playerIn, new BlockPos(vec3d.getX(), vec3d.getY(), vec3d.getZ()), SoundsList.ROD_TP.get(), SoundCategory.PLAYERS, 1f, 1f);
+    worldIn.playSound(playerIn, new BlockPos(vec3d.getX(), vec3d.getY(), vec3d.getZ()), SoundList.ROD_TP.get(), SoundCategory.PLAYERS, 1f, 1f);
     playerIn.setPosition(vec3d.x, vec3d.y, vec3d.z);
-    playerIn.setInvulnerable(true);
-    if(worldIn.getGameTime()%(100)==0) {playerIn.setInvulnerable(false);}
+        double d0 = (double)playerIn.getPosX() + 0.5D;
+        double d1 = (double)playerIn.getPosY() + 1.0D;
+        double d2 = (double)playerIn.getPosZ() + 0.5D;
+        worldIn.addParticle(ParticleList.ROD_PARTICLES.get(), d0, d1, d2, 0.0D, 0.0D, 0.0D);
+    playerIn.abilities.disableDamage=true;
+    if(worldIn.getGameTime()%(100)==0) {playerIn.abilities.disableDamage = false;}
     return super.onItemRightClick(worldIn, playerIn, handIn);
     }
 
