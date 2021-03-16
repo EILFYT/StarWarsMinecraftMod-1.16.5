@@ -1,12 +1,12 @@
 {
   "textures": [
-    "minecraft:effect_0",
-    "minecraft:effect_1",
-    "minecraft:effect_2",
-    "minecraft:effect_3",
-    "minecraft:effect_4",
-    "minecraft:effect_5",
-    "minecraft:effect_6",
-    "minecraft:effect_7"
+    "starwars:rod_0",
+    "starwars:rod_1",
+    "starwars:rod_2",
+    "starwars:rod_3",
+    "starwars:rod_4",
+    "starwars:rod_5",
+    "starwars:rod_6",
+    "starwars:rod_7"
   ]
 }

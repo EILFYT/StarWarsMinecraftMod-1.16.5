@@ -1,11 +1,15 @@
 package com.eilfyt.starwarsinminecraft.items;
 
 import com.eilfyt.starwarsinminecraft.StarWarsInMinecraft;
+import com.eilfyt.starwarsinminecraft.init.EffectRegister;
 import com.eilfyt.starwarsinminecraft.lists.ParticleList;
 import com.eilfyt.starwarsinminecraft.lists.SoundList;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
+import net.minecraft.network.play.client.CChatMessagePacket;
+import net.minecraft.potion.EffectInstance;
+import net.minecraft.potion.Effects;
 import net.minecraft.util.*;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.BlockRayTraceResult;
@@ -30,8 +34,35 @@ public class RodOfDiscord extends Item {
         double d1 = (double)playerIn.getPosY() + 1.0D;
         double d2 = (double)playerIn.getPosZ() + 0.5D;
         worldIn.addParticle(ParticleList.ROD_PARTICLES.get(), d0, d1, d2, 0.0D, 0.0D, 0.0D);
-    playerIn.abilities.disableDamage=true;
-    if(worldIn.getGameTime()%(100)==0) {playerIn.abilities.disableDamage = false;}
+        worldIn.addParticle(ParticleList.ROD_PARTICLES.get(), d0, d1, d2, 0.0D, 0.0D, 0.0D);
+        worldIn.addParticle(ParticleList.ROD_PARTICLES.get(), d0, d1, d2, 0.0D, 0.0D, 0.0D);
+        worldIn.addParticle(ParticleList.ROD_PARTICLES.get(), d0, d1, d2, 0.0D, 0.0D, 0.0D);
+        worldIn.addParticle(ParticleList.ROD_PARTICLES.get(), d0, d1, d2, 0.0D, 0.0D, 0.0D);
+        worldIn.addParticle(ParticleList.ROD_PARTICLES.get(), d0, d1, d2, 0.0D, 0.0D, 0.0D);
+        worldIn.addParticle(ParticleList.ROD_PARTICLES.get(), d0, d1, d2, 0.0D, 0.0D, 0.0D);
+        worldIn.addParticle(ParticleList.ROD_PARTICLES.get(), d0, d1, d2, 0.0D, 0.0D, 0.0D);
+        worldIn.addParticle(ParticleList.ROD_PARTICLES.get(), d0, d1, d2, 0.0D, 0.0D, 0.0D);
+        worldIn.addParticle(ParticleList.ROD_PARTICLES.get(), d0, d1, d2, 0.0D, 0.0D, 0.0D);
+        worldIn.addParticle(ParticleList.ROD_PARTICLES.get(), d0, d1, d2, 0.0D, 0.0D, 0.0D);
+        worldIn.addParticle(ParticleList.ROD_PARTICLES.get(), d0, d1, d2, 0.0D, 0.0D, 0.0D);
+        worldIn.addParticle(ParticleList.ROD_PARTICLES.get(), d0, d1, d2, 0.0D, 0.0D, 0.0D);
+        worldIn.addParticle(ParticleList.ROD_PARTICLES.get(), d0, d1, d2, 0.0D, 0.0D, 0.0D);
+        worldIn.addParticle(ParticleList.ROD_PARTICLES.get(), d0, d1, d2, 0.0D, 0.0D, 0.0D);
+        worldIn.addParticle(ParticleList.ROD_PARTICLES.get(), d0, d1, d2, 0.0D, 0.0D, 0.0D);
+        worldIn.addParticle(ParticleList.ROD_PARTICLES.get(), d0, d1, d2, 0.0D, 0.0D, 0.0D);
+        worldIn.addParticle(ParticleList.ROD_PARTICLES.get(), d0, d1, d2, 0.0D, 0.0D, 0.0D);
+        worldIn.addParticle(ParticleList.ROD_PARTICLES.get(), d0, d1, d2, 0.0D, 0.0D, 0.0D);
+        worldIn.addParticle(ParticleList.ROD_PARTICLES.get(), d0, d1, d2, 0.0D, 0.0D, 0.0D);
+        worldIn.addParticle(ParticleList.ROD_PARTICLES.get(), d0, d1, d2, 0.0D, 0.0D, 0.0D);
+        worldIn.addParticle(ParticleList.ROD_PARTICLES.get(), d0, d1, d2, 0.0D, 0.0D, 0.0D);
+        worldIn.addParticle(ParticleList.ROD_PARTICLES.get(), d0, d1, d2, 0.0D, 0.0D, 0.0D);
+        worldIn.addParticle(ParticleList.ROD_PARTICLES.get(), d0, d1, d2, 0.0D, 0.0D, 0.0D);
+        worldIn.addParticle(ParticleList.ROD_PARTICLES.get(), d0, d1, d2, 0.0D, 0.0D, 0.0D);
+        worldIn.addParticle(ParticleList.ROD_PARTICLES.get(), d0, d1, d2, 0.0D, 0.0D, 0.0D);
+        worldIn.addParticle(ParticleList.ROD_PARTICLES.get(), d0, d1, d2, 0.0D, 0.0D, 0.0D);
+        worldIn.addParticle(ParticleList.ROD_PARTICLES.get(), d0, d1, d2, 0.0D, 0.0D, 0.0D);
+        worldIn.addParticle(ParticleList.ROD_PARTICLES.get(), d0, d1, d2, 0.0D, 0.0D, 0.0D);
+        worldIn.addParticle(ParticleList.ROD_PARTICLES.get(), d0, d1, d2, 0.0D, 0.0D, 0.0D);
     return super.onItemRightClick(worldIn, playerIn, handIn);
     }
 

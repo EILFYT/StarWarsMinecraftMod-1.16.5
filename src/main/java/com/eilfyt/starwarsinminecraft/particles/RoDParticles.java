@@ -13,14 +13,14 @@ public class RoDParticles extends SpriteTexturedParticle {
 
     protected RoDParticles(ClientWorld world, double x, double y, double z, double motionX, double motionY, double motionZ) {
         super(world, x, y, z, motionX, motionY, motionZ);
-        this.particleRed = 181f;
-        this.particleGreen = 0f;
-        this.particleBlue = 57f;
+        this.particleRed = 1.0f;
+        this.particleGreen = 1.0f;
+        this.particleBlue = 1.0f;
         this.setSize(0.2f, 0.2f);
         this.particleScale *= this.rand.nextFloat() * 1.1f;
-        this.motionX *= (double) 0.2f;
-        this.motionX *= (double) 0.2f;
-        this.motionX *= (double) 0.2f;
+        this.motionX *= (double) 0.1f;
+        this.motionX *= (double) 0.1f;
+        this.motionX *= (double) 0.1f;
         this.maxAge = (int) (20.0D / (Math.random() * 1.0D));
     }
 
@@ -56,7 +56,7 @@ public class RoDParticles extends SpriteTexturedParticle {
         @Override
         public Particle makeParticle(BasicParticleType typeIn, ClientWorld worldIn, double x, double y, double z, double xSpeed, double ySpeed, double zSpeed) {
             RoDParticles rodParticles = new RoDParticles(worldIn, x, y, z, xSpeed, ySpeed, zSpeed);
-            rodParticles.setColor(181f,0f,57f);
+            rodParticles.setColor(1f, 1f, 1f);
             rodParticles.selectSpriteRandomly(this.spriteSet);
             return rodParticles;
         }
