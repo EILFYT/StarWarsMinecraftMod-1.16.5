@@ -14,7 +14,9 @@ public class BiomeMaker extends Biome.Builder {
         return MathHelper.hsvToRGB(0.62222224F - lvt_1_1_ * 0.05F, 0.5F + lvt_1_1_ * 0.1F, 1.0F);
     }
 
-    public static Biome makeIceierSpikesBiome(float depth, float scale) {
+    public static Biome makeIceierSpikesBiome() {
+        float depth = 2f;
+        float scale = 2f;
         MobSpawnInfo.Builder mobspawninfo$builder = (new MobSpawnInfo.Builder()).withCreatureSpawnProbability(0.07F);
         DefaultBiomeFeatures.withSnowyBiomeMobs(mobspawninfo$builder);
         BiomeGenerationSettings.Builder biomegenerationsettings$builder = (new BiomeGenerationSettings.Builder()).withSurfaceBuilder(ConfiguredSurfaceBuilders.field_244178_j);
