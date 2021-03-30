@@ -15,7 +15,7 @@ public class MustafarBiomes {
     public static final BiomeDictionary.Type STARWARS = BiomeDictionary.Type.getType("STARWARS");
 
     public static void addBiomeTypes() {
-        BiomeDictionary.addTypes(MUSTAFAR_BIOME, STARWARS, BiomeDictionary.Type.NETHER);
+        BiomeDictionary.addTypes(MUSTAFAR_BIOME, STARWARS);
 
 
 

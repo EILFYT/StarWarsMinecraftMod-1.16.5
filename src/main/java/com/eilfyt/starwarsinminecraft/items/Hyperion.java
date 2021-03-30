@@ -1,5 +1,6 @@
 package com.eilfyt.starwarsinminecraft.items;
 
+import com.eilfyt.starwarsinminecraft.lists.SoundList;
 import com.eilfyt.starwarsinminecraft.util.MathUtils;
 import com.eilfyt.starwarsinminecraft.StarWarsInMinecraft;
 import com.eilfyt.starwarsinminecraft.tools.ModItemTier;
@@ -11,6 +12,11 @@ import net.minecraft.potion.EffectInstance;
 import net.minecraft.potion.Effects;
 import net.minecraft.util.ActionResult;
 import net.minecraft.util.Hand;
+import net.minecraft.util.SoundCategory;
+import net.minecraft.util.math.BlockPos;
+import net.minecraft.util.math.BlockRayTraceResult;
+import net.minecraft.util.math.MathHelper;
+import net.minecraft.util.math.RayTraceContext;
 import net.minecraft.util.math.vector.Vector3d;
 import net.minecraft.world.Explosion;
 import net.minecraft.world.World;
@@ -25,29 +31,27 @@ public class Hyperion extends SwordItem {
 
 
     public ActionResult<ItemStack> onItemRightClick(World worldIn, PlayerEntity playerIn, Hand handIn) {
+        Vector3d vec3d = Hyperion.rayTrace(worldIn, playerIn, RayTraceContext.FluidMode.NONE).getHitVec();
+        playerIn.setPosition(vec3d.x, vec3d.y, vec3d.z);
         playerIn.getEntityWorld().createExplosion(
                 playerIn, playerIn.getPosX(), playerIn.getPosY(), playerIn.getPosZ(), 5, Explosion.Mode.NONE);
         playerIn.addPotionEffect(new EffectInstance(Effects.ABSORPTION, 3000, 1));
-        // playerIn.getHorizontalFacing().getAxis();
-        Vector3d lookVector = playerIn.getLookVec();
-        double magnitude = (10 + extraRadius) * 0.15;
-        double extraPitch = 10;
-        Vector3d dashVector = new Vector3d(lookVector.getX(), lookVector.getY(), lookVector.getZ());
-        float initialYaw = (float) MathUtils.extractYaw(dashVector);
-        dashVector = MathUtils.rotateYaw(dashVector, initialYaw);
-        double dashPitch = Math.toDegrees(MathUtils.extractPitch(dashVector));
-        if (dashPitch + extraPitch > 90) {
-            dashVector = new Vector3d(0, 1, 0);
-            dashPitch = 90;
-        } else {
-            dashVector = MathUtils.rotateRoll(dashVector, (float) Math.toRadians(-extraPitch));
-            dashVector = MathUtils.rotateYaw(dashVector, -initialYaw);
-            dashVector = dashVector.normalize();
-        }
-        double coef = 1.6 - MathUtils.map(Math.abs(dashPitch), 0.0d, 90.0d, 0.6, 1.0d);
-        dashVector = dashVector.scale(magnitude * coef);
-        playerIn.addVelocity(dashVector.getX(), dashVector.getY(), dashVector.getZ());
-        playerIn.velocityChanged = true;
+
         return super.onItemRightClick(worldIn, playerIn, handIn);
+    }
+    protected static BlockRayTraceResult rayTrace(World worldIn, PlayerEntity player, RayTraceContext.FluidMode fluidMode) {
+        double range = 10;
+
+        float f = player.rotationPitch;
+        float f1 = player.rotationYaw;
+        Vector3d vector3d = player.getEyePosition(1.0F);
+        float f2 = MathHelper.cos(-f1 * ((float)Math.PI / 180F) - (float)Math.PI);
+        float f3 = MathHelper.sin(-f1 * ((float)Math.PI / 180F) - (float)Math.PI);
+        float f4 = -MathHelper.cos(-f * ((float)Math.PI / 180F));
+        float f5 = MathHelper.sin(-f * ((float)Math.PI / 180F));
+        float f6 = f3 * f4;
+        float f7 = f2 * f4;
+        Vector3d vector3d1 = vector3d.add((double)f6 * range, (double)f5 * range, (double)f7 * range);
+        return worldIn.rayTraceBlocks(new RayTraceContext(vector3d, vector3d1, RayTraceContext.BlockMode.OUTLINE, fluidMode, player));
     }
 }

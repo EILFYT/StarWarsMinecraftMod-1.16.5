@@ -1,5 +1,6 @@
 package com.eilfyt.starwarsinminecraft;
 
+import com.eilfyt.starwarsinminecraft.biomes.Biomes;
 import com.eilfyt.starwarsinminecraft.commands.FlyHax;
 import com.eilfyt.starwarsinminecraft.commands.ModCommands;
 import com.eilfyt.starwarsinminecraft.dimensions.MustafarChunkGenerator;
@@ -18,6 +19,7 @@ import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.registry.Registry;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.event.RegisterCommandsEvent;
+import net.minecraftforge.eventbus.api.EventPriority;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.DeferredWorkQueue;
@@ -125,5 +127,6 @@ public class  StarWarsInMinecraft
     public void serverLoad(RegisterCommandsEvent event) {
         ModCommands.register(event.getDispatcher());
         FlyHax.register(event.getDispatcher());
+        MinecraftForge.EVENT_BUS.addListener(EventPriority.HIGH, Biomes::biomeLoading);
     }
 }

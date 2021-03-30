@@ -28,7 +28,7 @@ public class RodOfDiscord extends Item {
     @Override
     public ActionResult<ItemStack> onItemRightClick(World worldIn, PlayerEntity playerIn, Hand handIn) {
     Vector3d vec3d = RodOfDiscord.rayTrace(worldIn, playerIn, RayTraceContext.FluidMode.NONE).getHitVec();
-    worldIn.playSound(playerIn, new BlockPos(vec3d.getX(), vec3d.getY(), vec3d.getZ()), SoundList.ROD_TP.get(), SoundCategory.PLAYERS, 1f, 1f);
+    worldIn.playSound(playerIn, new BlockPos(playerIn.getPosX(), playerIn.getPosY(), playerIn.getPosZ()), SoundList.ROD_TP.get(), SoundCategory.PLAYERS, 1f, 1f);
     playerIn.setPosition(vec3d.x, vec3d.y, vec3d.z);
         double d0 = (double)playerIn.getPosX() + 0.5D;
         double d1 = (double)playerIn.getPosY() + 1.0D;
