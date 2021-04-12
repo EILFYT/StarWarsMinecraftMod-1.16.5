@@ -19,10 +19,7 @@ public class RegistryHandler {
 
     public static DeferredRegister<Item> ITEMS = DeferredRegister.create(ForgeRegistries.ITEMS, StarWarsInMinecraft.MOD_ID);
     public static final DeferredRegister<Block> BLOCKS = DeferredRegister.create(ForgeRegistries.BLOCKS, StarWarsInMinecraft.MOD_ID);
-    public static void init() {
-        ITEMS.register(FMLJavaModLoadingContext.get().getModEventBus());
-        BLOCKS.register(FMLJavaModLoadingContext.get().getModEventBus());
-    }
+
 
 
 
@@ -48,7 +45,6 @@ public class RegistryHandler {
     public static final RegistryObject<Item> FLY_ITEM = ITEMS.register("flight_totem", FlyTotem::new);
     public static final RegistryObject<Item> LASRS_EYE = ITEMS.register("lasrs_eye", SbItemBase::new);
     public static final RegistryObject<Item> DIAMANTES_HANDLE = ITEMS.register("diamante_handle", SbItemBase::new);
-    public static final RegistryObject<Item> HACKER_PHONE = ITEMS.register("hacker_phone", HackerPhone::new);
     public static final RegistryObject<Item> MAGMA = ITEMS.register("magma", ItemBase::new);
     public static final RegistryObject<Item> ROD_OF_DISCORD = ITEMS.register("rod_of_discord", RodOfDiscord::new);
 //idek anymore man

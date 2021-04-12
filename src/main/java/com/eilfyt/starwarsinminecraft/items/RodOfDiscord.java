@@ -27,12 +27,11 @@ public class RodOfDiscord extends Item {
 
     @Override
     public ActionResult<ItemStack> onItemRightClick(World worldIn, PlayerEntity playerIn, Hand handIn) {
-    Vector3d vec3d = RodOfDiscord.rayTrace(worldIn, playerIn, RayTraceContext.FluidMode.NONE).getHitVec();
-    worldIn.playSound(playerIn, new BlockPos(playerIn.getPosX(), playerIn.getPosY(), playerIn.getPosZ()), SoundList.ROD_TP.get(), SoundCategory.PLAYERS, 1f, 1f);
+        double d0 = playerIn.getPosX() + 0.5D;
+        double d1 = playerIn.getPosY() + 1.0D;
+        double d2 = playerIn.getPosZ() + 0.5D;
+        Vector3d vec3d = RodOfDiscord.rayTrace(worldIn, playerIn, RayTraceContext.FluidMode.NONE).getHitVec();
     playerIn.setPosition(vec3d.x, vec3d.y, vec3d.z);
-        double d0 = (double)playerIn.getPosX() + 0.5D;
-        double d1 = (double)playerIn.getPosY() + 1.0D;
-        double d2 = (double)playerIn.getPosZ() + 0.5D;
         worldIn.addParticle(ParticleList.ROD_PARTICLES.get(), d0, d1, d2, 0.0D, 0.0D, 0.0D);
         worldIn.addParticle(ParticleList.ROD_PARTICLES.get(), d0, d1, d2, 0.0D, 0.0D, 0.0D);
         worldIn.addParticle(ParticleList.ROD_PARTICLES.get(), d0, d1, d2, 0.0D, 0.0D, 0.0D);
@@ -63,7 +62,8 @@ public class RodOfDiscord extends Item {
         worldIn.addParticle(ParticleList.ROD_PARTICLES.get(), d0, d1, d2, 0.0D, 0.0D, 0.0D);
         worldIn.addParticle(ParticleList.ROD_PARTICLES.get(), d0, d1, d2, 0.0D, 0.0D, 0.0D);
         worldIn.addParticle(ParticleList.ROD_PARTICLES.get(), d0, d1, d2, 0.0D, 0.0D, 0.0D);
-    return super.onItemRightClick(worldIn, playerIn, handIn);
+        worldIn.playSound(playerIn, new BlockPos(d0, d1, d2), SoundList.ROD_TP.get(), SoundCategory.MASTER, 1f, 1f);
+        return super.onItemRightClick(worldIn, playerIn, handIn);
     }
 
 

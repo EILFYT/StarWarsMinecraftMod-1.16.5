@@ -10,6 +10,6 @@ import net.minecraftforge.registries.ForgeRegistries;
 public class SoundList {
     public static final DeferredRegister<SoundEvent> SOUNDS = DeferredRegister.create(ForgeRegistries.SOUND_EVENTS,
             StarWarsInMinecraft.MOD_ID);
-    public static final RegistryObject<SoundEvent> ROD_TP = SOUNDS.register("item.rod_of_discord",
-            () -> new SoundEvent(new ResourceLocation(StarWarsInMinecraft.MOD_ID, "sounds/item/rod_of_discord.ogg")));
+    public static final RegistryObject<SoundEvent> ROD_TP = SOUNDS.register("rod_of_discord",
+            () -> new SoundEvent(new ResourceLocation(StarWarsInMinecraft.MOD_ID, "rod_of_discord")));
 }

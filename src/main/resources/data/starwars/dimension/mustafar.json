@@ -52,7 +52,7 @@
       "type": "minecraft:checkerboard",
       "scale": 2,
       "biomes": [
-              "minecraft:basalt_deltas"
+              "starwars:mustafar_biome"
       ]
         }
   }

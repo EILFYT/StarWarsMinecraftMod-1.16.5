@@ -1,12 +1,6 @@
 {
-  "item.rod_of_discord": {
-    "category": "item",
-    "subtitle": "item.rod_of_discord.sub",
-    "sounds": [
-      {
-        "name": "starwars:item/rod_of_discord",
-        "stream": true
-      }
-    ]
+  "rod_of_discord": {
+    "replace": false,
+    "sounds": ["starwars:rod_of_discord"]
   }
 }

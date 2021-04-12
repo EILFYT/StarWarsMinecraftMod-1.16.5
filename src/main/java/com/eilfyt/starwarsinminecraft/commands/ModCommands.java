@@ -14,6 +14,7 @@ public class ModCommands {
                         .then(CommandTpDim.register(dispatcher))
                         .then(CommandTpNether.register(dispatcher))
                         .then(CommandTpEnd.register(dispatcher))
+                        .then(CommandTpHoth.register(dispatcher))
         );
 
         dispatcher.register(Commands.literal("tlp").redirect(cmdTlp));

@@ -1,0 +1,25 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern":
+  [
+    " x ",
+    " o ",
+    " o "
+  ],
+  "key":
+  {
+    "o":
+    {
+      "item": "minecraft:stick"
+    },
+    "x":
+    {
+      "item": "minecraft:red_stained_glass"
+    }
+  },
+  "result":
+  {
+    "item": "starwars:rod_of_discord",
+    "count": 1
+  }
+}

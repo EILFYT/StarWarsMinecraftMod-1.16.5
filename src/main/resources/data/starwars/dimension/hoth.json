@@ -52,7 +52,7 @@
       "type": "minecraft:checkerboard",
       "scale": 2,
       "biomes": [
-        "minecraft:ice_spikes"
+        "starwars:iceier_spikes"
       ]
     }
   }
