@@ -14,9 +14,9 @@ public class ModEntitySpawns {
 
     @SubscribeEvent
     public static void onBiomeLoading(BiomeLoadingEvent e) {
-        e.getSpawns().withSpawner(EntityClassification.CREATURE, new MobSpawnInfo.Spawners(ModEntityTypes.PORG.get(), 20, 5, 5));
+        e.getSpawns().addSpawn(EntityClassification.CREATURE, new MobSpawnInfo.Spawners(ModEntityTypes.PORG.get(), 20, 5, 5));
     if (e.getCategory() != Biome.Category.THEEND && e.getCategory() != Biome.Category.OCEAN && e.getCategory() != Biome.Category.RIVER) {
-        e.getSpawns().withSpawner(EntityClassification.CREATURE, new MobSpawnInfo.Spawners(ModEntityTypes.PORG.get(), 21, 5, 5));
+        e.getSpawns().addSpawn(EntityClassification.CREATURE, new MobSpawnInfo.Spawners(ModEntityTypes.PORG.get(), 21, 5, 5));
 
         }
     }

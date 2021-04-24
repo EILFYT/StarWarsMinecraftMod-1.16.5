@@ -9,17 +9,17 @@ import net.minecraft.potion.Effects;
 public class IceCream extends Item {
 
     public IceCream() {
-        super(new Item.Properties().group(StarWarsInMinecraft.TAB)
+        super(new Item.Properties().tab(StarWarsInMinecraft.TAB)
                 .food(new Food.Builder()
-                        .hunger(5)
-                        .saturation(2.0f)
+                        .nutrition(5)
+                        .saturationMod(2.0f)
                         .effect(new EffectInstance(Effects.ABSORPTION, 12000, 4),1.0f)
                         .effect(new EffectInstance(Effects.REGENERATION, 3000, 4), 1.0f)
-                        .effect(new EffectInstance(Effects.RESISTANCE, 3000, 1), 1.0f)
+                        .effect(new EffectInstance(Effects.DAMAGE_RESISTANCE, 3000, 1), 1.0f)
                         .effect(new EffectInstance(Effects.FIRE_RESISTANCE, 3000, 1), 1.0f)
                         .effect(new EffectInstance(Effects.REGENERATION, 12000, 19), 0.1f)
-                        .effect(new EffectInstance(Effects.SPEED, 12000, 1), 1.0f)
-                        .setAlwaysEdible()
+                        .effect(new EffectInstance(Effects.MOVEMENT_SPEED, 12000, 1), 1.0f)
+                        .alwaysEat()
                         .build()
                 )
 

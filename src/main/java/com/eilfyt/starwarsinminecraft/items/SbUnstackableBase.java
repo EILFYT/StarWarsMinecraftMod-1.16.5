@@ -6,7 +6,7 @@ import net.minecraft.item.Item;
 public class SbUnstackableBase extends Item {
 
     public SbUnstackableBase(){
-        super(new Item.Properties().group(StarWarsInMinecraft.SB_TAB)
-                .maxStackSize(1));
+        super(new Item.Properties().tab(StarWarsInMinecraft.SB_TAB)
+                .stacksTo(1));
     }
 }

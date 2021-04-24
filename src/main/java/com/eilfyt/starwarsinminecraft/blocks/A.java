@@ -7,7 +7,7 @@ import net.minecraft.item.Item;
 
 public class A extends BlockItem {
     public A(Block block) {
-        super(block, new Item.Properties().group(StarWarsInMinecraft.E));
+        super(block, new Item.Properties().tab(StarWarsInMinecraft.E));
     }
 }
 

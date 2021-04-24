@@ -7,7 +7,7 @@ import net.minecraft.block.material.MaterialColor;
 
 public class BlackstoneBlock extends Block {
     public BlackstoneBlock() {
-        super(AbstractBlock.Properties.create(Material.ROCK, MaterialColor.BLACK).setRequiresTool().hardnessAndResistance(1.5F, 6.0F));
+        super(AbstractBlock.Properties.of(Material.STONE, MaterialColor.COLOR_BLACK).requiresCorrectToolForDrops().strength(1.5F, 6.0F));
 
     }
 }

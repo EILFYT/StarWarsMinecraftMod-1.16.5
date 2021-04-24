@@ -11,10 +11,9 @@ public class SugarRushEffect extends Effect {
     }
 
     public void performEffect(LivingEntity entityLivingBaseIn, int amplifier) {
-        entityLivingBaseIn.attackEntityFrom(DamageSourceInit.SUGAR_RUSH, 1000000.0f);
+        entityLivingBaseIn.hurt(DamageSourceInit.SUGAR_RUSH, 1000000.0f);
     }
 
-    @Override
     public boolean isReady(int duration, int amplifier) {
         return true;
     }

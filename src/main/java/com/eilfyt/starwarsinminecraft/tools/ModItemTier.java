@@ -8,10 +8,10 @@ import java.util.function.Supplier;
 
 public enum ModItemTier implements IItemTier {
 
-    MAGMA(5, 3333, 14.0f, 1.0f, 20, () -> {return Ingredient.fromItems(RegistryHandler.MAGMA.get());}),
-    KYBERCRYSTAL(5, 3456, 15.0f, 1.0f, 20, () -> {return Ingredient.fromItems(RegistryHandler.KYBERCRYSTAL.get());}),
-    DRAGON_SOUL(6, 4567, 20.0f, 1.0f, 20, () -> {return Ingredient.fromItems(RegistryHandler.DRAGONSOUL.get());}),
-    NECRON_BLADE(7, 999999, 40, 1.0f, 30, () -> {return Ingredient.fromItems(RegistryHandler.WITHER_CATALYST.get());});
+    MAGMA(5, 3333, 14.0f, 1.0f, 20, () -> {return Ingredient.of(RegistryHandler.MAGMA.get());}),
+    KYBERCRYSTAL(5, 3456, 15.0f, 1.0f, 20, () -> {return Ingredient.of(RegistryHandler.KYBERCRYSTAL.get());}),
+    DRAGON_SOUL(6, 4567, 20.0f, 1.0f, 20, () -> {return Ingredient.of(RegistryHandler.DRAGONSOUL.get());}),
+    NECRON_BLADE(7, 999999, 40, 1.0f, 30, () -> {return Ingredient.of(RegistryHandler.WITHER_CATALYST.get());});
 
     private final int harvestLevel;
     private final int maxUses;
@@ -29,38 +29,36 @@ public enum ModItemTier implements IItemTier {
         this.repairMaterial = repairMaterial;
     }
 
+
+
     @Override
-    public int getMaxUses() {
+    public int getUses() {
         return maxUses;
     }
 
     @Override
-    public float getEfficiency()
-    {
+    public float getSpeed() {
         return efficiency;
     }
 
     @Override
-    public float getAttackDamage()
-    {
+    public float getAttackDamageBonus() {
         return attackDamage;
     }
 
     @Override
-    public int getHarvestLevel()
-    {
+    public int getLevel() {
         return harvestLevel;
     }
 
+
     @Override
-    public int getEnchantability()
-    {
+    public int getEnchantmentValue() {
         return enchantability;
     }
 
     @Override
-    public Ingredient getRepairMaterial()
-    {
+    public Ingredient getRepairIngredient() {
         return repairMaterial.get();
     }
 }

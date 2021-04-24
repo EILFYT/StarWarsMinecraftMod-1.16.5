@@ -11,10 +11,10 @@ public class KeelEveryoneEffect extends Effect {
     }
 
     public void performEffect(LivingEntity entityLivingBaseIn, int amplifier) {
-        entityLivingBaseIn.attackEntityFrom(DamageSourceInit.KEELED, 1000000.0f);
+        entityLivingBaseIn.hurt(DamageSourceInit.KEELED, 1000000.0f);
     }
 
-    @Override
+
     public boolean isReady(int duration, int amplifier) {
         return true;
     }

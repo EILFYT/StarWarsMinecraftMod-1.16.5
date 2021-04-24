@@ -40,13 +40,13 @@ public class EffectRegister {
         public BetterBrewingRecipe(Potion bottleInputIn, Item itemInputIn, Potion outputIn) {
             this.bottleInput = bottleInputIn;
             this.itemInput = itemInputIn;
-            this.output = PotionUtils.addPotionToItemStack(new ItemStack(Items.POTION), outputIn);
+            this.output = PotionUtils.setPotion(new ItemStack(Items.POTION), outputIn);
         }
 
 
         @Override
         public boolean isInput(ItemStack input) {
-            return PotionUtils.getPotionFromItem(input).equals(this.bottleInput);
+            return PotionUtils.getPotion(input).equals(this.bottleInput);
         }
 
         @Override

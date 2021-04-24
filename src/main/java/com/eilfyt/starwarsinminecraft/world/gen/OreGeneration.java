@@ -30,24 +30,24 @@ public class OreGeneration {
 
     public static void registerOre(){
         //Overworld Ore Register
-        overworldOres.add(register("crystal_ore", Feature.ORE.withConfiguration(new OreFeatureConfig(
-                OreFeatureConfig.FillerBlockType.BASE_STONE_OVERWORLD, RegistryHandler.CRYSTAL_ORE_BLOCK.get().getDefaultState(), 4))
-                .range(30).square()
-                .func_242731_b(32)));
+        overworldOres.add(register("crystal_ore", Feature.ORE.configured(new OreFeatureConfig(
+                OreFeatureConfig.FillerBlockType.NATURAL_STONE, RegistryHandler.CRYSTAL_ORE_BLOCK.get().defaultBlockState(), 4))
+                .range(30).squared()
+                .count(32)));
 
-        netherOres.add(register("nether_crystal_ore", Feature.ORE.withConfiguration(new OreFeatureConfig(
-                OreFeatureConfig.FillerBlockType.BASE_STONE_NETHER, RegistryHandler.NETHER_CRYSTAL_ORE_BLOCK.get().getDefaultState(), 4))
-                .range(30).square()
-                .func_242731_b(32)));
+        netherOres.add(register("nether_crystal_ore", Feature.ORE.configured(new OreFeatureConfig(
+                OreFeatureConfig.FillerBlockType.NETHER_ORE_REPLACEABLES, RegistryHandler.NETHER_CRYSTAL_ORE_BLOCK.get().defaultBlockState(), 4))
+                .range(30).squared()
+                .count(32)));
 
-        endOres.add(register("dragon_soul_fragment", Feature.ORE.withConfiguration(new OreFeatureConfig(
-                new BlockMatchRuleTest(Blocks.END_STONE), RegistryHandler.DRAGON_SOUL_FRAGMENT.get().getDefaultState(), 6)) //Vein Size
-                .range(255).square()
-                .func_242731_b(16)));
-        mustafarOres.add(register("idk_but_its_in_mustafar", Feature.ORE.withConfiguration(new OreFeatureConfig(
-                new BlockMatchRuleTest(RegistryHandler.BLACKSTONEE.get()), RegistryHandler.MAGMA_ORE.get().getDefaultState(), 4)) //Vein Size
-                .range(63).square()
-               .func_242731_b(16)));
+        endOres.add(register("dragon_soul_fragment", Feature.ORE.configured(new OreFeatureConfig(
+                new BlockMatchRuleTest(Blocks.END_STONE), RegistryHandler.DRAGON_SOUL_FRAGMENT.get().defaultBlockState(), 6)) //Vein Size
+                .range(255).squared()
+                .count(16)));
+        mustafarOres.add(register("idk_but_its_in_mustafar", Feature.ORE.configured(new OreFeatureConfig(
+                new BlockMatchRuleTest(RegistryHandler.BLACKSTONEE.get()), RegistryHandler.MAGMA_ORE.get().defaultBlockState(), 4)) //Vein Size
+                .range(63).squared()
+               .count(16)));
         }
 
 
@@ -56,20 +56,20 @@ public class OreGeneration {
         BiomeGenerationSettingsBuilder generation = event.getGeneration();
         if(event.getCategory().equals(Biome.Category.NETHER)){
             for(ConfiguredFeature<?, ?> ore : netherOres){
-                if (ore != null) generation.withFeature(GenerationStage.Decoration.UNDERGROUND_ORES, ore);
+                if (ore != null) generation.addFeature(GenerationStage.Decoration.UNDERGROUND_ORES, ore);
             }
         }
         if(event.getCategory().equals(Biome.Category.THEEND)){
             for(ConfiguredFeature<?, ?> ore : endOres){
-                if (ore != null) generation.withFeature(GenerationStage.Decoration.UNDERGROUND_ORES, ore);
+                if (ore != null) generation.addFeature(GenerationStage.Decoration.UNDERGROUND_ORES, ore);
             }
         }
         for(ConfiguredFeature<?, ?> ore : mustafarOres){
-            if (ore != null) generation.withFeature(GenerationStage.Decoration.UNDERGROUND_ORES, ore);
+            if (ore != null) generation.addFeature(GenerationStage.Decoration.UNDERGROUND_ORES, ore);
             }
         event.getCategory();
         for(ConfiguredFeature<?, ?> ore : overworldOres){
-            if (ore != null) generation.withFeature(GenerationStage.Decoration.UNDERGROUND_ORES, ore);
+            if (ore != null) generation.addFeature(GenerationStage.Decoration.UNDERGROUND_ORES, ore);
 
         }
     }

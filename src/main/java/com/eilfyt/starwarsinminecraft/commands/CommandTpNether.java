@@ -1,4 +1,4 @@
-package com.eilfyt.starwarsinminecraft.commands;
+ package com.eilfyt.starwarsinminecraft.commands;
 
 import com.eilfyt.starwarsinminecraft.tools.TeleportationTools;
 import com.mojang.brigadier.Command;
@@ -18,23 +18,23 @@ public class CommandTpNether implements Command<CommandSource> {
 
     public static ArgumentBuilder<CommandSource, ?> register(CommandDispatcher<CommandSource> dispatcher) {
         return Commands.literal("nether")
-                .requires(cs -> cs.hasPermissionLevel(1))
+                .requires(cs -> cs.hasPermission(1))
                 .executes(CMDD);
     }
 
     @Override
     public int run(CommandContext<CommandSource> context) throws CommandSyntaxException {
-        ServerPlayerEntity player = context.getSource().asPlayer();
-        int x = player.getPosition().getX();
-        int z = player.getPosition().getZ();
-        if (player.getEntityWorld().getDimensionKey().equals(World.THE_NETHER)) {
-            ServerWorld world = player.getServer().getWorld(World.OVERWORLD);
+        ServerPlayerEntity player = context.getSource().getPlayerOrException();
+        int x = (int) player.getX();
+        int z = (int) player.getZ();
+        if (player.getCommandSenderWorld().dimension().equals(World.NETHER)) {
+            ServerWorld world = player.getServer().getLevel(World.OVERWORLD);
             TeleportationTools.teleport(player, world, new BlockPos(x, 200, z));
-            player.addPotionEffect(CommandTpDim.NOT_THE_EFFECT_INSTANCE);
+            player.addEffect(CommandTpDim.NOT_THE_EFFECT_INSTANCE);
         } else {
-            ServerWorld world = player.getServer().getWorld(World.THE_NETHER);
+            ServerWorld world = player.getServer().getLevel(World.NETHER);
             TeleportationTools.teleport(player, world, new BlockPos(x, 80, z));
-            player.addPotionEffect(CommandTpDim.EFFECT_INSTANCE);
+            player.addEffect(CommandTpDim.EFFECT_INSTANCE);
         }
         return 0;
     }

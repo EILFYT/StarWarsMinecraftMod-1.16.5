@@ -17,11 +17,11 @@ public enum ModArmorMaterial implements IArmorMaterial {
     //kybercrystal_layer_1
     //kybercrystal_layer_2
     KYBERCRYSTAL(StarWarsInMinecraft.MOD_ID + ":kybercrystal", 100, new int[] { 5, 7, 8, 4 }, 120,
-            SoundEvents.ITEM_ARMOR_EQUIP_TURTLE, 2.0f, () -> {return Ingredient.fromItems(RegistryHandler.KYBERCRYSTAL.get());}, 5),
+            SoundEvents.ARMOR_EQUIP_TURTLE, 2.0f, () -> {return Ingredient.of(RegistryHandler.KYBERCRYSTAL.get());}, 5),
     DRAGON_SOUL(StarWarsInMinecraft.MOD_ID + ":dragon_soul", 150, new int[] {6, 9, 11, 5 }, 100,
-            SoundEvents.ITEM_ARMOR_EQUIP_ELYTRA, 3.0f, () -> {return Ingredient.fromItems(RegistryHandler.DRAGONSOUL.get());}, 7),
+            SoundEvents.ARMOR_EQUIP_ELYTRA, 3.0f, () -> {return Ingredient.of(RegistryHandler.DRAGONSOUL.get());}, 7),
     MAGMA(StarWarsInMinecraft.MOD_ID + ":magma", 80, new int[] {5, 7, 7, 4}, 30,
-            SoundEvents.ITEM_ARMOR_EQUIP_DIAMOND, 3.0f, () -> {return Ingredient.fromItems(RegistryHandler.MAGMA.get());}, 5);
+            SoundEvents.ARMOR_EQUIP_DIAMOND, 3.0f, () -> {return Ingredient.of(RegistryHandler.MAGMA.get());}, 5);
 
 
 
@@ -47,28 +47,51 @@ public enum ModArmorMaterial implements IArmorMaterial {
         this.knockbackResistance = knockbackResistance;
     }
 
-    @Override
+
     public int getDurability(EquipmentSlotType slotIn) {
         return MAX_DAMAGE_ARRAY[slotIn.getIndex()] * this.maxDamageFactor;
     }
 
-    @Override
     public int getDamageReductionAmount(EquipmentSlotType slotIn) {
         return this.damageReductionAmountArray[slotIn.getIndex()];
     }
 
-    @Override
     public int getEnchantability() {
         return this.enchantibility;
     }
 
-    @Override
+
     public SoundEvent getSoundEvent() {
         return this.soundEvent;
     }
 
-    @Override
     public Ingredient getRepairMaterial() {
+        return this.repairMaterial.get();
+    }
+
+
+    @Override
+    public int getDurabilityForSlot(EquipmentSlotType p_200896_1_) {
+        return MAX_DAMAGE_ARRAY[p_200896_1_.getIndex()] * this.maxDamageFactor;
+    }
+
+    @Override
+    public int getDefenseForSlot(EquipmentSlotType p_200902_1_) {
+        return this.damageReductionAmountArray[p_200902_1_.getIndex()];
+    }
+
+    @Override
+    public int getEnchantmentValue() {
+        return this.enchantibility;
+    }
+
+    @Override
+    public SoundEvent getEquipSound() {
+        return this.soundEvent;
+    }
+
+    @Override
+    public Ingredient getRepairIngredient() {
         return this.repairMaterial.get();
     }
 
@@ -84,7 +107,7 @@ public enum ModArmorMaterial implements IArmorMaterial {
     }
 
     public float getKnockbackResistance() {
-        return 0;
+        return this.knockbackResistance;
     }
 
 }

@@ -19,7 +19,7 @@ import javax.annotation.Nullable;
 
 public class PorgEntity extends TameableEntity {
 
-    public static final Ingredient TEMPTATION_ITEM = Ingredient.fromItems(Items.SALMON, Items.COD);
+    public static final Ingredient TEMPTATION_ITEM = Ingredient.of(Items.SALMON, Items.COD);
 
 
 
@@ -29,9 +29,9 @@ public class PorgEntity extends TameableEntity {
     }
 
     public static AttributeModifierMap.MutableAttribute setCustomAttributes() {
-        return MobEntity.func_233666_p_()
-        .createMutableAttribute(Attributes.MAX_HEALTH, 20.0D)
-        .createMutableAttribute(Attributes.MOVEMENT_SPEED, 1.0D);
+        return MobEntity.createMobAttributes()
+        .add(Attributes.MAX_HEALTH, 20.0D)
+        .add(Attributes.MOVEMENT_SPEED, 1.0D);
     }
 
     @Override
@@ -51,38 +51,34 @@ public class PorgEntity extends TameableEntity {
     @Nullable
     @Override
     protected SoundEvent getAmbientSound() {
-        return SoundEvents.ENTITY_DOLPHIN_AMBIENT;
+        return SoundEvents.DOLPHIN_AMBIENT;
     }
 
     @Nullable
     @Override
     protected SoundEvent getDeathSound() {
-        return SoundEvents.ENTITY_DOLPHIN_DEATH;
+        return SoundEvents.DOLPHIN_DEATH;
     }
 
     @Nullable
     @Override
     protected SoundEvent getHurtSound(DamageSource damageSourceIn) {
-        return SoundEvents.ENTITY_DOLPHIN_HURT;
+        return SoundEvents.DOLPHIN_HURT;
     }
 
     @Override
     protected void playStepSound(BlockPos pos, BlockState blockIn) {
-        this.playSound(SoundEvents.ENTITY_POLAR_BEAR_STEP, 0.5f, 1.0f);
+        this.playSound(SoundEvents.POLAR_BEAR_STEP, 0.5f, 1.0f);
     }
 
-    @Override
+
     protected boolean canBeRidden(Entity entityIn) {
         return true;
     }
 
-    @Nullable
-    @Override
-    public AgeableEntity func_241840_a(ServerWorld p_241840_1_, AgeableEntity p_241840_2_) {
-        return ModEntityTypes.PORG.get().create(this.world);
-    }
+
     public void setTamed(boolean tamed) {
-        super.setTamed(tamed);
+        super.setTame(tamed);
         if (tamed) {
             this.getAttribute(Attributes.MAX_HEALTH).setBaseValue(20.0D);
             this.setHealth(20.0F);
@@ -90,36 +86,10 @@ public class PorgEntity extends TameableEntity {
             this.getAttribute(Attributes.MAX_HEALTH).setBaseValue(20.0D);
         }
     }
-    public ActionResultType func_230254_b_(PlayerEntity p_230254_1_, Hand p_230254_2_) {
-        ItemStack itemstack = p_230254_1_.getHeldItem(p_230254_2_);
-        Item item = itemstack.getItem();
-        if (this.world.isRemote) {
-            boolean flag = item == Items.COD && !this.isTamed();
-            return flag ? ActionResultType.CONSUME : ActionResultType.PASS;
-        } else {
-            if (this.isTamed()) {
-                if (this.isBreedingItem(itemstack) && this.getHealth() < this.getMaxHealth()) {
-                    if (!p_230254_1_.abilities.isCreativeMode) {
-                        itemstack.shrink(1);
-                    }
 
-                    this.heal((float)item.getFood().getHealing());
-                    return ActionResultType.SUCCESS;
-                }
-
-                if (this.rand.nextInt(3) == 0 && !net.minecraftforge.event.ForgeEventFactory.onAnimalTame(this, p_230254_1_)) {
-                    this.setTamedBy(p_230254_1_);
-                    this.navigator.clearPath();
-                    this.func_233687_w_(true);
-                    this.world.setEntityState(this, (byte)7);
-                } else {
-                    this.world.setEntityState(this, (byte)6);
-                }
-
-                return ActionResultType.SUCCESS;
-            }
-
-            return super.func_230254_b_(p_230254_1_, p_230254_2_);
-        }
+    @Nullable
+    @Override
+    public AgeableEntity getBreedOffspring(ServerWorld p_241840_1_, AgeableEntity p_241840_2_) {
+        return null;
     }
 }

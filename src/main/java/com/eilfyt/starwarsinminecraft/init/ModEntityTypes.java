@@ -13,9 +13,9 @@ public class ModEntityTypes {
     public static DeferredRegister<EntityType<?>> ENTITY_TYPES = DeferredRegister.create(ForgeRegistries.ENTITIES, StarWarsInMinecraft.MOD_ID);
 
     public static final RegistryObject<EntityType<PorgEntity>> PORG = ENTITY_TYPES.register("porg",
-            () -> EntityType.Builder.create(PorgEntity::new, EntityClassification.CREATURE)
+            () -> EntityType.Builder.of(PorgEntity::new, EntityClassification.CREATURE)
 
 
-    .size(1.0f, 2.0f)
+    .sized(1.0f, 2.0f)
     .build(new ResourceLocation(StarWarsInMinecraft.MOD_ID, "porg").toString()));
 }

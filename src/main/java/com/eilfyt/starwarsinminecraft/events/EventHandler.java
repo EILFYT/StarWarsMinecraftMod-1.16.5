@@ -15,9 +15,9 @@ public class EventHandler {
 
     @SubscribeEvent
     public static void magmaArmor(TickEvent.PlayerTickEvent playerTickEvent) {
-        for (ItemStack armor : playerTickEvent.player.inventory.armorInventory) {
+        for (ItemStack armor : playerTickEvent.player.inventory.armor) {
             if (!armor.isEmpty() && armor.getItem() instanceof MagmaArmor) {
-                playerTickEvent.player.addPotionEffect(new EffectInstance(Effects.FIRE_RESISTANCE, 2, 0));
+                playerTickEvent.player.addEffect(new EffectInstance(Effects.FIRE_RESISTANCE, 2, 0));
             }
         }
     }

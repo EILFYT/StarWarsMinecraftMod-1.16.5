@@ -18,26 +18,24 @@ public class CommandTpEnd implements Command<CommandSource>  {
 
     public static ArgumentBuilder<CommandSource, ?> register(CommandDispatcher<CommandSource> dispatcher) {
         return Commands.literal("end")
-                .requires(cs -> cs.hasPermissionLevel(1))
+                .requires(cs -> cs.hasPermission(1))
                 .executes(CMDDD);
     }
 
     @Override
     public int run(CommandContext<CommandSource> context) throws CommandSyntaxException {
-        ServerPlayerEntity player = context.getSource().asPlayer();
-        int x = player.getPosition().getX();
-        int z = player.getPosition().getZ();
-        if (player.getEntityWorld().getDimensionKey().equals(World.THE_END)) {
-            ServerWorld world = player.getServer().getWorld(World.OVERWORLD);
+        ServerPlayerEntity player = context.getSource().getPlayerOrException();
+        int x = (int) player.getX();
+        int z = (int) player.getZ();
+        if (player.getCommandSenderWorld().dimension().equals(World.END)) {
+            ServerWorld world = player.getServer().getLevel(World.OVERWORLD);
             TeleportationTools.teleport(player, world, new BlockPos(x, 200, z));
-            player.addPotionEffect(CommandTpDim.NOT_THE_EFFECT_INSTANCE);
+            player.addEffect(CommandTpDim.NOT_THE_EFFECT_INSTANCE);
         } else {
-            ServerWorld world = player.getServer().getWorld(World.THE_END);
+            ServerWorld world = player.getServer().getLevel(World.END);
             TeleportationTools.teleport(player, world, new BlockPos(0, 70, 0));
         }
         return 0;
     }
 
 }
-
-

@@ -17,8 +17,8 @@ import net.minecraftforge.registries.ForgeRegistries;
 
 public class BiomeFeatures {
     public static void notWithCommonOverworldBlocks(BiomeGenerationSettings.Builder builder) {
-        builder.withFeature(GenerationStage.Decoration.UNDERGROUND_ORES, Features.BLUE_ICE);
-        builder.withFeature(GenerationStage.Decoration.UNDERGROUND_ORES, Features.PILE_SNOW);
+        builder.addFeature(GenerationStage.Decoration.UNDERGROUND_ORES, Features.BLUE_ICE);
+        builder.addFeature(GenerationStage.Decoration.UNDERGROUND_ORES, Features.PILE_SNOW);
     }
 
 }

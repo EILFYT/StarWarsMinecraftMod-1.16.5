@@ -13,27 +13,29 @@ import net.minecraft.util.math.shapes.VoxelShape;
 import net.minecraft.world.IBlockReader;
 import net.minecraftforge.common.ToolType;
 
-public class VerticalKyberSlabBlock extends Block {
+import javax.annotation.Nullable;
 
-    private static final DirectionProperty FACING = HorizontalBlock.HORIZONTAL_FACING;
+public class VerticalKyberSlab extends Block {
 
-    private static final VoxelShape SHAPE_N = Block.makeCuboidShape(0, 0, 0, 16, 16, 8);
-    public static final VoxelShape SHAPE_E = Block.makeCuboidShape(8, 0, 0, 16, 16, 16);
-    public static final VoxelShape SHAPE_S = Block.makeCuboidShape(0, 0, 8, 16, 16, 16);
-    public static final VoxelShape SHAPE_W = Block.makeCuboidShape(0, 0, 0, 8, 16, 16);
-    public VerticalKyberSlabBlock() {
-        super(AbstractBlock.Properties.create(Material.IRON)
-                .hardnessAndResistance(40.0f,1200.0f)
+    private static final DirectionProperty FACING = HorizontalBlock.FACING;
+
+    private static final VoxelShape SHAPE_N = Block.box(0, 0, 0, 16, 16, 8);
+    public static final VoxelShape SHAPE_E = Block.box(8, 0, 0, 16, 16, 16);
+    public static final VoxelShape SHAPE_S = Block.box(0, 0, 8, 16, 16, 16);
+    public static final VoxelShape SHAPE_W = Block.box(0, 0, 0, 8, 16, 16);
+    public VerticalKyberSlab() {
+        super(AbstractBlock.Properties.of(Material.STONE)
+                .strength(40f, 1200f)
                 .sound(SoundType.METAL)
                 .harvestLevel(3)
-                .harvestTool(ToolType.PICKAXE)
-        );
-
+                .harvestTool(ToolType.PICKAXE));
     }
+
+
 
     @Override
     public VoxelShape getShape(BlockState state, IBlockReader worldIn, BlockPos pos, ISelectionContext context) {
-        switch (state.get(FACING)){
+        switch (state.getValue(FACING)){
             case NORTH:
                 return SHAPE_S;
             case EAST:
@@ -47,28 +49,29 @@ public class VerticalKyberSlabBlock extends Block {
         }
     }
 
+
     @Override
-    public BlockState getStateForPlacement(BlockItemUseContext context) {
-        return this.getDefaultState().with(FACING, context.getPlacementHorizontalFacing().getOpposite());
+    public BlockState getStateForPlacement(BlockItemUseContext p_196258_1_) {
+        return this.defaultBlockState().setValue(FACING, p_196258_1_.getHorizontalDirection().getOpposite());
     }
 
     @Override
     public BlockState rotate(BlockState state, Rotation rot) {
-        return state.with(FACING, rot.rotate(state.get(FACING)));
+        return state.setValue(FACING, rot.rotate(state.getValue(FACING)));
     }
 
     @Override
     public BlockState mirror(BlockState state, Mirror mirrorIn) {
-        return state.rotate(mirrorIn.toRotation(state.get(FACING)));
+        return state.rotate(mirrorIn.getRotation(state.getValue(FACING)));
     }
 
     @Override
-    protected void fillStateContainer(StateContainer.Builder<Block, BlockState> builder) {
+    protected void createBlockStateDefinition(StateContainer.Builder<Block, BlockState> builder) {
         builder.add(FACING);
     }
 
     @Override
-    public float getAmbientOcclusionLightValue(BlockState state, IBlockReader worldIn, BlockPos pos) {
+    public float getShadeBrightness(BlockState state, IBlockReader worldIn, BlockPos pos) {
         return 0.7f;
     }
 

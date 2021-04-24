@@ -16,11 +16,11 @@ import net.minecraftforge.registries.ForgeRegistries;
      public static final DeferredRegister<Biome> BIOMES = DeferredRegister.create(ForgeRegistries.BIOMES, StarWarsInMinecraft.MOD_ID);
 
      public static final RegistryObject<Biome> HOTH = BIOMES.register("iceier_spikes", () -> BiomeMaker.makeIceierSpikesBiome());
-     public static final RegistryKey<Biome> HOTHKEY = RegistryKey.getOrCreateKey(
-             Registry.BIOME_KEY, new ResourceLocation(StarWarsInMinecraft.MOD_ID, "iceier_spikes"));
-     public static final RegistryObject<Biome> MUSTAFARBIOME = BIOMES.register("mustafar_biome", () -> BiomeMaker.makeNetherierWastesierBiome());
-     public static final RegistryKey<Biome> MUSTAFARKEY = RegistryKey.getOrCreateKey(
-             Registry.BIOME_KEY, new ResourceLocation(StarWarsInMinecraft.MOD_ID, "mustafar_biome"));
+     public static final RegistryKey<Biome> HOTHKEY = RegistryKey.create(
+             Registry.BIOME_REGISTRY, new ResourceLocation(StarWarsInMinecraft.MOD_ID, "iceier_spikes"));
+     public static final RegistryObject<Biome> MUSTAFARBIOME = BIOMES.register("mustafar_biome", () -> BiomeMaker.makeBasaltierDeltasBiome());
+     public static final RegistryKey<Biome> MUSTAFARKEY = RegistryKey.create(
+             Registry.BIOME_REGISTRY, new ResourceLocation(StarWarsInMinecraft.MOD_ID, "mustafar_biome"));
 
      @SubscribeEvent
      public static void biomeLoading(BiomeLoadingEvent event) {
@@ -31,5 +31,5 @@ import net.minecraftforge.registries.ForgeRegistries;
          if (event.getName() == MUSTAFARKEY.getRegistryName()) {
              BiomeManager.addBiome(BiomeManager.BiomeType.WARM,
                      new BiomeManager.BiomeEntry(MUSTAFARKEY, 30));
-         }
+   }
      }}

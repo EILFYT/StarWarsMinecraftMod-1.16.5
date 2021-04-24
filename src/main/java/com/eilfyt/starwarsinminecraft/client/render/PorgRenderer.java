@@ -16,8 +16,9 @@ public class PorgRenderer extends MobRenderer<PorgEntity, PorgModel<PorgEntity>>
     }
 
     @Override
-    public ResourceLocation getEntityTexture(PorgEntity entity) {
+    public ResourceLocation getTextureLocation(PorgEntity p_110775_1_) {
         return TEXTURE;
     }
+
 }
 

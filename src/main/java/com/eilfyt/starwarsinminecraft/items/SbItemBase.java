@@ -5,6 +5,6 @@ import net.minecraft.item.Item;
 
 public class SbItemBase extends Item {
     public SbItemBase()  {
-        super(new Item.Properties().group(StarWarsInMinecraft.SB_TAB));
+        super(new Item.Properties().tab(StarWarsInMinecraft.SB_TAB));
     }
 }

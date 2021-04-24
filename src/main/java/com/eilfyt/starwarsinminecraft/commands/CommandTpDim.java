@@ -23,7 +23,7 @@ public class CommandTpDim implements Command<CommandSource> {
 
     public static ArgumentBuilder<CommandSource, ?> register(CommandDispatcher<CommandSource> dispatcher) {
         return Commands.literal("mustafar")
-                .requires(cs -> cs.hasPermissionLevel(1))
+                .requires(cs -> cs.hasPermission(1))
                 
                 .executes(CMD);
     }
@@ -32,17 +32,17 @@ public class CommandTpDim implements Command<CommandSource> {
 
     @Override
     public int run(CommandContext<CommandSource> context) throws CommandSyntaxException {
-        ServerPlayerEntity player = context.getSource().asPlayer();
-        int x = player.getPosition().getX();
-        int z = player.getPosition().getZ();
-        if (player.getEntityWorld().getDimensionKey().equals(ModDimensions.MUSTAFAR)) {
-            ServerWorld world = player.getServer().getWorld(World.OVERWORLD);
+        ServerPlayerEntity player = context.getSource().getPlayerOrException();
+        int x = (int) player.getX();
+        int z = (int) player.getZ();
+        if (player.getCommandSenderWorld().dimension().equals(ModDimensions.MUSTAFAR)) {
+            ServerWorld world = player.getServer().overworld();
             TeleportationTools.teleport(player, world, new BlockPos(x, 200, z));
-           player.addPotionEffect(NOT_THE_EFFECT_INSTANCE);
+           player.addEffect(NOT_THE_EFFECT_INSTANCE);
         } else {
-            ServerWorld world = player.getServer().getWorld(ModDimensions.MUSTAFAR);
+            ServerWorld world = player.getServer().getLevel(ModDimensions.MUSTAFAR);
             TeleportationTools.teleport(player, world, new BlockPos(x, 80, z));
-            player.addPotionEffect(EFFECT_INSTANCE);
+            player.addEffect(EFFECT_INSTANCE);
         }
         return 0;
     }

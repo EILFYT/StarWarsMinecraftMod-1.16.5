@@ -8,8 +8,8 @@ public class DragonSoulFragment extends Block {
 
     public DragonSoulFragment() {
         super(Block.Properties
-                .create(Material.ROCK, MaterialColor.SAND)
-                .setRequiresTool()
-                .hardnessAndResistance(3.0F, 9.0F));
+                .of(Material.STONE, MaterialColor.SAND)
+                .requiresCorrectToolForDrops()
+                .strength(3.0F, 9.0F));
     }
 }

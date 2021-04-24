@@ -7,7 +7,7 @@ public class UnstackableItemBase extends Item{
 
 
     public UnstackableItemBase() {
-            super(new Item.Properties().group(StarWarsInMinecraft.TAB)
-                .maxStackSize(1));
+            super(new Item.Properties().tab(StarWarsInMinecraft.TAB)
+                .stacksTo(1));
     }
 }

@@ -8,9 +8,9 @@ import net.minecraftforge.common.ToolType;
 public class RedPlasticBlock extends Block {
 
     public RedPlasticBlock() {
-        super(Block.Properties.create(Material.IRON)
-                .hardnessAndResistance(5.0f,60.0f)
-                .sound(SoundType.NETHERITE)
+        super(Block.Properties.of(Material.STONE)
+                .strength(5.0f,60.0f)
+                .sound(SoundType.ANCIENT_DEBRIS)
                 .harvestLevel(3)
                 .harvestTool(ToolType.PICKAXE));
     }

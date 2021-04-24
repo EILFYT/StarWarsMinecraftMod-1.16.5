@@ -1,0 +1,20 @@
+{
+
+  "name": "repurposed_structures:death_star/start_pool",
+  "fallback": "minecraft:empty",
+
+
+  "elements": [
+    {
+
+      "weight": 1,
+      "element": {
+
+        "location": "starwars:death_star",
+        "processors": "minecraft:empty",
+        "projection": "rigid",
+        "element_type": "minecraft:single_pool_element"
+      }
+    }
+  ]
+}

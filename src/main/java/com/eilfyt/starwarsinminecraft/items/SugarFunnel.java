@@ -14,20 +14,20 @@ import net.minecraft.world.World;
 public class SugarFunnel extends Item {
 
     public SugarFunnel() {
-        super(new Item.Properties().maxStackSize(1).group(StarWarsInMinecraft.TAB)
+        super(new Item.Properties().stacksTo(1).tab(StarWarsInMinecraft.TAB)
                 .food(new Food.Builder()
-                        .hunger(20)
-                        .saturation(200.0f)
-                        .effect(() -> new EffectInstance(Effects.SPEED, 1200, 9), 1f)
+                        .nutrition(20)
+                        .saturationMod(200.0f)
+                        .effect(() -> new EffectInstance(Effects.MOVEMENT_SPEED, 1200, 9), 1f)
                         .effect(() -> new EffectInstance(EffectRegister.SUGAR_RUSH.get(), 10, 0), .1f)
-                        .setAlwaysEdible()
-                        .fastToEat()
+                        .alwaysEat()
+                        .fast()
                         .build()
                 ));}
-    public ItemStack onItemUseFinish(ItemStack stack, World worldIn, LivingEntity entityLiving) {
-        ItemStack itemstack = super.onItemUseFinish(stack, worldIn, entityLiving);
+    public ItemStack finishUsingItem(ItemStack stack, World worldIn, LivingEntity entityLiving) {
+        ItemStack itemstack = super.finishUsingItem(stack, worldIn, entityLiving);
 
-        return entityLiving instanceof PlayerEntity && ((PlayerEntity)entityLiving).abilities.isCreativeMode ? itemstack : new ItemStack(RegistryHandler.FUNNEL.get());
+        return entityLiving instanceof PlayerEntity && ((PlayerEntity)entityLiving).abilities.invulnerable ? itemstack : new ItemStack(RegistryHandler.FUNNEL.get());
     }
 }
 
