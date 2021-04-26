@@ -2,5 +2,13 @@
   "parent": "item/handheld",
   "textures": {
     "layer0": "starwars:items/green_lightsaber"
-  }
+  },
+  "overrides": [
+    {
+      "predicate": {
+        "blocking": 1
+      },
+      "model": "starwars:item/green_lightsaber_blocking"
+    }
+  ]
 }

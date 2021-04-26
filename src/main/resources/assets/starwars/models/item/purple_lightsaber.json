@@ -2,5 +2,13 @@
   "parent": "item/handheld",
   "textures": {
     "layer0": "starwars:items/purple_lightsaber"
-  }
+  },
+  "overrides": [
+    {
+      "predicate": {
+        "blocking": 1
+      },
+      "model": "starwars:item/purple_lightsaber_blocking"
+    }
+  ]
 }

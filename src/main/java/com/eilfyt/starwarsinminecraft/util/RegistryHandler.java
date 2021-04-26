@@ -6,12 +6,12 @@ import com.eilfyt.starwarsinminecraft.blocks.*;
 import com.eilfyt.starwarsinminecraft.init.ModEntityTypes;
 import com.eilfyt.starwarsinminecraft.items.*;
 import com.eilfyt.starwarsinminecraft.tools.ModItemTier;
+import javafx.scene.effect.Light;
 import net.minecraft.block.*;
 import net.minecraft.inventory.EquipmentSlotType;
 import net.minecraft.item.*;
 import net.minecraft.util.registry.Registry;
 import net.minecraftforge.fml.RegistryObject;
-import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
 import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
 
@@ -77,18 +77,13 @@ public class RegistryHandler {
 
 
     //tools go here
-    public static final RegistryObject<SwordItem> KYBERCRYSTAL_SWORD = ITEMS.register("blue_lightsaber", () ->
-            new SwordItem(ModItemTier.KYBERCRYSTAL, 16, -1.2f, new Item.Properties().tab(StarWarsInMinecraft.TAB))
+    public static final RegistryObject<Lightsaber> KYBERCRYSTAL_SWORD = ITEMS.register("blue_lightsaber", Lightsaber::new
             );
-
-    public static final RegistryObject<SwordItem> KBERCRYSTAL_SWORD = ITEMS.register("green_lightsaber", () ->
-            new SwordItem(ModItemTier.KYBERCRYSTAL, 16, -1.2f, new Item.Properties().tab(StarWarsInMinecraft.TAB))
+    public static final RegistryObject<Lightsaber> KBERCRYSTAL_SWORD = ITEMS.register("green_lightsaber", Lightsaber::new
     );
-    public static final RegistryObject<SwordItem> KYBRCRYSTAL_SWORD = ITEMS.register("red_lightsaber", () ->
-            new SwordItem(ModItemTier.KYBERCRYSTAL, 16, -1.2f, new Item.Properties().tab(StarWarsInMinecraft.TAB))
+    public static final RegistryObject<Lightsaber> KYBRCRYSTAL_SWORD = ITEMS.register("red_lightsaber", Lightsaber::new
     );
-    public static final RegistryObject<SwordItem> KYERCRYSTAL_SWORD = ITEMS.register("purple_lightsaber", () ->
-            new SwordItem(ModItemTier.KYBERCRYSTAL, 16, -1.2f, new Item.Properties().tab(StarWarsInMinecraft.TAB))
+    public static final RegistryObject<Lightsaber> KYERCRYSTAL_SWORD = ITEMS.register("purple_lightsaber", Lightsaber::new
     );
 
     public static final RegistryObject<PickaxeItem> KYBERCRYSTAL_PICKAXE = ITEMS.register("kyber_pickaxe", () ->
@@ -191,6 +186,7 @@ public class RegistryHandler {
 
     public static final RegistryObject<MagmaArmor> MAGMA_BOOTS = ITEMS.register("magma_boots", () ->
             new MagmaArmor(ModArmorMaterial.MAGMA, EquipmentSlotType.FEET, new Item.Properties().tab(StarWarsInMinecraft.TAB)));
+
     private static Block register(String key, Block blockIn) {
         return Registry.register(Registry.BLOCK, key, blockIn);
     }

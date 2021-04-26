@@ -87,11 +87,8 @@ public class  StarWarsInMinecraft
             ConfiguredStructures.registerConfiguredStructures();
             GlobalEntityTypeAttributes.put(ModEntityTypes.PORG.get(), PorgEntity.setCustomAttributes().build());
         });
-        ItemModelsProperties.register(RegistryHandler.DRAGON_SOUL_BOW.get(), new ResourceLocation("pulling"), (p_239428_0_, p_239428_1_, p_239428_2_) -> {
 
-            return p_239428_2_ != null && p_239428_2_.isUsingItem() && p_239428_2_.getUseItem() == p_239428_0_ ? 1.0F : 0.0F;
-
-        });
+        ItemModelsProperties.register(RegistryHandler.DRAGON_SOUL_BOW.get(), new ResourceLocation("pulling"), (p_239428_0_, p_239428_1_, p_239428_2_) -> p_239428_2_ != null && p_239428_2_.isUsingItem() && p_239428_2_.getUseItem() == p_239428_0_ ? 1.0F : 0.0F);
 
         ItemModelsProperties.register(RegistryHandler.DRAGON_SOUL_BOW.get(), new ResourceLocation("pull"), (p_239429_0_, p_239429_1_, p_239429_2_) -> {
 
