@@ -2,8 +2,13 @@ package com.eilfyt.starwarsinminecraft.items;
 
 import com.eilfyt.starwarsinminecraft.StarWarsInMinecraft;
 import com.eilfyt.starwarsinminecraft.tools.ModItemTier;
+import com.mojang.blaze3d.vertex.IVertexBuilder;
 import net.minecraft.block.DispenserBlock;
+import net.minecraft.client.renderer.ItemRenderer;
+import net.minecraft.client.renderer.model.ModelBakery;
+import net.minecraft.client.renderer.model.RenderMaterial;
 import net.minecraft.client.util.ITooltipFlag;
+import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.*;
 import net.minecraft.tags.ItemTags;
@@ -23,7 +28,13 @@ public class Lightsaber extends SwordItem {
         DispenserBlock.registerBehavior(this, ArmorItem.DISPENSE_ITEM_BEHAVIOR);
     }
 
-    public UseAction getUseAnimation(ItemStack p_77661_1_) {
+    @Override
+    public boolean isShield(ItemStack stack, @Nullable LivingEntity entity) {
+        return true;
+    }
+
+
+        public UseAction getUseAnimation(ItemStack p_77661_1_) {
         return UseAction.BLOCK;
     }
 
@@ -36,6 +47,8 @@ public class Lightsaber extends SwordItem {
         p_77659_2_.startUsingItem(p_77659_3_);
         return ActionResult.consume(itemstack);
     }
+
+
 
 
 }

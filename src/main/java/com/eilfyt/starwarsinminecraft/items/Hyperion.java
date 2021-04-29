@@ -1,7 +1,5 @@
 package com.eilfyt.starwarsinminecraft.items;
 
-import com.eilfyt.starwarsinminecraft.lists.SoundList;
-import com.eilfyt.starwarsinminecraft.util.MathUtils;
 import com.eilfyt.starwarsinminecraft.StarWarsInMinecraft;
 import com.eilfyt.starwarsinminecraft.tools.ModItemTier;
 import net.minecraft.entity.player.PlayerEntity;
@@ -12,8 +10,6 @@ import net.minecraft.potion.EffectInstance;
 import net.minecraft.potion.Effects;
 import net.minecraft.util.ActionResult;
 import net.minecraft.util.Hand;
-import net.minecraft.util.SoundCategory;
-import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.BlockRayTraceResult;
 import net.minecraft.util.math.MathHelper;
 import net.minecraft.util.math.RayTraceContext;

@@ -5,16 +5,13 @@ import com.eilfyt.starwarsinminecraft.commands.ModCommands;
 import com.eilfyt.starwarsinminecraft.entities.PorgEntity;
 import com.eilfyt.starwarsinminecraft.init.EffectRegister;
 import com.eilfyt.starwarsinminecraft.init.ModEntityTypes;
-import com.eilfyt.starwarsinminecraft.lists.SoundList;
 import com.eilfyt.starwarsinminecraft.util.RegistryHandler;
 import com.eilfyt.starwarsinminecraft.world.gen.OreGeneration;
 import com.eilfyt.starwarsinminecraft.world.structures.ConfiguredStructures;
 import com.eilfyt.starwarsinminecraft.world.structures.Structures;
 import com.mojang.serialization.Codec;
 import net.minecraft.entity.ai.attributes.GlobalEntityTypeAttributes;
-import net.minecraft.item.ItemGroup;
-import net.minecraft.item.ItemModelsProperties;
-import net.minecraft.item.ItemStack;
+import net.minecraft.item.*;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.registry.Registry;
 import net.minecraft.world.World;
@@ -31,7 +28,6 @@ import net.minecraftforge.event.world.WorldEvent;
 import net.minecraftforge.eventbus.api.EventPriority;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
-import net.minecraftforge.fml.DeferredWorkQueue;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.ObfuscationReflectionHelper;
 import net.minecraftforge.fml.event.lifecycle.FMLClientSetupEvent;
@@ -61,7 +57,6 @@ public class  StarWarsInMinecraft
         ModEntityTypes.ENTITY_TYPES.register(modEventBus);
         EffectRegister.EFFECTS.register(modEventBus);
         EffectRegister.POTIONS.register(modEventBus);
-        SoundList.SOUNDS.register(modEventBus);
         Biomes.BIOMES.register(modEventBus);
         RegistryHandler.BLOCKS.register(modEventBus);
         RegistryHandler.ITEMS.register(modEventBus);
@@ -87,6 +82,12 @@ public class  StarWarsInMinecraft
             ConfiguredStructures.registerConfiguredStructures();
             GlobalEntityTypeAttributes.put(ModEntityTypes.PORG.get(), PorgEntity.setCustomAttributes().build());
         });
+
+
+        ItemModelsProperties.register(RegistryHandler.KYBERCRYSTAL_SWORD.get(), new ResourceLocation("blocking"), (p_239428_0_, p_239428_1_, p_239428_2_) -> p_239428_2_ != null && p_239428_2_.isUsingItem() && p_239428_2_.getUseItem() == p_239428_0_ ? 1.0F : 0.0F);
+        ItemModelsProperties.register(RegistryHandler.KYBRCRYSTAL_SWORD.get(), new ResourceLocation("blocking"), (p_239428_0_, p_239428_1_, p_239428_2_) -> p_239428_2_ != null && p_239428_2_.isUsingItem() && p_239428_2_.getUseItem() == p_239428_0_ ? 1.0F : 0.0F);
+        ItemModelsProperties.register(RegistryHandler.KYERCRYSTAL_SWORD.get(), new ResourceLocation("blocking"), (p_239428_0_, p_239428_1_, p_239428_2_) -> p_239428_2_ != null && p_239428_2_.isUsingItem() && p_239428_2_.getUseItem() == p_239428_0_ ? 1.0F : 0.0F);
+        ItemModelsProperties.register(RegistryHandler.KBERCRYSTAL_SWORD.get(), new ResourceLocation("blocking"), (p_239428_0_, p_239428_1_, p_239428_2_) -> p_239428_2_ != null && p_239428_2_.isUsingItem() && p_239428_2_.getUseItem() == p_239428_0_ ? 1.0F : 0.0F);
 
         ItemModelsProperties.register(RegistryHandler.DRAGON_SOUL_BOW.get(), new ResourceLocation("pulling"), (p_239428_0_, p_239428_1_, p_239428_2_) -> p_239428_2_ != null && p_239428_2_.isUsingItem() && p_239428_2_.getUseItem() == p_239428_0_ ? 1.0F : 0.0F);
 
@@ -183,4 +184,5 @@ public class  StarWarsInMinecraft
             serverWorld.getChunkSource().generator.getSettings().structureConfig = tempMap;
         }
     }
+
 }

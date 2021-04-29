@@ -1,7 +1,6 @@
 package com.eilfyt.starwarsinminecraft.items;
 
 import com.eilfyt.starwarsinminecraft.StarWarsInMinecraft;
-import com.eilfyt.starwarsinminecraft.lists.SoundList;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
@@ -27,9 +26,7 @@ public class RodOfDiscord extends Item {
         double d2 = playerIn.getZ() + 0.5D;
         Vector3d vec3d = RodOfDiscord.rayTrace(worldIn, playerIn, RayTraceContext.FluidMode.NONE).getLocation();
     playerIn.setPos(vec3d.x, vec3d.y, vec3d.z);
-
-        worldIn.playSound(playerIn, new BlockPos(d0, d1, d2), SoundList.ROD_TP.get(), SoundCategory.MASTER, 1f, 1f);
-        return super.use(worldIn, playerIn, handIn);
+     return super.use(worldIn, playerIn, handIn);
     }
 
 
