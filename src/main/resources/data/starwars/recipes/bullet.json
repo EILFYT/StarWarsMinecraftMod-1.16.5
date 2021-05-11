@@ -1,0 +1,23 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern":
+  [
+    "xcx"
+  ],
+  "key":
+  {
+    "x":
+    {
+      "item": "starwars:crystal"
+    },
+    "c":
+    {
+      "item": "minecraft:gunpowder"
+    }
+  },
+  "result":
+  {
+    "item": "starwars:bullet",
+    "count": 64
+  }
+}

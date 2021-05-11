@@ -1,5 +1,6 @@
 package com.eilfyt.starwarsinminecraft.world.structures;
 
+import com.eilfyt.starwarsinminecraft.init.ModEntityTypes;
 import com.google.common.collect.ImmutableList;
 import com.mojang.serialization.Codec;
 import com.eilfyt.starwarsinminecraft.StarWarsInMinecraft;
@@ -52,7 +53,7 @@ public class DeathStar extends Structure<NoFeatureConfig> {
 
 
     private static final List<MobSpawnInfo.Spawners> STRUCTURE_MONSTERS = ImmutableList.of(
-
+            new MobSpawnInfo.Spawners(ModEntityTypes.STORMTROOPER.get(), 1000, 10, 15)
     );
     @Override
     public List<MobSpawnInfo.Spawners> getDefaultSpawnList() {
@@ -60,6 +61,7 @@ public class DeathStar extends Structure<NoFeatureConfig> {
     }
 
     private static final List<MobSpawnInfo.Spawners> STRUCTURE_CREATURES = ImmutableList.of(
+            new MobSpawnInfo.Spawners(ModEntityTypes.STORMTROOPER.get(), 1000, 10, 15)
     );
     @Override
     public List<MobSpawnInfo.Spawners> getDefaultCreatureSpawnList() {
@@ -96,7 +98,7 @@ public class DeathStar extends Structure<NoFeatureConfig> {
             int z = (chunkZ << 4) + 7;
 
 
-            BlockPos blockpos = new BlockPos(x, 200, z);
+            BlockPos blockpos = new BlockPos(x, -100, z);
 
             JigsawManager.addPieces(
                     dynamicRegistryManager,
@@ -118,8 +120,8 @@ public class DeathStar extends Structure<NoFeatureConfig> {
 
 
 
-            this.pieces.forEach(piece -> piece.move(0, 1, 0));
-            this.pieces.forEach(piece -> piece.getBoundingBox().y0 -= 210);
+            this.pieces.forEach(piece -> piece.move(0, 301, 0));
+            this.pieces.forEach(piece -> piece.getBoundingBox().y0 += 70);
             this.calculateBoundingBox();
             StarWarsInMinecraft.LOGGER.log(Level.DEBUG, "Death Star at " +
                     this.pieces.get(0).getBoundingBox().x0 + " " +

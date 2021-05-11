@@ -1,0 +1,6 @@
+{
+  "parent": "starwars:item/blaster",
+  "textures": {
+    "layer0": "starwars:items/blaster_loaded"
+  }
+}

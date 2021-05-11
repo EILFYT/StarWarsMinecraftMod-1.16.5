@@ -12,6 +12,7 @@ public class KyberBlock extends Block {
                 .strength(40.0f,1200.0f)
                 .sound(SoundType.METAL)
                 .harvestLevel(3)
-                .harvestTool(ToolType.PICKAXE));
+                .harvestTool(ToolType.PICKAXE)
+        );
     }
 }

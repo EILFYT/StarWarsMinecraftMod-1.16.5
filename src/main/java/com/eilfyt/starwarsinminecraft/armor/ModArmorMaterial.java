@@ -100,7 +100,6 @@ public enum ModArmorMaterial implements IArmorMaterial {
         return this.name;
     }
 
-    @OnlyIn(Dist.CLIENT)
     @Override
     public float getToughness() {
         return this.toughness;

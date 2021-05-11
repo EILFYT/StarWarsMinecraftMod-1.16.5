@@ -2,19 +2,25 @@ package com.eilfyt.starwarsinminecraft;
 
 import com.eilfyt.starwarsinminecraft.biomes.Biomes;
 import com.eilfyt.starwarsinminecraft.commands.ModCommands;
+import com.eilfyt.starwarsinminecraft.entities.BulletEntity;
 import com.eilfyt.starwarsinminecraft.entities.PorgEntity;
 import com.eilfyt.starwarsinminecraft.init.EffectRegister;
 import com.eilfyt.starwarsinminecraft.init.ModEntityTypes;
+import com.eilfyt.starwarsinminecraft.items.Blaster;
 import com.eilfyt.starwarsinminecraft.util.RegistryHandler;
 import com.eilfyt.starwarsinminecraft.world.gen.OreGeneration;
 import com.eilfyt.starwarsinminecraft.world.structures.ConfiguredStructures;
 import com.eilfyt.starwarsinminecraft.world.structures.Structures;
 import com.mojang.serialization.Codec;
+import net.minecraft.dispenser.IPosition;
 import net.minecraft.entity.ai.attributes.GlobalEntityTypeAttributes;
+import net.minecraft.entity.projectile.AbstractArrowEntity;
+import net.minecraft.entity.projectile.ProjectileEntity;
 import net.minecraft.item.*;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.registry.Registry;
 import net.minecraft.world.World;
+import net.minecraft.world.biome.Biome;
 import net.minecraft.world.gen.ChunkGenerator;
 import net.minecraft.world.gen.FlatChunkGenerator;
 import net.minecraft.world.gen.feature.structure.Structure;
@@ -81,6 +87,7 @@ public class  StarWarsInMinecraft
             Structures.setupStructures();
             ConfiguredStructures.registerConfiguredStructures();
             GlobalEntityTypeAttributes.put(ModEntityTypes.PORG.get(), PorgEntity.setCustomAttributes().build());
+            GlobalEntityTypeAttributes.put(ModEntityTypes.STORMTROOPER.get(), PorgEntity.setCustomAttributes().build());
         });
 
 
@@ -103,11 +110,37 @@ public class  StarWarsInMinecraft
 
             }
 
+
         });
+        ItemModelsProperties.register(RegistryHandler.BLASTER.get(), new ResourceLocation("pull"),
+                (itemStack, clientWorld, livingEntity) -> {
+                    if (livingEntity == null) {
+                        return 0.0F;
+                    } else {
+                        return Blaster.isCharged(itemStack) ? 0.0F
+                                : (float) (itemStack.getUseDuration() - livingEntity.getUseItemRemainingTicks())
+                                / (float) Blaster.getChargeTime(itemStack);
+                    }
+                });
+        ItemModelsProperties.register(RegistryHandler.BLASTER.get(), new ResourceLocation("pulling"),
+                (itemStack, clientWorld, livingEntity) -> {
+                    return livingEntity != null && livingEntity.isUsingItem()
+                            && livingEntity.getUseItem() == itemStack && !Blaster.isCharged(itemStack)
+                            ? 1.0F
+                            : 0.0F;
+                });
+        ItemModelsProperties.register(RegistryHandler.BLASTER.get(), new ResourceLocation("loaded"),
+                (itemStack, clientWorld, livingEntity) -> Blaster.isCharged(itemStack) ? 1.0F : 0.0F);
+
+
     }
     public static ResourceLocation prefix(String name) {
         return new ResourceLocation(MOD_ID, name);
     }
+
+
+
+
 
 
 
@@ -144,10 +177,11 @@ public class  StarWarsInMinecraft
           });
     }
     public void biomeModification(final BiomeLoadingEvent event) {
-
-        event.getGeneration().getStructures().add(() -> ConfiguredStructures.CONFIGURED_WIZARD_TOWER);
+if (!event.getCategory().equals(Biome.Category.NETHER) && !event.getCategory().equals(Biome.Category.THEEND)) {
+        event.getGeneration().getStructures().add(() -> ConfiguredStructures.CONFIGURED_WIZARD_TOWER);}
+        if (!event.getCategory().equals(Biome.Category.NETHER)) {
         event.getGeneration().getStructures().add(() -> ConfiguredStructures.CONFIGURED_DEATH_STAR);
-    }
+    }}
 
 
     @SubscribeEvent
@@ -155,6 +189,8 @@ public class  StarWarsInMinecraft
             ModCommands.register(event.getDispatcher());
         MinecraftForge.EVENT_BUS.addListener(EventPriority.HIGH, Biomes::biomeLoading);
     }
+
+
     private static Method GETCODEC_METHOD;
     public void addDimensionalSpacing(final WorldEvent.Load event) {
         if(event.getWorld() instanceof ServerWorld){

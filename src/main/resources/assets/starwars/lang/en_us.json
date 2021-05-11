@@ -85,5 +85,7 @@
   "item.starwars.magma_axe": "Magma Axe",
   "item.starwars.magma_shovel": "Magma Shovel",
   "item.starwars.magma_hoe": "Magma Hoe",
-  "item.starwars.rod_of_discord": "Rod Of Discord"
+  "item.starwars.rod_of_discord": "Rod Of Discord",
+  "item.starwars.blaster": "Stormtrooper Blaster",
+  "item.starwars.bullet": "Blaster Ammo"
 }

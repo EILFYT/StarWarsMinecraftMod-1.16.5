@@ -9,7 +9,7 @@ import java.util.function.Supplier;
 public enum ModItemTier implements IItemTier {
 
     MAGMA(5, 3333, 14.0f, 1.0f, 20, () -> {return Ingredient.of(RegistryHandler.MAGMA.get());}),
-    KYBERCRYSTAL(5, 3456, 15.0f, 1.0f, 20, () -> {return Ingredient.of(RegistryHandler.KYBERCRYSTAL.get());}),
+    KYBERCRYSTAL(5, (int) Double.POSITIVE_INFINITY, 15.0f, 1.0f, 20, () -> {return Ingredient.of(RegistryHandler.KYBERCRYSTAL.get());}),
     DRAGON_SOUL(6, 4567, 20.0f, 1.0f, 20, () -> {return Ingredient.of(RegistryHandler.DRAGONSOUL.get());}),
     NECRON_BLADE(7, 999999, 40, 1.0f, 30, () -> {return Ingredient.of(RegistryHandler.WITHER_CATALYST.get());});
 

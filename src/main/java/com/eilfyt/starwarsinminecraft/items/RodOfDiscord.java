@@ -21,9 +21,6 @@ public class RodOfDiscord extends Item {
 
     @Override
     public ActionResult<ItemStack> use(World worldIn, PlayerEntity playerIn, Hand handIn) {
-        double d0 = playerIn.getX() + 0.5D;
-        double d1 = playerIn.getY() + 1.0D;
-        double d2 = playerIn.getZ() + 0.5D;
         Vector3d vec3d = RodOfDiscord.rayTrace(worldIn, playerIn, RayTraceContext.FluidMode.NONE).getLocation();
     playerIn.setPos(vec3d.x, vec3d.y, vec3d.z);
      return super.use(worldIn, playerIn, handIn);
