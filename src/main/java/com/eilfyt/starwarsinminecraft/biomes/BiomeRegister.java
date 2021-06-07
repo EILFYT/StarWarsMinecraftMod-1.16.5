@@ -18,6 +18,6 @@ public class BiomeRegister {
     }
     static {
         register(174, com.eilfyt.starwarsinminecraft.biomes.Biomes.HOTHKEY, BiomeMaker.makeIceierSpikesBiome());
-        register(175, com.eilfyt.starwarsinminecraft.biomes.Biomes.HOTHKEY, BiomeMaker.makeBasaltierDeltasBiome());
+        register(175, Biomes.MUSTAFARKEY, BiomeMaker.makeBasaltierDeltasBiome());
     }
 }

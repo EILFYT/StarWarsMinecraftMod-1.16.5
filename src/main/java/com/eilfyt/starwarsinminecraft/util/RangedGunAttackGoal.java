@@ -1,16 +1,16 @@
-package com.eilfyt.starwarsinminecraft.util;
+ /*       package com.eilfyt.starwarsinminecraft.util;
 
-import com.eilfyt.starwarsinminecraft.entities.StormTrooperEntity;
-import com.eilfyt.starwarsinminecraft.items.Gun;
-import net.minecraft.entity.IRangedAttackMob;
-import net.minecraft.entity.LivingEntity;
-import net.minecraft.entity.ai.goal.Goal;
-import net.minecraft.entity.monster.MonsterEntity;
-import net.minecraft.entity.projectile.ProjectileHelper;
-import net.minecraft.item.BowItem;
-import net.minecraft.item.Items;
+        import com.eilfyt.starwarsinminecraft.entities.StormTrooperEntity;
+        import com.eilfyt.starwarsinminecraft.items.Gun;
+        import net.minecraft.entity.IRangedAttackMob;
+        import net.minecraft.entity.LivingEntity;
+        import net.minecraft.entity.ai.goal.Goal;
+        import net.minecraft.entity.monster.MonsterEntity;
+        import net.minecraft.entity.projectile.ProjectileHelper;
+        import net.minecraft.item.BowItem;
+        import net.minecraft.item.Items;
 
-import java.util.EnumSet;
+        import java.util.EnumSet;
 
 public class RangedGunAttackGoal<T extends StormTrooperEntity & IRangedAttackMob> extends Goal {
     private final T mob;
@@ -126,4 +126,4 @@ public class RangedGunAttackGoal<T extends StormTrooperEntity & IRangedAttackMob
 
         }
     }
-}
+} */

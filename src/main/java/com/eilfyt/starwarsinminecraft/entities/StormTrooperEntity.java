@@ -1,34 +1,34 @@
-package com.eilfyt.starwarsinminecraft.entities;
+  /*      package com.eilfyt.starwarsinminecraft.entities;
 
-import com.eilfyt.starwarsinminecraft.items.Gun;
-import com.eilfyt.starwarsinminecraft.util.RangedGunAttackGoal;
-import com.eilfyt.starwarsinminecraft.util.RegistryHandler;
-import net.minecraft.entity.*;
-import net.minecraft.entity.ai.attributes.Attribute;
-import net.minecraft.entity.ai.attributes.AttributeModifierMap;
-import net.minecraft.entity.ai.attributes.Attributes;
-import net.minecraft.entity.ai.goal.*;
-import net.minecraft.entity.monster.AbstractSkeletonEntity;
-import net.minecraft.entity.monster.MonsterEntity;
-import net.minecraft.entity.monster.SkeletonEntity;
-import net.minecraft.entity.monster.ZombieEntity;
-import net.minecraft.entity.passive.IronGolemEntity;
-import net.minecraft.entity.passive.TurtleEntity;
-import net.minecraft.entity.passive.WolfEntity;
-import net.minecraft.entity.player.PlayerEntity;
-import net.minecraft.entity.projectile.AbstractArrowEntity;
-import net.minecraft.entity.projectile.ProjectileHelper;
-import net.minecraft.inventory.EquipmentSlotType;
-import net.minecraft.item.ItemStack;
-import net.minecraft.item.Items;
-import net.minecraft.item.ShootableItem;
-import net.minecraft.nbt.CompoundNBT;
-import net.minecraft.network.IPacket;
-import net.minecraft.util.SoundEvents;
-import net.minecraft.util.math.MathHelper;
-import net.minecraft.world.Difficulty;
-import net.minecraft.world.DifficultyInstance;
-import net.minecraft.world.World;
+        import com.eilfyt.starwarsinminecraft.items.Gun;
+        import com.eilfyt.starwarsinminecraft.util.RangedGunAttackGoal;
+        import com.eilfyt.starwarsinminecraft.util.RegistryHandler;
+        import net.minecraft.entity.*;
+        import net.minecraft.entity.ai.attributes.Attribute;
+        import net.minecraft.entity.ai.attributes.AttributeModifierMap;
+        import net.minecraft.entity.ai.attributes.Attributes;
+        import net.minecraft.entity.ai.goal.*;
+        import net.minecraft.entity.monster.AbstractSkeletonEntity;
+        import net.minecraft.entity.monster.MonsterEntity;
+        import net.minecraft.entity.monster.SkeletonEntity;
+        import net.minecraft.entity.monster.ZombieEntity;
+        import net.minecraft.entity.passive.IronGolemEntity;
+        import net.minecraft.entity.passive.TurtleEntity;
+        import net.minecraft.entity.passive.WolfEntity;
+        import net.minecraft.entity.player.PlayerEntity;
+        import net.minecraft.entity.projectile.AbstractArrowEntity;
+        import net.minecraft.entity.projectile.ProjectileHelper;
+        import net.minecraft.inventory.EquipmentSlotType;
+        import net.minecraft.item.ItemStack;
+        import net.minecraft.item.Items;
+        import net.minecraft.item.ShootableItem;
+        import net.minecraft.nbt.CompoundNBT;
+        import net.minecraft.network.IPacket;
+        import net.minecraft.util.SoundEvents;
+        import net.minecraft.util.math.MathHelper;
+        import net.minecraft.world.Difficulty;
+        import net.minecraft.world.DifficultyInstance;
+        import net.minecraft.world.World;
 
 public class StormTrooperEntity extends MonsterEntity implements IRangedAttackMob{
     private final RangedGunAttackGoal<StormTrooperEntity> blasterGoal = new RangedGunAttackGoal<>(this, 1.0D, 20, 15.0F);
@@ -117,4 +117,4 @@ public class StormTrooperEntity extends MonsterEntity implements IRangedAttackMo
     public boolean canFireProjectileWeapon(ShootableItem p_230280_1_) {
         return p_230280_1_ == RegistryHandler.BLASTER.get();
     }
-}
+} */

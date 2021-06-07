@@ -15,6 +15,7 @@ public class KeelEveryoneEffect extends Effect {
     }
 
 
+
     public boolean isReady(int duration, int amplifier) {
         return true;
     }

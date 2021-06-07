@@ -26,6 +26,7 @@ public class RegistryHandler {
     //items go here
     public static final RegistryObject<BulletItem> BULLET = ITEMS.register("bullet", BulletItem::new);
     public static final RegistryObject<Item> KYBERCRYSTAL = ITEMS.register("kyber_crystal", ItemBase::new);
+    public static final RegistryObject<NukeTargetingDevice> NUKE_TARGETING_DEVICE = ITEMS.register("nuke_targeting_device", NukeTargetingDevice::new);
     public static final RegistryObject<Item> DRAGONSOUL = ITEMS.register("dragon_soul", ItemBase::new);
     public static final RegistryObject<Item> saberhandle = ITEMS.register("saber_handle", ItemBase::new);
     public static final RegistryObject<Item> crystal = ITEMS.register("crystal", ItemBase::new);
@@ -37,8 +38,6 @@ public class RegistryHandler {
     public static final RegistryObject<EnchantedKyberApple> ENCHANTED_KYBER_APPLE = ITEMS.register("enchanted_kyber_apple", EnchantedKyberApple::new);
     public static final RegistryObject<ModSpawnEggItem> PORG_SPAWN_EGG = ITEMS.register("porg_spawn_egg",
             () -> new ModSpawnEggItem(ModEntityTypes.PORG, 0xFF861B, 0xF5D6BA, new Item.Properties().tab(StarWarsInMinecraft.TAB)));
-    public static final RegistryObject<ModSpawnEggItem> STORMTROOPER_SPAWN_EGG = ITEMS.register("stormtrooper_spawn_egg",
-            () -> new ModSpawnEggItem(ModEntityTypes.STORMTROOPER, 0xFFFFFF, 0xFF0000, new Item.Properties().tab(StarWarsInMinecraft.TAB)));
     public static final RegistryObject<BowItem> DRAGON_SOUL_BOW = ITEMS.register("dragon_soul_bow", DragonBow::new);
     public static final RegistryObject<CrossbowItem> BLASTER = ITEMS.register("blaster",  Blaster::new);
     public static final RegistryObject<Item> FUNNEL = ITEMS.register("funnel", ItemBase::new);
@@ -50,6 +49,7 @@ public class RegistryHandler {
     public static final RegistryObject<Item> DIAMANTES_HANDLE = ITEMS.register("diamante_handle", SbItemBase::new);
     public static final RegistryObject<Item> MAGMA = ITEMS.register("magma", ItemBase::new);
     public static final RegistryObject<Item> ROD_OF_DISCORD = ITEMS.register("rod_of_discord", RodOfDiscord::new);
+
 //idek anymore man
 
 

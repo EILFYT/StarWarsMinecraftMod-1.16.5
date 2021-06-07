@@ -30,7 +30,7 @@ public class Hyperion extends SwordItem {
         Vector3d vec3d = Hyperion.rayTrace(worldIn, playerIn, RayTraceContext.FluidMode.NONE).getLocation();
         playerIn.setPos(vec3d.x, vec3d.y, vec3d.z);
         playerIn.getCommandSenderWorld().explode(
-                playerIn, playerIn.getX(), playerIn.getY(), playerIn.getZ(), 5, Explosion.Mode.NONE);
+                playerIn, playerIn.getX(), playerIn.getY(), playerIn.getZ(), 7, Explosion.Mode.NONE);
         playerIn.addEffect(new EffectInstance(Effects.ABSORPTION, 3000, 1));
 
         return super.use(worldIn, playerIn, handIn);

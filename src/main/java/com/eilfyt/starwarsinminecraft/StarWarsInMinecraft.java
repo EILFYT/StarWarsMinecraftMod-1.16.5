@@ -1,21 +1,16 @@
 package com.eilfyt.starwarsinminecraft;
 
 import com.eilfyt.starwarsinminecraft.biomes.Biomes;
-import com.eilfyt.starwarsinminecraft.commands.ModCommands;
-import com.eilfyt.starwarsinminecraft.entities.BulletEntity;
+import com.eilfyt.starwarsinminecraft.commands.*;
 import com.eilfyt.starwarsinminecraft.entities.PorgEntity;
 import com.eilfyt.starwarsinminecraft.init.EffectRegister;
 import com.eilfyt.starwarsinminecraft.init.ModEntityTypes;
-import com.eilfyt.starwarsinminecraft.items.Blaster;
 import com.eilfyt.starwarsinminecraft.util.RegistryHandler;
 import com.eilfyt.starwarsinminecraft.world.gen.OreGeneration;
 import com.eilfyt.starwarsinminecraft.world.structures.ConfiguredStructures;
 import com.eilfyt.starwarsinminecraft.world.structures.Structures;
 import com.mojang.serialization.Codec;
-import net.minecraft.dispenser.IPosition;
 import net.minecraft.entity.ai.attributes.GlobalEntityTypeAttributes;
-import net.minecraft.entity.projectile.AbstractArrowEntity;
-import net.minecraft.entity.projectile.ProjectileEntity;
 import net.minecraft.item.*;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.registry.Registry;
@@ -53,11 +48,10 @@ public class  StarWarsInMinecraft
     public static final String MOD_ID = "starwars";
 
     public StarWarsInMinecraft() {
-        FMLJavaModLoadingContext.get().getModEventBus().addListener(this::setup);
-        FMLJavaModLoadingContext.get().getModEventBus().addListener(this::doClientStuff);
 
 
-        final IEventBus modEventBus = FMLJavaModLoadingContext.get().getModEventBus();
+
+        IEventBus modEventBus = FMLJavaModLoadingContext.get().getModEventBus();
 
         Structures.DEFERRED_REGISTRY_STRUCTURE.register(modEventBus);
         ModEntityTypes.ENTITY_TYPES.register(modEventBus);
@@ -87,51 +81,7 @@ public class  StarWarsInMinecraft
             Structures.setupStructures();
             ConfiguredStructures.registerConfiguredStructures();
             GlobalEntityTypeAttributes.put(ModEntityTypes.PORG.get(), PorgEntity.setCustomAttributes().build());
-            GlobalEntityTypeAttributes.put(ModEntityTypes.STORMTROOPER.get(), PorgEntity.setCustomAttributes().build());
         });
-
-
-        ItemModelsProperties.register(RegistryHandler.KYBERCRYSTAL_SWORD.get(), new ResourceLocation("blocking"), (p_239428_0_, p_239428_1_, p_239428_2_) -> p_239428_2_ != null && p_239428_2_.isUsingItem() && p_239428_2_.getUseItem() == p_239428_0_ ? 1.0F : 0.0F);
-        ItemModelsProperties.register(RegistryHandler.KYBRCRYSTAL_SWORD.get(), new ResourceLocation("blocking"), (p_239428_0_, p_239428_1_, p_239428_2_) -> p_239428_2_ != null && p_239428_2_.isUsingItem() && p_239428_2_.getUseItem() == p_239428_0_ ? 1.0F : 0.0F);
-        ItemModelsProperties.register(RegistryHandler.KYERCRYSTAL_SWORD.get(), new ResourceLocation("blocking"), (p_239428_0_, p_239428_1_, p_239428_2_) -> p_239428_2_ != null && p_239428_2_.isUsingItem() && p_239428_2_.getUseItem() == p_239428_0_ ? 1.0F : 0.0F);
-        ItemModelsProperties.register(RegistryHandler.KBERCRYSTAL_SWORD.get(), new ResourceLocation("blocking"), (p_239428_0_, p_239428_1_, p_239428_2_) -> p_239428_2_ != null && p_239428_2_.isUsingItem() && p_239428_2_.getUseItem() == p_239428_0_ ? 1.0F : 0.0F);
-
-        ItemModelsProperties.register(RegistryHandler.DRAGON_SOUL_BOW.get(), new ResourceLocation("pulling"), (p_239428_0_, p_239428_1_, p_239428_2_) -> p_239428_2_ != null && p_239428_2_.isUsingItem() && p_239428_2_.getUseItem() == p_239428_0_ ? 1.0F : 0.0F);
-
-        ItemModelsProperties.register(RegistryHandler.DRAGON_SOUL_BOW.get(), new ResourceLocation("pull"), (p_239429_0_, p_239429_1_, p_239429_2_) -> {
-
-            if (p_239429_2_ == null) {
-
-                return 0.0F;
-
-            } else {
-
-                return p_239429_2_.getUseItem() != p_239429_0_ ? 0.0F : (float)(p_239429_0_.getUseDuration() - p_239429_2_.getUseItemRemainingTicks()) / 20.0F;
-
-            }
-
-
-        });
-        ItemModelsProperties.register(RegistryHandler.BLASTER.get(), new ResourceLocation("pull"),
-                (itemStack, clientWorld, livingEntity) -> {
-                    if (livingEntity == null) {
-                        return 0.0F;
-                    } else {
-                        return Blaster.isCharged(itemStack) ? 0.0F
-                                : (float) (itemStack.getUseDuration() - livingEntity.getUseItemRemainingTicks())
-                                / (float) Blaster.getChargeTime(itemStack);
-                    }
-                });
-        ItemModelsProperties.register(RegistryHandler.BLASTER.get(), new ResourceLocation("pulling"),
-                (itemStack, clientWorld, livingEntity) -> {
-                    return livingEntity != null && livingEntity.isUsingItem()
-                            && livingEntity.getUseItem() == itemStack && !Blaster.isCharged(itemStack)
-                            ? 1.0F
-                            : 0.0F;
-                });
-        ItemModelsProperties.register(RegistryHandler.BLASTER.get(), new ResourceLocation("loaded"),
-                (itemStack, clientWorld, livingEntity) -> Blaster.isCharged(itemStack) ? 1.0F : 0.0F);
-
 
     }
     public static ResourceLocation prefix(String name) {
@@ -187,6 +137,10 @@ if (!event.getCategory().equals(Biome.Category.NETHER) && !event.getCategory().e
     @SubscribeEvent
     public void serverLoad(RegisterCommandsEvent event) {
             ModCommands.register(event.getDispatcher());
+        NukeCommand.register(event.getDispatcher());
+        CooldownResetCommand.register(event.getDispatcher());
+        TeleportCommand.register(event.getDispatcher());
+        AllowSwTpCommand.register(event.getDispatcher());
         MinecraftForge.EVENT_BUS.addListener(EventPriority.HIGH, Biomes::biomeLoading);
     }
 

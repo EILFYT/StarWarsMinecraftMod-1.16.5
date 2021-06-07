@@ -2,10 +2,14 @@ package com.eilfyt.starwarsinminecraft.events;
 
 import com.eilfyt.starwarsinminecraft.items.MagmaArmor;
 import net.minecraft.client.Minecraft;
+import net.minecraft.entity.Entity;
+import net.minecraft.entity.monster.ZombieEntity;
 import net.minecraft.item.ItemStack;
 import net.minecraft.potion.EffectInstance;
 import net.minecraft.potion.Effects;
+import net.minecraft.util.text.event.ClickEvent;
 import net.minecraftforge.event.TickEvent;
+import net.minecraftforge.event.entity.EntityJoinWorldEvent;
 import net.minecraftforge.event.entity.living.LivingFallEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
@@ -21,9 +25,9 @@ public class EventHandler {
             }
         }
     }
+            @SubscribeEvent
+            public static void noFallDamageForYou (LivingFallEvent fallEvent){
+                fallEvent.setDamageMultiplier(0f);
+            }
+        }
 
-    @SubscribeEvent
-    public static void noFallDamageForYou(LivingFallEvent fallEvent) {
-            fallEvent.setDamageMultiplier(0f);
-    }
-}

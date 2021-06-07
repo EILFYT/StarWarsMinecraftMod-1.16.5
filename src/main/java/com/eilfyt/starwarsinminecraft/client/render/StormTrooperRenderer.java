@@ -1,15 +1,15 @@
-package com.eilfyt.starwarsinminecraft.client.render;
+  /*      package com.eilfyt.starwarsinminecraft.client.render;
 
-import com.eilfyt.starwarsinminecraft.StarWarsInMinecraft;
-import com.eilfyt.starwarsinminecraft.client.model.PorgModel;
-import com.eilfyt.starwarsinminecraft.client.model.StormTrooperModel;
-import com.eilfyt.starwarsinminecraft.entities.PorgEntity;
-import com.eilfyt.starwarsinminecraft.entities.StormTrooperEntity;
-import net.minecraft.client.renderer.entity.EntityRendererManager;
-import net.minecraft.client.renderer.entity.MobRenderer;
-import net.minecraft.client.renderer.entity.SkeletonRenderer;
-import net.minecraft.client.renderer.entity.ZombieRenderer;
-import net.minecraft.util.ResourceLocation;
+        import com.eilfyt.starwarsinminecraft.StarWarsInMinecraft;
+        import com.eilfyt.starwarsinminecraft.client.model.PorgModel;
+        import com.eilfyt.starwarsinminecraft.client.model.StormTrooperModel;
+        import com.eilfyt.starwarsinminecraft.entities.PorgEntity;
+        import com.eilfyt.starwarsinminecraft.entities.StormTrooperEntity;
+        import net.minecraft.client.renderer.entity.EntityRendererManager;
+        import net.minecraft.client.renderer.entity.MobRenderer;
+        import net.minecraft.client.renderer.entity.SkeletonRenderer;
+        import net.minecraft.client.renderer.entity.ZombieRenderer;
+        import net.minecraft.util.ResourceLocation;
 
 public class StormTrooperRenderer extends MobRenderer<StormTrooperEntity, StormTrooperModel<StormTrooperEntity>> {
 
@@ -23,4 +23,4 @@ public class StormTrooperRenderer extends MobRenderer<StormTrooperEntity, StormT
     public ResourceLocation getTextureLocation(StormTrooperEntity p_110775_1_) {
         return STORMTROOPER_MODEL;
     }
-}
+} */

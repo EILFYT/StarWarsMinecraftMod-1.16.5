@@ -53,7 +53,6 @@ public class DeathStar extends Structure<NoFeatureConfig> {
 
 
     private static final List<MobSpawnInfo.Spawners> STRUCTURE_MONSTERS = ImmutableList.of(
-            new MobSpawnInfo.Spawners(ModEntityTypes.STORMTROOPER.get(), 1000, 10, 15)
     );
     @Override
     public List<MobSpawnInfo.Spawners> getDefaultSpawnList() {
@@ -61,7 +60,6 @@ public class DeathStar extends Structure<NoFeatureConfig> {
     }
 
     private static final List<MobSpawnInfo.Spawners> STRUCTURE_CREATURES = ImmutableList.of(
-            new MobSpawnInfo.Spawners(ModEntityTypes.STORMTROOPER.get(), 1000, 10, 15)
     );
     @Override
     public List<MobSpawnInfo.Spawners> getDefaultCreatureSpawnList() {
