@@ -2,6 +2,7 @@ package com.eilfyt.starwarsinminecraft.util;
 
 import com.eilfyt.starwarsinminecraft.StarWarsInMinecraft;
 import com.eilfyt.starwarsinminecraft.client.render.BulletRenderer;
+import com.eilfyt.starwarsinminecraft.client.render.DragonArcherRenderer;
 import com.eilfyt.starwarsinminecraft.client.render.PorgRenderer;
 import com.eilfyt.starwarsinminecraft.init.ModEntityTypes;
 import com.eilfyt.starwarsinminecraft.items.ModSpawnEggItem;
@@ -17,12 +18,12 @@ import net.minecraftforge.fml.event.lifecycle.FMLClientSetupEvent;
 @Mod.EventBusSubscriber(modid = StarWarsInMinecraft.MOD_ID, bus = Mod.EventBusSubscriber.Bus.MOD, value = Dist.CLIENT)
 public class ClientEventBusSubscriber {
 
-
         @SubscribeEvent
         public static void onStaticClientSetup(FMLClientSetupEvent event) {
             event.setPhase(EventPriority.HIGH);
             RenderingRegistry.registerEntityRenderingHandler(ModEntityTypes.BULLET.get(), BulletRenderer::new);
             RenderingRegistry.registerEntityRenderingHandler(ModEntityTypes.PORG.get(), PorgRenderer::new);
+            RenderingRegistry.registerEntityRenderingHandler(ModEntityTypes.DRAGON_ARCHER.get(), DragonArcherRenderer::new);
         }
     @SubscribeEvent
     public static void onRegisterEntities(final RegistryEvent.Register<EntityType<?>> event) {

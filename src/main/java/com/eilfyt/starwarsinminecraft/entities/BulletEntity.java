@@ -23,7 +23,6 @@ public class BulletEntity extends AbstractArrowEntity {
 
     public BulletEntity(World worldIn, LivingEntity shooter) {
         super(ModEntityTypes.BULLET.get(), shooter, worldIn);
-        this.setBaseDamage(1);
     }
 
     public BulletEntity(World worldIn, double x, double y, double z) {

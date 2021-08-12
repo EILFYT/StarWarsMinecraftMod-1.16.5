@@ -2,6 +2,8 @@ package com.eilfyt.starwarsinminecraft.items;
 
 import com.eilfyt.starwarsinminecraft.StarWarsInMinecraft;
 import com.eilfyt.starwarsinminecraft.tools.ModItemTier;
+import net.minecraft.entity.EntityType;
+import net.minecraft.entity.passive.ChickenEntity;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
@@ -31,6 +33,7 @@ public class Hyperion extends SwordItem {
         playerIn.setPos(vec3d.x, vec3d.y, vec3d.z);
         playerIn.getCommandSenderWorld().explode(
                 playerIn, playerIn.getX(), playerIn.getY(), playerIn.getZ(), 7, Explosion.Mode.NONE);
+
         playerIn.addEffect(new EffectInstance(Effects.ABSORPTION, 3000, 1));
 
         return super.use(worldIn, playerIn, handIn);

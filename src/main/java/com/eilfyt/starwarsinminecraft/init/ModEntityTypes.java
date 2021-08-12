@@ -1,10 +1,14 @@
 package com.eilfyt.starwarsinminecraft.init;
 
 import com.eilfyt.starwarsinminecraft.StarWarsInMinecraft;
+import com.eilfyt.starwarsinminecraft.entities.AbstractDragonArcherEntity;
 import com.eilfyt.starwarsinminecraft.entities.BulletEntity;
+import com.eilfyt.starwarsinminecraft.entities.DragonArcherEntity;
 import com.eilfyt.starwarsinminecraft.entities.PorgEntity;
+import com.eilfyt.starwarsinminecraft.util.RegistryHandler;
 import net.minecraft.entity.EntityClassification;
 import net.minecraft.entity.EntityType;
+import net.minecraft.entity.item.EnderCrystalEntity;
 import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.fml.RegistryObject;
 import net.minecraftforge.registries.DeferredRegister;
@@ -18,6 +22,10 @@ public class ModEntityTypes {
             () -> EntityType.Builder.of(PorgEntity::new, EntityClassification.CREATURE)    .sized(1.0f, 2.0f)
                     .build(new ResourceLocation(StarWarsInMinecraft.MOD_ID, "porg").toString()));
 
+
+    public static final RegistryObject<EntityType<DragonArcherEntity>> DRAGON_ARCHER = ENTITY_TYPES.register("dragon_archer",
+            () -> EntityType.Builder.<DragonArcherEntity>of(DragonArcherEntity::new, EntityClassification.MISC).sized(1.0f, 2.0f).fireImmune()
+                    .build(new ResourceLocation(StarWarsInMinecraft.MOD_ID, "dragon_archer").toString()));
 //    public static final RegistryObject<EntityType<StormTrooperEntity>> STORMTROOPER = ENTITY_TYPES.register("stormtrooper",
   //          () -> EntityType.Builder.of(StormTrooperEntity::new, EntityClassification.MONSTER)    .sized(1.0f, 2.0f)
     //                .build(new ResourceLocation(StarWarsInMinecraft.MOD_ID, "textures/entity/stormtrooper.png").toString()));

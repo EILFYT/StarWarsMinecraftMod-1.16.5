@@ -1,7 +1,6 @@
+package com.eilfyt.starwarsinminecraft.items;
 
-        package com.eilfyt.starwarsinminecraft.items;
-
-        import java.util.List;
+import java.util.List;
         import java.util.Random;
         import java.util.function.Predicate;
 
@@ -40,11 +39,6 @@
         import net.minecraftforge.api.distmarker.Dist;
         import net.minecraftforge.api.distmarker.OnlyIn;
 
-/*
- * Taken directly from CrossbowItem and customized a bit
- *
- */
-
 public class Blaster extends CrossbowItem
 {
     public Blaster() {
@@ -67,7 +61,7 @@ public class Blaster extends CrossbowItem
         itemstack = new ItemStack(RegistryHandler.BULLET.get());
         if(true == !itemstack.isEmpty() || player.abilities.invulnerable) {
             fireProjectiles(world, player, hand, gun, 100, 0);
-            fireProjectile(world, player, hand, gun, itemstack, 1f, player.abilities.invulnerable, 100, 0, 0);
+            fireProjectile(world, player, hand, gun, itemstack, 1f, player.abilities.invulnerable, 35, 0, 0);
             return ActionResult.consume(gun);
         }
         else return ActionResult.fail(gun);

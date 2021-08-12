@@ -1,33 +1,17 @@
 package com.eilfyt.starwarsinminecraft.items;
 
 import com.eilfyt.starwarsinminecraft.StarWarsInMinecraft;
-import com.sun.javafx.geom.Vec3d;
-import net.minecraft.client.entity.player.ClientPlayerEntity;
-import net.minecraft.entity.AreaEffectCloudEntity;
-import net.minecraft.entity.Entity;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
-import net.minecraft.resources.AsyncReloader;
 import net.minecraft.util.ActionResult;
 import net.minecraft.util.Hand;
 import net.minecraft.util.math.BlockRayTraceResult;
 import net.minecraft.util.math.MathHelper;
 import net.minecraft.util.math.RayTraceContext;
 import net.minecraft.util.math.vector.Vector3d;
-import net.minecraft.util.text.ITextComponent;
-import net.minecraft.util.text.StringTextComponent;
-import net.minecraft.util.text.TranslationTextComponent;
 import net.minecraft.world.Explosion;
 import net.minecraft.world.World;
-import net.minecraft.world.gen.ChunkGenerator;
-import net.minecraft.world.server.ServerWorld;
-import net.minecraft.world.server.ServerWorldLightManager;
-import net.minecraft.world.storage.ServerWorldInfo;
-import net.minecraftforge.event.world.NoteBlockEvent;
-
-import java.awt.*;
-import java.util.UUID;
 
 public class NukeTargetingDevice extends Item {
     public static int e = 0;

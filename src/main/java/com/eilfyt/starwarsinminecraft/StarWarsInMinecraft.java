@@ -2,6 +2,7 @@ package com.eilfyt.starwarsinminecraft;
 
 import com.eilfyt.starwarsinminecraft.biomes.Biomes;
 import com.eilfyt.starwarsinminecraft.commands.*;
+import com.eilfyt.starwarsinminecraft.entities.AbstractDragonArcherEntity;
 import com.eilfyt.starwarsinminecraft.entities.PorgEntity;
 import com.eilfyt.starwarsinminecraft.init.EffectRegister;
 import com.eilfyt.starwarsinminecraft.init.ModEntityTypes;
@@ -22,6 +23,7 @@ import net.minecraft.world.gen.feature.structure.Structure;
 import net.minecraft.world.gen.settings.DimensionStructuresSettings;
 import net.minecraft.world.gen.settings.StructureSeparationSettings;
 import net.minecraft.world.server.ServerWorld;
+import net.minecraftforge.client.event.RenderGameOverlayEvent;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.event.RegisterCommandsEvent;
 import net.minecraftforge.event.world.BiomeLoadingEvent;
@@ -46,6 +48,7 @@ public class  StarWarsInMinecraft
 { 
     public static final Logger LOGGER = LogManager.getLogger();
     public static final String MOD_ID = "starwars";
+    public static final String MESSAGE_PREFIX = "[STARWARS] ";
 
     public StarWarsInMinecraft() {
 
@@ -67,6 +70,7 @@ public class  StarWarsInMinecraft
         IEventBus forgeBus = MinecraftForge.EVENT_BUS;
         forgeBus.addListener(EventPriority.NORMAL, this::addDimensionalSpacing);
 
+        MinecraftForge.EVENT_BUS.addListener(EventPriority.HIGH, Biomes::biomeLoading);
 
         forgeBus.addListener(EventPriority.HIGH, this::biomeModification);
     }
@@ -81,13 +85,13 @@ public class  StarWarsInMinecraft
             Structures.setupStructures();
             ConfiguredStructures.registerConfiguredStructures();
             GlobalEntityTypeAttributes.put(ModEntityTypes.PORG.get(), PorgEntity.setCustomAttributes().build());
+            GlobalEntityTypeAttributes.put(ModEntityTypes.DRAGON_ARCHER.get(), AbstractDragonArcherEntity.createAttributes().build());
         });
 
     }
     public static ResourceLocation prefix(String name) {
         return new ResourceLocation(MOD_ID, name);
     }
-
 
 
 
@@ -119,8 +123,9 @@ public class  StarWarsInMinecraft
         public ItemStack makeIcon() {return new ItemStack(RegistryHandler.SKYBLOCK_TAB_LOGO.get());}
 
     };
-    public static void init(final FMLCommonSetupEvent event) {
 
+
+    public static void init(final FMLCommonSetupEvent event) {
           event.enqueueWork(() -> {
 
 
@@ -137,11 +142,12 @@ if (!event.getCategory().equals(Biome.Category.NETHER) && !event.getCategory().e
     @SubscribeEvent
     public void serverLoad(RegisterCommandsEvent event) {
             ModCommands.register(event.getDispatcher());
+        CustomGamemodeConfig.register(event.getDispatcher());
         NukeCommand.register(event.getDispatcher());
         CooldownResetCommand.register(event.getDispatcher());
         TeleportCommand.register(event.getDispatcher());
         AllowSwTpCommand.register(event.getDispatcher());
-        MinecraftForge.EVENT_BUS.addListener(EventPriority.HIGH, Biomes::biomeLoading);
+        GiveItemCommand.register(event.getDispatcher());
     }
 
 

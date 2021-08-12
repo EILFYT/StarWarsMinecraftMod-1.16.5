@@ -215,7 +215,6 @@ public class Gun extends ShootableItem {
         return enchantability;
     }
 
-    //TODO ammo types
     private static final Predicate<ItemStack> BULLETS = (stack) -> stack.getItem() instanceof IBullet && ((IBullet)stack.getItem()).hasAmmo(stack);
 
     @Override

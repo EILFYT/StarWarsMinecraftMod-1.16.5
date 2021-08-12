@@ -4,7 +4,9 @@
   "item.starwars.dragon_soul_bow": "Dragon Soul Bow",
   "item.starwars.kyber_crystal": "Kyber Crystal",
   "entity.starwars.porg": "Porg",
+  "entity.starwars.dragon_archer": "Dragon Archer",
   "item.starwars.porg_spawn_egg": "Porg Spawn Egg",
+  "item.starwars.dragon_archer_spawn_egg": "Dragon Archer Spawn Egg",
   "item.starwars.saber_handle": "Lightsaber Handle",
   "item.starwars.crystal": "Crystal",
   "item.starwars.kyber_apple": "Kyber Apple",
@@ -67,7 +69,7 @@
   "enchantment.starwars.wither_impact": "Wither Impact",
   "enchantment.level.420": "CDXX",
   "item.starwars.flight_totem": "Totem Of Flight",
-  "starwars.gui.agui": "Hacker Phone",
+  "starwars.gui.agui": "Transport Block",
   "starwars.gui.hacker": "Hacker Phone",
   "item.starwars.hacker_phone": "Hacker's Phone",
   "item.starwars.lasrs_eye": "Lasr's Eye",
@@ -88,5 +90,6 @@
   "item.starwars.rod_of_discord": "Rod Of Discord",
   "item.starwars.blaster": "Stormtrooper Blaster",
   "item.starwars.bullet": "Blaster Ammo",
-  "item.starwars.nuke_targeting_device": "Nuke Targeting Device"
+  "item.starwars.nuke_targeting_device": "Nuke Targeting Device",
+  "block.starwars.rocket_block": "Rocket Block"
 }
