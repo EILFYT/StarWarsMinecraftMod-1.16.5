@@ -5,7 +5,9 @@ import com.eilfyt.starwarsinminecraft.commands.*;
 import com.eilfyt.starwarsinminecraft.entities.AbstractDragonArcherEntity;
 import com.eilfyt.starwarsinminecraft.entities.PorgEntity;
 import com.eilfyt.starwarsinminecraft.init.EffectRegister;
+import com.eilfyt.starwarsinminecraft.init.FluidInit;
 import com.eilfyt.starwarsinminecraft.init.ModEntityTypes;
+import com.eilfyt.starwarsinminecraft.init.TileEntityInit;
 import com.eilfyt.starwarsinminecraft.util.RegistryHandler;
 import com.eilfyt.starwarsinminecraft.world.gen.OreGeneration;
 import com.eilfyt.starwarsinminecraft.world.structures.ConfiguredStructures;
@@ -55,11 +57,12 @@ public class  StarWarsInMinecraft
 
 
         IEventBus modEventBus = FMLJavaModLoadingContext.get().getModEventBus();
-
+        FluidInit.FLUIDS.register(modEventBus);
         Structures.DEFERRED_REGISTRY_STRUCTURE.register(modEventBus);
         ModEntityTypes.ENTITY_TYPES.register(modEventBus);
         EffectRegister.EFFECTS.register(modEventBus);
         EffectRegister.POTIONS.register(modEventBus);
+        TileEntityInit.TILES.register(modEventBus);
         Biomes.BIOMES.register(modEventBus);
         RegistryHandler.BLOCKS.register(modEventBus);
         RegistryHandler.ITEMS.register(modEventBus);
@@ -141,8 +144,7 @@ if (!event.getCategory().equals(Biome.Category.NETHER) && !event.getCategory().e
 
     @SubscribeEvent
     public void serverLoad(RegisterCommandsEvent event) {
-            ModCommands.register(event.getDispatcher());
-        CustomGamemodeConfig.register(event.getDispatcher());
+        ModCommands.register(event.getDispatcher());
         NukeCommand.register(event.getDispatcher());
         CooldownResetCommand.register(event.getDispatcher());
         TeleportCommand.register(event.getDispatcher());

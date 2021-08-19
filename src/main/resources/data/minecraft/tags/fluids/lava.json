@@ -1,0 +1,7 @@
+{
+  "replace": false,
+  "values": [
+    "starwars:still_blue_lava",
+    "starwars:flowing_blue_lava"
+  ]
+}

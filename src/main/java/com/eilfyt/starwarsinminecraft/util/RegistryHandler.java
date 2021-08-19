@@ -3,6 +3,7 @@ package com.eilfyt.starwarsinminecraft.util;
 import com.eilfyt.starwarsinminecraft.StarWarsInMinecraft;
 import com.eilfyt.starwarsinminecraft.armor.ModArmorMaterial;
 import com.eilfyt.starwarsinminecraft.blocks.*;
+import com.eilfyt.starwarsinminecraft.init.FluidInit;
 import com.eilfyt.starwarsinminecraft.init.ModEntityTypes;
 import com.eilfyt.starwarsinminecraft.items.*;
 import com.eilfyt.starwarsinminecraft.tools.ModItemTier;
@@ -13,6 +14,7 @@ import net.minecraft.util.registry.Registry;
 import net.minecraftforge.fml.RegistryObject;
 import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
+import org.apache.logging.log4j.ThreadContext;
 
 public class RegistryHandler {
 
@@ -50,7 +52,9 @@ public class RegistryHandler {
     public static final RegistryObject<Item> DIAMANTES_HANDLE = ITEMS.register("diamante_handle", SbItemBase::new);
     public static final RegistryObject<Item> MAGMA = ITEMS.register("magma", ItemBase::new);
     public static final RegistryObject<Item> ROD_OF_DISCORD = ITEMS.register("rod_of_discord", RodOfDiscord::new);
-
+    public static final RegistryObject<BucketItem> BLUE_LAVA_BUCKET = ITEMS.register("blue_lava_bucket",
+            () -> new BucketItem(() -> FluidInit.STILL_BLUE_LAVA.get(),
+                    new Item.Properties().tab(StarWarsInMinecraft.TAB).stacksTo(1)));
 //idek anymore man
 
 
@@ -66,6 +70,10 @@ public class RegistryHandler {
     public static final RegistryObject<Block> MAGMA_ORE = BLOCKS.register("magma_ore", MagmaOreBlock::new);
     public static final RegistryObject<Block> BLACKSTONEE = BLOCKS.register("blackstone_two", BlackstoneBlock::new);
     public static final RegistryObject<Block> VERTICAL_KYBER_SLAB_BLOCK = BLOCKS.register("vertical_kyber_slab", VerticalKyberSlab::new);
+    public static final RegistryObject<Block> IRON_FORGE = BLOCKS.register("iron_forge", IronForge::new);
+    public static final RegistryObject<Block> DIAMOND_FORGE = BLOCKS.register("diamond_forge", DiamondForge::new);
+    public static final RegistryObject<Block> NETHERITE_FORGE = BLOCKS.register("netherite_forge", NetheriteForge::new);
+    public static final RegistryObject<Block> KYBER_FORGE = BLOCKS.register("kyber_forge", KyberForge::new);
 
 
     //block items
@@ -79,6 +87,10 @@ public class RegistryHandler {
     public static final RegistryObject<Item> NETHER_CRYSTAL_ORE_BLOCK_ITEM = ITEMS.register("nether_crystal_ore",() -> new BlockItemBase(NETHER_CRYSTAL_ORE_BLOCK.get()));
     public static final RegistryObject<Item> MAGMA_ORE_ITEM = ITEMS.register("magma_ore",() -> new BlockItemBase(MAGMA_ORE.get()));
     public static final RegistryObject<Item> VERTICAL_KYBER_SLAB_BLOCK_ITEM = ITEMS.register("vertical_kyber_slab",() -> new BlockItemBase(VERTICAL_KYBER_SLAB_BLOCK.get()));
+    public static final RegistryObject<Item> IRON_FORGE_ITEM = ITEMS.register("iron_forge",() -> new BlockItemBase(IRON_FORGE.get()));
+    public static final RegistryObject<Item> DIAMOND_FORGE_ITEM = ITEMS.register("diamond_forge",() -> new BlockItemBase(DIAMOND_FORGE.get()));
+    public static final RegistryObject<Item> NETHERITE_FORGE_ITEM = ITEMS.register("netherite_forge", () -> new BlockItemBase(NETHERITE_FORGE.get()));
+    public static final RegistryObject<Item> KYBER_FORGE_ITEM = ITEMS.register("kyber_forge", () -> new BlockItemBase(KYBER_FORGE.get()));
 
 
     //tools go here

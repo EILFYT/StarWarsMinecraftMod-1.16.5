@@ -91,5 +91,9 @@
   "item.starwars.blaster": "Stormtrooper Blaster",
   "item.starwars.bullet": "Blaster Ammo",
   "item.starwars.nuke_targeting_device": "Nuke Targeting Device",
-  "block.starwars.rocket_block": "Rocket Block"
+  "block.starwars.rocket_block": "Rocket Block",
+  "block.starwars.iron_forge": "Iron Forge",
+  "block.starwars.diamond_forge": "Diamond Forge",
+  "block.starwars.netherite_forge": "Netherite Forge",
+  "block.starwars.kyber_forge": "Kyber Forge"
 }

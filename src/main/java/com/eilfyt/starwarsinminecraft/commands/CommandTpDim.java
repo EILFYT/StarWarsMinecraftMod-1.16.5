@@ -28,8 +28,6 @@ public class CommandTpDim implements Command<CommandSource> {
                 .executes(CMD);
     }
 
-
-
     @Override
     public int run(CommandContext<CommandSource> context) throws CommandSyntaxException {
         ServerPlayerEntity player = context.getSource().getPlayerOrException();

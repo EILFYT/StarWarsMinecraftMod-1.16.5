@@ -1,7 +1,7 @@
 package com.eilfyt.starwarsinminecraft.init;
 
 import com.eilfyt.starwarsinminecraft.StarWarsInMinecraft;
-import com.eilfyt.starwarsinminecraft.effects.KeelEveryoneEffect;
+import com.eilfyt.starwarsinminecraft.effects.KillEffect;
 import com.eilfyt.starwarsinminecraft.effects.SugarRushEffect;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
@@ -22,7 +22,7 @@ public class EffectRegister {
         POTIONS.register(FMLJavaModLoadingContext.get().getModEventBus());
     }
 
-    public static final RegistryObject<Effect> KEEL = EFFECTS.register("healing", KeelEveryoneEffect::new);
+    public static final RegistryObject<Effect> KEEL = EFFECTS.register("healing", KillEffect::new);
     public static final RegistryObject<Potion> KEEL_POTION = POTIONS.register("healing_potion", () -> new Potion(new EffectInstance(KEEL.get(), 200, 0)));
     public static final RegistryObject<Effect> SUGAR_RUSH = EFFECTS.register("sugar_rush", SugarRushEffect::new);
     public static final RegistryObject<Potion> SUGAR_POTION = POTIONS.register("sugar_pot", () -> new Potion(new EffectInstance(SUGAR_RUSH.get(), 20, 0)));

@@ -1,0 +1,8 @@
+{
+  "variants": {
+    "facing=south": { "model": "starwars:block/netherite_forge", "y": 90},
+    "facing=north": { "model": "starwars:block/netherite_forge", "y":  270},
+    "facing=east": { "model": "starwars:block/netherite_forge"},
+    "facing=west": { "model": "starwars:block/netherite_forge", "y":  180}
+  }
+}
