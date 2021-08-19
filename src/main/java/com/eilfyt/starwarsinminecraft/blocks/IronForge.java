@@ -7,6 +7,7 @@ import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.BlockItemUseContext;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.Items;
+import net.minecraft.loot.LootContext;
 import net.minecraft.nbt.CompoundNBT;
 import net.minecraft.nbt.INBT;
 import net.minecraft.state.DirectionProperty;
@@ -31,11 +32,11 @@ import net.minecraft.world.World;
 import net.minecraftforge.common.ToolType;
 
 import javax.annotation.Nullable;
+import java.util.List;
 import java.util.stream.Stream;
 
 public class IronForge extends Block {
     public static final IntegerProperty LAVA_LEVEL = IntegerProperty.create("lava_level", 0, 3);
-    CompoundNBT compoundNBT = new CompoundNBT();
     public IronForge() {
         super(AbstractBlock.Properties.of(Material.STONE)
                 .strength(6f, 1200f)
@@ -146,6 +147,7 @@ public class IronForge extends Block {
     @Override
     protected void createBlockStateDefinition(StateContainer.Builder<Block, BlockState> builder) {
         builder.add(FACING);
+        builder.add(LAVA_LEVEL);
     }
 
     @Override
@@ -161,7 +163,7 @@ public class IronForge extends Block {
     @Nullable
     @Override
     public TileEntity createTileEntity(BlockState state, IBlockReader world) {
-        return new IronForgeTileEntity(compoundNBT);
+        return new IronForgeTileEntity();
     }
 
     @Override
@@ -170,24 +172,44 @@ public class IronForge extends Block {
             return ActionResultType.SUCCESS;
         }
         if (p_225533_4_.getItemInHand(p_225533_5_).getItem() == RegistryHandler.BLUE_LAVA_BUCKET.get()) {
-            compoundNBT.putInt("LavaLevel", 2);
+            if (p_225533_1_.getValue(LAVA_LEVEL) == 2) {
+                return super.use(p_225533_1_, p_225533_2_, p_225533_3_, p_225533_4_, p_225533_5_, p_225533_6_);
+            } else if (p_225533_1_.getValue(LAVA_LEVEL) == 1) {
+                BlockState blockstate = p_225533_1_.setValue(LAVA_LEVEL, 2);
+            p_225533_2_.setBlock(p_225533_3_, blockstate, 2);
+            p_225533_4_.setItemInHand(p_225533_5_, Items.LAVA_BUCKET.getDefaultInstance());
+            return super.use(p_225533_1_, p_225533_2_, p_225533_3_, p_225533_4_, p_225533_5_, p_225533_6_);
+        }
 
-
-                    BlockState blockstate = p_225533_1_.cycle(LAVA_LEVEL);
-                    p_225533_2_.setBlock(p_225533_3_, blockstate, compoundNBT.getInt("LavaLevel"));
+                BlockState blockstate = p_225533_1_.setValue(LAVA_LEVEL, 2);
+                    p_225533_2_.setBlock(p_225533_3_, blockstate, 2);
                     p_225533_4_.setItemInHand(p_225533_5_, Items.BUCKET.getDefaultInstance());
                     return ActionResultType.CONSUME;
 
         } else if (p_225533_4_.getItemInHand(p_225533_5_).getItem() == Items.LAVA_BUCKET) {
-            compoundNBT.putInt("LavaLevel", 1);
-            BlockState blockstate = p_225533_1_.cycle(LAVA_LEVEL);
-            p_225533_2_.setBlock(p_225533_3_, blockstate, compoundNBT.getInt("LavaLevel"));
+            if (p_225533_1_.getValue(LAVA_LEVEL) == 1) {
+                return super.use(p_225533_1_, p_225533_2_, p_225533_3_, p_225533_4_, p_225533_5_, p_225533_6_);
+            } else if (p_225533_1_.getValue(LAVA_LEVEL) == 2) {            BlockState blockstate = p_225533_1_.setValue(LAVA_LEVEL, 1);
+                p_225533_2_.setBlock(p_225533_3_, blockstate, 1);
+                p_225533_4_.setItemInHand(p_225533_5_, RegistryHandler.BLUE_LAVA_BUCKET.get().getDefaultInstance());
+                return super.use(p_225533_1_, p_225533_2_, p_225533_3_, p_225533_4_, p_225533_5_, p_225533_6_);
+            }
+            BlockState blockstate = p_225533_1_.setValue(LAVA_LEVEL, 1);
+            p_225533_2_.setBlock(p_225533_3_, blockstate, 1);
             p_225533_4_.setItemInHand(p_225533_5_, Items.BUCKET.getDefaultInstance());
             return ActionResultType.CONSUME;
+        } else if (p_225533_4_.getItemInHand(p_225533_5_).getItem() == Items.BUCKET) {
+            if (p_225533_1_.getValue(LAVA_LEVEL) == 2) {
+                p_225533_4_.setItemInHand(p_225533_5_, RegistryHandler.BLUE_LAVA_BUCKET.get().getDefaultInstance());
+                BlockState blockstate = p_225533_1_.setValue(LAVA_LEVEL, 0);
+                p_225533_2_.setBlock(p_225533_3_, blockstate, 0);
+            } else if (p_225533_1_.getValue(LAVA_LEVEL) == 1) {
+                p_225533_4_.setItemInHand(p_225533_5_, Items.LAVA_BUCKET.getDefaultInstance());
+                BlockState blockstate = p_225533_1_.setValue(LAVA_LEVEL, 0);
+                p_225533_2_.setBlock(p_225533_3_, blockstate, 0);
+            }
         }
         return super.use(p_225533_1_, p_225533_2_, p_225533_3_, p_225533_4_, p_225533_5_, p_225533_6_);
     }
-
-
 
 }

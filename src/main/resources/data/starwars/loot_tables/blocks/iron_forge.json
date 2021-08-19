@@ -1,0 +1,27 @@
+{
+  "type": "minecraft:block",
+  "pools": [
+    {
+      "rolls": 1,
+      "entries": [
+        {
+          "type": "minecraft:item",
+          "functions": [
+            {
+              "function": "minecraft:copy_nbt",
+              "source": "block_entity",
+              "ops": [
+                {
+                  "source": "lava_level",
+                  "target": "lava_level",
+                  "op": "replace"
+                }
+              ]
+            }
+          ],
+          "name": "starwars:iron_forge"
+        }
+      ]
+    }
+  ]
+}
