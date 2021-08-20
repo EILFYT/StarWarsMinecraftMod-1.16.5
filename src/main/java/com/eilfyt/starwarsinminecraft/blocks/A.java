@@ -9,5 +9,6 @@ public class A extends BlockItem {
     public A(Block block) {
         super(block, new Item.Properties().tab(StarWarsInMinecraft.E));
     }
+    
 }
 

@@ -9,6 +9,7 @@ public class ShrekBlock extends Block {
                 .sound(SoundType.BAMBOO)
                 .jumpFactor(2.0f)
                 .strength(0, 0)
+
         );
     }
 }

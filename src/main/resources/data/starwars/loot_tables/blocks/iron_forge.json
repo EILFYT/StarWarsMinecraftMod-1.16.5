@@ -6,20 +6,16 @@
       "entries": [
         {
           "type": "minecraft:item",
+          "name": "starwars:iron_forge",
           "functions": [
             {
-              "function": "minecraft:copy_nbt",
-              "source": "block_entity",
-              "ops": [
-                {
-                  "source": "lava_level",
-                  "target": "lava_level",
-                  "op": "replace"
-                }
+              "function": "minecraft:copy_state",
+              "block": "starwars:iron_forge",
+              "properties": [
+                "lava_level"
               ]
             }
-          ],
-          "name": "starwars:iron_forge"
+          ]
         }
       ]
     }
