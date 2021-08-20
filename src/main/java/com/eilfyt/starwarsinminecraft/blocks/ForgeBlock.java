@@ -38,7 +38,7 @@ import java.util.stream.Stream;
 public class ForgeBlock extends Block {
     public static final IntegerProperty LAVA_LEVEL = IntegerProperty.create("lava_level", 0, 3);
     public ForgeBlock() {
-        super();
+        super(AbstractBlock.Properties.of(Material.STONE));
         this.registerDefaultState(this.stateDefinition.any().setValue(LAVA_LEVEL, 0));
     }
 
