@@ -14,6 +14,7 @@ import net.minecraft.command.impl.GiveCommand;
 import net.minecraft.entity.Entity;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.text.ITextComponent;
+import net.minecraft.util.text.StringTextComponent;
 import net.minecraft.world.Explosion;
 import org.apache.logging.log4j.Level;
 
@@ -29,7 +30,6 @@ public class GiveItemCommand {
 
     static int giveitem(CommandContext<CommandSource> commandContext) throws CommandSyntaxException {
         ItemInput item = ItemArgument.getItem(commandContext, "item");
-
         commandContext.getSource().getPlayerOrException().inventory.add(new ItemStack(item.getItem(), 64));
         return 1;
     }

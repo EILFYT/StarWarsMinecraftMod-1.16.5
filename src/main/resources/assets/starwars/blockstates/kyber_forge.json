@@ -1,8 +1,16 @@
 {
   "variants": {
-    "facing=south": { "model": "starwars:block/kyber_forge", "y": 90},
-    "facing=north": { "model": "starwars:block/kyber_forge", "y":  270},
-    "facing=east": { "model": "starwars:block/kyber_forge"},
-    "facing=west": { "model": "starwars:block/kyber_forge", "y":  180}
+    "facing=south,lava_level=0": { "model": "starwars:block/kyber_forge_empty", "y": 90},
+    "facing=north,lava_level=0": { "model": "starwars:block/kyber_forge_empty", "y":  270},
+    "facing=east,lava_level=0": { "model": "starwars:block/kyber_forge_empty"},
+    "facing=west,lava_level=0": { "model": "starwars:block/kyber_forge_empty", "y":  180},
+    "facing=south,lava_level=1": { "model": "starwars:block/kyber_forge", "y": 90},
+    "facing=north,lava_level=1": { "model": "starwars:block/kyber_forge", "y":  270},
+    "facing=east,lava_level=1": { "model": "starwars:block/kyber_forge"},
+    "facing=west,lava_level=1": { "model": "starwars:block/kyber_forge", "y":  180},
+    "facing=south,lava_level=2": { "model": "starwars:block/kyber_forge_blue", "y": 90},
+    "facing=north,lava_level=2": { "model": "starwars:block/kyber_forge_blue", "y":  270},
+    "facing=east,lava_level=2": { "model": "starwars:block/kyber_forge_blue"},
+    "facing=west,lava_level=2": { "model": "starwars:block/kyber_forge_blue", "y":  180}
   }
 }

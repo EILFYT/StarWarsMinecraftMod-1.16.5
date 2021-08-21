@@ -4,6 +4,9 @@ import com.eilfyt.starwarsinminecraft.util.RegistryHandler;
 import net.minecraft.block.*;
 import net.minecraft.block.material.Material;
 import net.minecraft.entity.player.PlayerEntity;
+import net.minecraft.inventory.container.INamedContainerProvider;
+import net.minecraft.inventory.container.SimpleNamedContainerProvider;
+import net.minecraft.inventory.container.WorkbenchContainer;
 import net.minecraft.item.BlockItemUseContext;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.Items;
@@ -17,16 +20,17 @@ import net.minecraft.state.properties.BlockStateProperties;
 import net.minecraft.tileentity.FurnaceTileEntity;
 import net.minecraft.tileentity.ShulkerBoxTileEntity;
 import net.minecraft.tileentity.TileEntity;
-import net.minecraft.util.ActionResultType;
-import net.minecraft.util.Hand;
-import net.minecraft.util.Mirror;
-import net.minecraft.util.Rotation;
+import net.minecraft.util.*;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.BlockRayTraceResult;
 import net.minecraft.util.math.shapes.IBooleanFunction;
 import net.minecraft.util.math.shapes.ISelectionContext;
 import net.minecraft.util.math.shapes.VoxelShape;
 import net.minecraft.util.math.shapes.VoxelShapes;
+import net.minecraft.util.text.ITextComponent;
+import net.minecraft.util.text.StringTextComponent;
+import net.minecraft.util.text.TextComponent;
+import net.minecraft.util.text.TranslationTextComponent;
 import net.minecraft.world.IBlockReader;
 import net.minecraft.world.World;
 import net.minecraftforge.common.ToolType;
@@ -37,8 +41,8 @@ import java.util.stream.Stream;
 
 public class ForgeBlock extends Block {
     public static final IntegerProperty LAVA_LEVEL = IntegerProperty.create("lava_level", 0, 3);
-    public ForgeBlock() {
-        super(AbstractBlock.Properties.of(Material.STONE));
+    public ForgeBlock(AbstractBlock.Properties p_i48440_1_) {
+        super(p_i48440_1_);
         this.registerDefaultState(this.stateDefinition.any().setValue(LAVA_LEVEL, 0));
     }
 
@@ -192,8 +196,18 @@ public class ForgeBlock extends Block {
                 BlockState blockstate = p_225533_1_.setValue(LAVA_LEVEL, 0);
                 p_225533_2_.setBlock(p_225533_3_, blockstate, 0);
             }
+        } else {
+
+            p_225533_4_.openMenu(p_225533_1_.getMenuProvider(p_225533_2_, p_225533_3_));
         }
         return super.use(p_225533_1_, p_225533_2_, p_225533_3_, p_225533_4_, p_225533_5_, p_225533_6_);
+    }
+    private static final ITextComponent CONTAINER_TITLE = new StringTextComponent("Forge Gui");
+
+    public INamedContainerProvider getMenuProvider(BlockState p_220052_1_, World p_220052_2_, BlockPos p_220052_3_) {
+        return new SimpleNamedContainerProvider((p_220270_2_, p_220270_3_, p_220270_4_) -> {
+            return new ForgeContainer(p_220270_2_, p_220270_3_, IWorldPosCallable.create(p_220052_2_, p_220052_3_));
+        }, CONTAINER_TITLE);
     }
 
 }

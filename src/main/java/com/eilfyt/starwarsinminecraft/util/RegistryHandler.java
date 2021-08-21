@@ -69,7 +69,7 @@ public class RegistryHandler {
     public static final RegistryObject<Block> MAGMA_ORE = BLOCKS.register("magma_ore", MagmaOreBlock::new);
     public static final RegistryObject<Block> BLACKSTONEE = BLOCKS.register("blackstone_two", BlackstoneBlock::new);
     public static final RegistryObject<Block> VERTICAL_KYBER_SLAB_BLOCK = BLOCKS.register("vertical_kyber_slab", VerticalKyberSlab::new);
-    public static final RegistryObject<Block> IRON_FORGE = BLOCKS.register("iron_forge", ForgeBlock::new);
+    public static final RegistryObject<Block> IRON_FORGE = BLOCKS.register("iron_forge", IronForge::new);
     public static final RegistryObject<Block> DIAMOND_FORGE = BLOCKS.register("diamond_forge", DiamondForge::new);
     public static final RegistryObject<Block> NETHERITE_FORGE = BLOCKS.register("netherite_forge", NetheriteForge::new);
     public static final RegistryObject<Block> KYBER_FORGE = BLOCKS.register("kyber_forge", KyberForge::new);
