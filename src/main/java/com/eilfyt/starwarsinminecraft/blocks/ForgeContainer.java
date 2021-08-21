@@ -11,6 +11,7 @@ import net.minecraft.inventory.IInventory;
 import net.minecraft.inventory.container.*;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.crafting.*;
+import net.minecraft.network.PacketBuffer;
 import net.minecraft.network.play.server.SSetSlotPacket;
 import net.minecraft.util.IWorldPosCallable;
 import net.minecraft.world.World;
@@ -25,7 +26,9 @@ public class ForgeContainer extends RecipeBookContainer<CraftingInventory> {
     private final IWorldPosCallable access;
     private final PlayerEntity player;
 
-
+    public ForgeContainer(int intIn, PlayerInventory playerInventory) {
+        this(intIn, playerInventory, IWorldPosCallable.NULL);
+    }
 
     public ForgeContainer(int p_i50090_1_, PlayerInventory p_i50090_2_, IWorldPosCallable p_i50090_3_) {
         super(ContainerInit.FORGE.get(), p_i50090_1_);
@@ -51,10 +54,9 @@ public class ForgeContainer extends RecipeBookContainer<CraftingInventory> {
 
     }
 
-    public ForgeContainer(int intIn, PlayerInventory playerInventory) {
-        this(intIn, playerInventory, IWorldPosCallable.NULL);
+    public ForgeContainer(int i, PlayerInventory playerInventory, PacketBuffer packetBuffer) {
+        this(i, playerInventory, IWorldPosCallable.NULL);
     }
-
 
 
     protected static void slotChangedCraftingGrid(int p_217066_0_, World p_217066_1_, PlayerEntity p_217066_2_, CraftingInventory p_217066_3_, CraftResultInventory p_217066_4_) {
@@ -175,6 +177,6 @@ public class ForgeContainer extends RecipeBookContainer<CraftingInventory> {
 
     @OnlyIn(Dist.CLIENT)
     public RecipeBookCategory getRecipeBookType() {
-        return null;
+        return RecipeBookCategory.CRAFTING;
     }
 }

@@ -6,6 +6,7 @@ import com.eilfyt.starwarsinminecraft.blocks.ForgeScreen;
 import com.eilfyt.starwarsinminecraft.client.render.BulletRenderer;
 import com.eilfyt.starwarsinminecraft.client.render.DragonArcherRenderer;
 import com.eilfyt.starwarsinminecraft.client.render.PorgRenderer;
+import com.eilfyt.starwarsinminecraft.init.ContainerInit;
 import com.eilfyt.starwarsinminecraft.init.ModEntityTypes;
 import com.eilfyt.starwarsinminecraft.items.ModSpawnEggItem;
 import net.minecraft.client.gui.ScreenManager;
@@ -31,7 +32,7 @@ public class ClientEventBusSubscriber {
         }
     @SubscribeEvent
     public static void clientSetup(FMLClientSetupEvent event) {
-        ScreenManager.register(ContainerType.CRAFTING, ForgeScreen::new);
+        ScreenManager.register(ContainerInit.FORGE.get(), ForgeScreen::new);
     }
     @SubscribeEvent
     public static void onRegisterEntities(final RegistryEvent.Register<EntityType<?>> event) {

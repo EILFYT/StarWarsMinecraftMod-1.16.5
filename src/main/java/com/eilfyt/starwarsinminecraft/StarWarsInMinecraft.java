@@ -4,6 +4,7 @@ import com.eilfyt.starwarsinminecraft.biomes.Biomes;
 import com.eilfyt.starwarsinminecraft.commands.*;
 import com.eilfyt.starwarsinminecraft.entities.AbstractDragonArcherEntity;
 import com.eilfyt.starwarsinminecraft.entities.PorgEntity;
+import com.eilfyt.starwarsinminecraft.init.ContainerInit;
 import com.eilfyt.starwarsinminecraft.init.EffectRegister;
 import com.eilfyt.starwarsinminecraft.init.FluidInit;
 import com.eilfyt.starwarsinminecraft.init.ModEntityTypes;
@@ -59,6 +60,7 @@ public class  StarWarsInMinecraft
         Structures.DEFERRED_REGISTRY_STRUCTURE.register(modEventBus);
         ModEntityTypes.ENTITY_TYPES.register(modEventBus);
         EffectRegister.EFFECTS.register(modEventBus);
+        ContainerInit.CONTAINERS.register(modEventBus);
         EffectRegister.POTIONS.register(modEventBus);
         Biomes.BIOMES.register(modEventBus);
         RegistryHandler.BLOCKS.register(modEventBus);
