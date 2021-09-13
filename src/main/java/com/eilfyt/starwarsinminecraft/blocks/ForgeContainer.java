@@ -176,6 +176,7 @@ public class ForgeContainer extends RecipeBookContainer<CraftingInventory> {
     }
 
     @OnlyIn(Dist.CLIENT)
+    @Override
     public RecipeBookCategory getRecipeBookType() {
         return RecipeBookCategory.CRAFTING;
     }

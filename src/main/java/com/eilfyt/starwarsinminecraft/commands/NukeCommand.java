@@ -33,7 +33,7 @@ public class NukeCommand {
         int radius = IntegerArgumentType.getInteger(commandContext, "radius");
 
 
-            commandContext.getSource().getPlayerOrException().getCommandSenderWorld().explode((Entity) commandContext.getSource().getPlayerOrException(),
+            commandContext.getSource().getPlayerOrException().getCommandSenderWorld().explode(commandContext.getSource().getPlayerOrException(),
                     commandContext.getSource().getPlayerOrException().getX(),
                     commandContext.getSource().getPlayerOrException().getY(),
                     commandContext.getSource().getPlayerOrException().getZ(),

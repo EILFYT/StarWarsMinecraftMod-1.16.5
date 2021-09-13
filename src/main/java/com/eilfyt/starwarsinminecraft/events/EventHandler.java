@@ -16,6 +16,7 @@ import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.item.EnderCrystalEntity;
 import net.minecraft.entity.monster.ZombieEntity;
 import net.minecraft.entity.passive.ChickenEntity;
+import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.inventory.EquipmentSlotType;
 import net.minecraft.item.ItemStack;
 import net.minecraft.potion.EffectInstance;
@@ -61,7 +62,9 @@ public class EventHandler {
 
     @SubscribeEvent
     public static void noFallDamageForYou(LivingFallEvent fallEvent) {
-        fallEvent.setDamageMultiplier(0f);
+if (fallEvent.getEntity() instanceof PlayerEntity || fallEvent.getEntity() instanceof PorgEntity || fallEvent.getEntity() instanceof DragonArcherEntity)
+   {  fallEvent.setDamageMultiplier(0f);
+    }
     }
 
 static PriorityQueue<BlockPos> priorityQueue = new PriorityQueue<>();
