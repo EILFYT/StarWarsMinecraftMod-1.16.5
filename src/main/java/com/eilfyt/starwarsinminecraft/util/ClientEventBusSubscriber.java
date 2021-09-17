@@ -47,6 +47,8 @@ public class ClientEventBusSubscriber {
             RenderingRegistry.registerEntityRenderingHandler(ModEntityTypes.BULLET.get(), BulletRenderer::new);
             RenderingRegistry.registerEntityRenderingHandler(ModEntityTypes.PORG.get(), PorgRenderer::new);
             RenderingRegistry.registerEntityRenderingHandler(ModEntityTypes.DRAGON_ARCHER.get(), DragonArcherRenderer::new);
+            for (PlayerRenderer playerRenderer : Minecraft.getInstance().getEntityRenderDispatcher().getSkinMap().values())
+                playerRenderer.addLayer((new PlayerFishHatRenderer(playerRenderer)));
         }
     @SubscribeEvent
     public static void clientSetup(FMLClientSetupEvent event) {
@@ -55,10 +57,5 @@ public class ClientEventBusSubscriber {
     @SubscribeEvent
     public static void onRegisterEntities(final RegistryEvent.Register<EntityType<?>> event) {
         ModSpawnEggItem.initSpawnEggs();
-    }
-    @SubscribeEvent
-    public static void idk(RenderPlayerEvent event) {
-            for (PlayerRenderer playerRenderer : Minecraft.getInstance().getEntityRenderDispatcher().getSkinMap().values())
-            event.getRenderer().addLayer((new PlayerFishHatRenderer(playerRenderer)));
     }
 }

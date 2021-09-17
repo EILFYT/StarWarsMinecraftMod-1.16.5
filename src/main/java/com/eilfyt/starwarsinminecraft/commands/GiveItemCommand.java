@@ -1,11 +1,13 @@
 package com.eilfyt.starwarsinminecraft.commands;
 
 import com.eilfyt.starwarsinminecraft.StarWarsInMinecraft;
+import com.eilfyt.starwarsinminecraft.client.render.PlayerFishHatRenderer;
 import com.mojang.brigadier.CommandDispatcher;
 import com.mojang.brigadier.arguments.IntegerArgumentType;
 import com.mojang.brigadier.builder.LiteralArgumentBuilder;
 import com.mojang.brigadier.context.CommandContext;
 import com.mojang.brigadier.exceptions.CommandSyntaxException;
+import net.minecraft.client.Minecraft;
 import net.minecraft.command.CommandSource;
 import net.minecraft.command.Commands;
 import net.minecraft.command.arguments.ItemArgument;

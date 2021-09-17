@@ -73,7 +73,7 @@ public class Blaster extends CrossbowItem
         int i = this.getUseDuration(stack);
         float f = getCharge(i, stack);
 
-        if (f >= 0.6F && !isCharged(stack) && hasAmmo(entityLiving, stack)) //Had to reduce the test down from >= 1.0F because it was never reached
+        if (f >= 0.6F && !isCharged(stack) && hasAmmo(entityLiving, stack))
         {
             setCharged(stack, true);
             SoundCategory soundcategory = entityLiving instanceof PlayerEntity ? SoundCategory.PLAYERS : SoundCategory.HOSTILE;

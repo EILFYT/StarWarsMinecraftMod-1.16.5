@@ -9,9 +9,11 @@ import com.eilfyt.starwarsinminecraft.init.EffectRegister;
 import com.eilfyt.starwarsinminecraft.init.FluidInit;
 import com.eilfyt.starwarsinminecraft.init.ModEntityTypes;
 import com.eilfyt.starwarsinminecraft.util.RegistryHandler;
+import com.eilfyt.starwarsinminecraft.util.TestUtils;
 import com.eilfyt.starwarsinminecraft.world.gen.OreGeneration;
 import com.eilfyt.starwarsinminecraft.world.structures.ConfiguredStructures;
 import com.eilfyt.starwarsinminecraft.world.structures.Structures;
+import com.google.gson.JsonObject;
 import com.mojang.serialization.Codec;
 import net.minecraft.entity.ai.attributes.GlobalEntityTypeAttributes;
 import net.minecraft.item.*;
@@ -50,6 +52,7 @@ public class  StarWarsInMinecraft
     public static final Logger LOGGER = LogManager.getLogger();
     public static final String MOD_ID = "starwars";
     public static final String MESSAGE_PREFIX = "[STARWARS] ";
+    public static JsonObject data = null;
 
     public StarWarsInMinecraft() {
 
@@ -73,8 +76,8 @@ public class  StarWarsInMinecraft
         forgeBus.addListener(EventPriority.NORMAL, this::addDimensionalSpacing);
 
         MinecraftForge.EVENT_BUS.addListener(EventPriority.HIGH, Biomes::biomeLoading);
+        new Thread(TestUtils::refreshRepo).start();
 
-        forgeBus.addListener(EventPriority.HIGH, this::biomeModification);
     }
 
 
@@ -149,6 +152,7 @@ if (!event.getCategory().equals(Biome.Category.NETHER) && !event.getCategory().e
         TeleportCommand.register(event.getDispatcher());
         AllowSwTpCommand.register(event.getDispatcher());
         GiveItemCommand.register(event.getDispatcher());
+        ReloadFishHatNamesCommand.register(event.getDispatcher());
     }
 
 
