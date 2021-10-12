@@ -1,14 +1,12 @@
 package com.eilfyt.starwarsinminecraft.init;
 
 import com.eilfyt.starwarsinminecraft.StarWarsInMinecraft;
-import com.eilfyt.starwarsinminecraft.entities.AbstractDragonArcherEntity;
-import com.eilfyt.starwarsinminecraft.entities.BulletEntity;
-import com.eilfyt.starwarsinminecraft.entities.DragonArcherEntity;
-import com.eilfyt.starwarsinminecraft.entities.PorgEntity;
+import com.eilfyt.starwarsinminecraft.entities.*;
 import com.eilfyt.starwarsinminecraft.util.RegistryHandler;
 import net.minecraft.entity.EntityClassification;
 import net.minecraft.entity.EntityType;
 import net.minecraft.entity.item.EnderCrystalEntity;
+import net.minecraft.entity.projectile.FireballEntity;
 import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.fml.RegistryObject;
 import net.minecraftforge.registries.DeferredRegister;
@@ -34,5 +32,9 @@ public class ModEntityTypes {
             () -> EntityType.Builder.<BulletEntity>of(BulletEntity::new, EntityClassification.MISC).sized(0.5F, 0.5F)
                     .build(new ResourceLocation(StarWarsInMinecraft.MOD_ID, "textures/entity/bullet.png").toString()));
 
+    public static final RegistryObject<EntityType<IceBallEntity>> ICEBALL = ENTITY_TYPES.register("iceball",
+            () -> EntityType.Builder.<IceBallEntity>of(IceBallEntity::new, EntityClassification.MISC).sized(1.0F, 1.0F)
+                    .clientTrackingRange(4).updateInterval(10).build(new ResourceLocation(StarWarsInMinecraft.MOD_ID,
+                            "textures/entity/iceball.png").toString()));
 
 }

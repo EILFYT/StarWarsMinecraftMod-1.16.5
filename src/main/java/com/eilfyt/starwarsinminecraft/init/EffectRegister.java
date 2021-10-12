@@ -1,6 +1,7 @@
 package com.eilfyt.starwarsinminecraft.init;
 
 import com.eilfyt.starwarsinminecraft.StarWarsInMinecraft;
+import com.eilfyt.starwarsinminecraft.effects.FreezeEffect;
 import com.eilfyt.starwarsinminecraft.effects.KillEffect;
 import com.eilfyt.starwarsinminecraft.effects.SugarRushEffect;
 import net.minecraft.item.Item;
@@ -21,11 +22,11 @@ public class EffectRegister {
         EFFECTS.register(FMLJavaModLoadingContext.get().getModEventBus());
         POTIONS.register(FMLJavaModLoadingContext.get().getModEventBus());
     }
-
     public static final RegistryObject<Effect> KEEL = EFFECTS.register("healing", KillEffect::new);
     public static final RegistryObject<Potion> KEEL_POTION = POTIONS.register("healing_potion", () -> new Potion(new EffectInstance(KEEL.get(), 200, 0)));
     public static final RegistryObject<Effect> SUGAR_RUSH = EFFECTS.register("sugar_rush", SugarRushEffect::new);
     public static final RegistryObject<Potion> SUGAR_POTION = POTIONS.register("sugar_pot", () -> new Potion(new EffectInstance(SUGAR_RUSH.get(), 20, 0)));
+    public static final RegistryObject<Effect> FREEZE = EFFECTS.register("freeze", FreezeEffect::new);
 
     public static void addPotionRecipes() {
         BrewingRecipeRegistry.addRecipe(new BetterBrewingRecipe(Potions.AWKWARD, Items.ROTTEN_FLESH, KEEL_POTION.get()));

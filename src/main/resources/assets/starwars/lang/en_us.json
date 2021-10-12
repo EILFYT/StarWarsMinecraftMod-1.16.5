@@ -1,5 +1,6 @@
 {
   "item.starwars.sugar_funnel": "Sugar Funnel",
+  "item.starwars.cmd_scroll": "Command Scroll",
   "item.starwars.funnel": "Funnel",
   "item.starwars.dragon_soul_bow": "Dragon Soul Bow",
   "item.starwars.kyber_crystal": "Kyber Crystal",
@@ -96,5 +97,7 @@
   "block.starwars.diamond_forge": "Diamond Forge",
   "block.starwars.netherite_forge": "Netherite Forge",
   "block.starwars.kyber_forge": "Kyber Forge",
-  "item.starwars.blue_lava_bucket": "Blue Lava Bucket"
+  "item.starwars.blue_lava_bucket": "Blue Lava Bucket",
+  "item.starwars.magma_staff": "Magma Staff",
+  "item.starwars.freezing_staff": "Freezing Staff"
 }

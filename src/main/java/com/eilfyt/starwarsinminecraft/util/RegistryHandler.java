@@ -24,7 +24,10 @@ public class RegistryHandler {
 
 
     //items go here
+    public static final RegistryObject<FreezeStaff> ICE_STAFF = ITEMS.register("freezing_staff", FreezeStaff::new);
+    public static final RegistryObject<MagmaStaff> MAGMA_STAFF = ITEMS.register("magma_staff", MagmaStaff::new);
     public static final RegistryObject<BulletItem> BULLET = ITEMS.register("bullet", BulletItem::new);
+    public static final RegistryObject<CommandBookItem> COMMAND_BOOK = ITEMS.register("cmd_scroll", CommandBookItem::new);
     public static final RegistryObject<Item> KYBERCRYSTAL = ITEMS.register("kyber_crystal", ItemBase::new);
     public static final RegistryObject<NukeTargetingDevice> NUKE_TARGETING_DEVICE = ITEMS.register("nuke_targeting_device", NukeTargetingDevice::new);
     public static final RegistryObject<Item> DRAGONSOUL = ITEMS.register("dragon_soul", ItemBase::new);

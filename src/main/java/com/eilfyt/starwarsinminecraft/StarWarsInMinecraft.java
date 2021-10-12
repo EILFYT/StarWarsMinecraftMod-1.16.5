@@ -80,10 +80,7 @@ public class  StarWarsInMinecraft
 
     }
 
-
     private void setup(final FMLCommonSetupEvent event) {
-
-
         OreGeneration.registerOre();
         EffectRegister.addPotionRecipes();
         event.enqueueWork(() -> {
@@ -97,12 +94,6 @@ public class  StarWarsInMinecraft
     public static ResourceLocation prefix(String name) {
         return new ResourceLocation(MOD_ID, name);
     }
-
-
-
-
-
-
 
     private void doClientStuff(final FMLClientSetupEvent event) { }
 
@@ -125,15 +116,10 @@ public class  StarWarsInMinecraft
     public static final ItemGroup SB_TAB = new ItemGroup("sb_tab") {
 
 @Override
-        public ItemStack makeIcon() {return new ItemStack(RegistryHandler.SKYBLOCK_TAB_LOGO.get());}
-
-    };
-
+        public ItemStack makeIcon() {return new ItemStack(RegistryHandler.SKYBLOCK_TAB_LOGO.get());}};
 
     public static void init(final FMLCommonSetupEvent event) {
           event.enqueueWork(() -> {
-
-
           });
     }
     public void biomeModification(final BiomeLoadingEvent event) {
@@ -160,8 +146,6 @@ if (!event.getCategory().equals(Biome.Category.NETHER) && !event.getCategory().e
     public void addDimensionalSpacing(final WorldEvent.Load event) {
         if(event.getWorld() instanceof ServerWorld){
             ServerWorld serverWorld = (ServerWorld)event.getWorld();
-
-
             try {
                 if(GETCODEC_METHOD == null) GETCODEC_METHOD = ObfuscationReflectionHelper.findMethod(ChunkGenerator.class, "codec");
                 ResourceLocation cgRL = Registry.CHUNK_GENERATOR.getKey((Codec<? extends ChunkGenerator>) GETCODEC_METHOD.invoke(serverWorld.getChunkSource().generator));
