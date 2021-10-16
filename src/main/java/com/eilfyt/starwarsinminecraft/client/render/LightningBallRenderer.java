@@ -2,27 +2,25 @@ package com.eilfyt.starwarsinminecraft.client.render;
 
 import com.eilfyt.starwarsinminecraft.StarWarsInMinecraft;
 import com.eilfyt.starwarsinminecraft.entities.IceBallEntity;
+import com.eilfyt.starwarsinminecraft.entities.LightningBallEntity;
 import com.mojang.blaze3d.matrix.MatrixStack;
 import com.mojang.blaze3d.vertex.IVertexBuilder;
 import net.minecraft.client.renderer.IRenderTypeBuffer;
 import net.minecraft.client.renderer.RenderType;
-import net.minecraft.client.renderer.entity.DragonFireballRenderer;
 import net.minecraft.client.renderer.entity.EntityRenderer;
 import net.minecraft.client.renderer.entity.EntityRendererManager;
 import net.minecraft.client.renderer.texture.OverlayTexture;
-import net.minecraft.entity.projectile.AbstractFireballEntity;
-import net.minecraft.entity.projectile.DragonFireballEntity;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.vector.Matrix3f;
 import net.minecraft.util.math.vector.Matrix4f;
 import net.minecraft.util.math.vector.Vector3f;
 
-public class IceBallRenderer extends EntityRenderer<IceBallEntity> {
-    private static final ResourceLocation TEXTURE_LOCATION = new ResourceLocation(StarWarsInMinecraft.MOD_ID, "textures/entity/iceball.png");
+public class LightningBallRenderer extends EntityRenderer<LightningBallEntity> {
+    private static final ResourceLocation TEXTURE_LOCATION = new ResourceLocation(StarWarsInMinecraft.MOD_ID, "textures/entity/lightning_ball.png");
     private static final RenderType RENDER_TYPE = RenderType.entityCutoutNoCull(TEXTURE_LOCATION);
 
-    public IceBallRenderer(EntityRendererManager p_i46553_1_) {
+    public LightningBallRenderer(EntityRendererManager p_i46553_1_) {
         super(p_i46553_1_);
     }
 
@@ -30,7 +28,7 @@ public class IceBallRenderer extends EntityRenderer<IceBallEntity> {
         return 15;
     }
 
-    public void render(IceBallEntity p_225623_1_, float p_225623_2_, float p_225623_3_, MatrixStack p_225623_4_, IRenderTypeBuffer p_225623_5_, int p_225623_6_) {
+    public void render(LightningBallEntity p_225623_1_, float p_225623_2_, float p_225623_3_, MatrixStack p_225623_4_, IRenderTypeBuffer p_225623_5_, int p_225623_6_) {
         p_225623_4_.pushPose();
         p_225623_4_.scale(2.0F, 2.0F, 2.0F);
         p_225623_4_.mulPose(this.entityRenderDispatcher.cameraOrientation());
@@ -51,7 +49,7 @@ public class IceBallRenderer extends EntityRenderer<IceBallEntity> {
         p_229045_0_.vertex(p_229045_1_, p_229045_4_ - 0.5F, (float)p_229045_5_ - 0.25F, 0.0F).color(255, 255, 255, 255).uv((float)p_229045_6_, (float)p_229045_7_).overlayCoords(OverlayTexture.NO_OVERLAY).uv2(p_229045_3_).normal(p_229045_2_, 0.0F, 1.0F, 0.0F).endVertex();
     }
 
-    public ResourceLocation getTextureLocation(IceBallEntity p_110775_1_) {
+    public ResourceLocation getTextureLocation(LightningBallEntity p_110775_1_) {
         return TEXTURE_LOCATION;
     }
-    }
+}

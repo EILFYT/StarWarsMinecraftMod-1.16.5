@@ -3,10 +3,7 @@ package com.eilfyt.starwarsinminecraft.util;
 import com.eilfyt.starwarsinminecraft.StarWarsInMinecraft;
 import com.eilfyt.starwarsinminecraft.blocks.ForgeContainer;
 import com.eilfyt.starwarsinminecraft.blocks.ForgeScreen;
-import com.eilfyt.starwarsinminecraft.client.render.BulletRenderer;
-import com.eilfyt.starwarsinminecraft.client.render.DragonArcherRenderer;
-import com.eilfyt.starwarsinminecraft.client.render.PlayerFishHatRenderer;
-import com.eilfyt.starwarsinminecraft.client.render.PorgRenderer;
+import com.eilfyt.starwarsinminecraft.client.render.*;
 import com.eilfyt.starwarsinminecraft.init.ContainerInit;
 import com.eilfyt.starwarsinminecraft.init.ModEntityTypes;
 import com.eilfyt.starwarsinminecraft.items.ModSpawnEggItem;
@@ -47,6 +44,8 @@ public class ClientEventBusSubscriber {
         public static void onStaticClientSetup(FMLClientSetupEvent event) {
             event.setPhase(EventPriority.HIGH);
             RenderingRegistry.registerEntityRenderingHandler(ModEntityTypes.BULLET.get(), BulletRenderer::new);
+            RenderingRegistry.registerEntityRenderingHandler(ModEntityTypes.ICEBALL.get(), IceBallRenderer::new);
+            RenderingRegistry.registerEntityRenderingHandler(ModEntityTypes.LIGHTNING_BALL.get(), LightningBallRenderer::new);
             RenderingRegistry.registerEntityRenderingHandler(ModEntityTypes.PORG.get(), PorgRenderer::new);
             RenderingRegistry.registerEntityRenderingHandler(ModEntityTypes.DRAGON_ARCHER.get(), DragonArcherRenderer::new);
             for (PlayerRenderer playerRenderer : Minecraft.getInstance().getEntityRenderDispatcher().getSkinMap().values())

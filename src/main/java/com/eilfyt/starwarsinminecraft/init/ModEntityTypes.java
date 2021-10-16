@@ -37,4 +37,8 @@ public class ModEntityTypes {
                     .clientTrackingRange(4).updateInterval(10).build(new ResourceLocation(StarWarsInMinecraft.MOD_ID,
                             "textures/entity/iceball.png").toString()));
 
+    public static final RegistryObject<EntityType<LightningBallEntity>> LIGHTNING_BALL = ENTITY_TYPES.register("lightning_ball",
+            () -> EntityType.Builder.<LightningBallEntity>of(LightningBallEntity::new, EntityClassification.MISC).sized(1.0F, 1.0F)
+                    .clientTrackingRange(4).updateInterval(10).build(new ResourceLocation(StarWarsInMinecraft.MOD_ID,
+                            "textures/entity/iceball.png").toString()));
 }

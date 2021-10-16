@@ -14,6 +14,7 @@ import net.minecraft.command.arguments.MessageArgument;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.player.ChatVisibility;
 import net.minecraft.server.MinecraftServer;
+import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.text.ITextComponent;
 import net.minecraft.world.Explosion;
 import net.minecraftforge.client.event.RenderGameOverlayEvent;
@@ -24,7 +25,7 @@ public class NukeCommand {
         LiteralArgumentBuilder<CommandSource> createexplosion
                 = Commands.literal("createexplosion").requires((commandSource) -> commandSource.hasPermission(2))
                 .then(Commands.argument("radius", IntegerArgumentType.integer(1, 500))
-                     .executes(NukeCommand::explosion));
+                                        .executes(NukeCommand::explosion));
 
         dispatcher.register(createexplosion);
     }
@@ -32,8 +33,7 @@ public class NukeCommand {
     static int explosion(CommandContext<CommandSource> commandContext) throws CommandSyntaxException {
         int radius = IntegerArgumentType.getInteger(commandContext, "radius");
 
-
-            commandContext.getSource().getPlayerOrException().getCommandSenderWorld().explode(commandContext.getSource().getPlayerOrException(),
+           commandContext.getSource().getPlayerOrException().getCommandSenderWorld().explode(commandContext.getSource().getPlayerOrException(),
                     commandContext.getSource().getPlayerOrException().getX(),
                     commandContext.getSource().getPlayerOrException().getY(),
                     commandContext.getSource().getPlayerOrException().getZ(),
